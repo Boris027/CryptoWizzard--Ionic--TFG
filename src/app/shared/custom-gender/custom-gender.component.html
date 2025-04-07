@@ -1,0 +1,7 @@
+<br><p-dropdown 
+  [options]="options"
+  [(ngModel)]="selectedoption"
+  optionLabel="name"
+  [showClear]="true"
+  placeholder="{{'CRUDUSER.REGISTER.SELECTGENDER' | translate}}"
+  (onChange)="onOptionChange($event.value)" /> 

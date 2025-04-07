@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ 'MAINMENU.LIST' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <!-- Card para el título y la descripción -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="list-title">{{ list.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-text color="medium" class="list-description">
+        <p>{{ list.description }}</p>
+      </ion-text>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón para agregar una nueva criptomoneda -->
+  <ion-button shape="round" size="large" class="fixed-bottom-right large-button" (click)="addcrypto()">
+    <ion-icon slot="icon-only" name="add"></ion-icon>
+  </ion-button>
+
+  <!-- Tarjetas de criptomonedas -->
+  <app-cryptosimplecard *ngFor="let a of list.cryptos" [crypto]="a" [delete]="true" [routerLink]="['/cryptoview', a.id, currency]" (emmiter)="deletecrypto($event)"></app-cryptosimplecard>
+</ion-content>

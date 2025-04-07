@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ 'COMMON.CRYPTO' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  
+
+  <div class="crypto-info">
+    <ion-img class="crypto-image" [src]="crypto.image"></ion-img>
+    <p class="crypto-name">{{crypto.name}}</p>
+    <p class="crypto-symbol">({{crypto.symbol.toUpperCase()}})</p>
+    <p class="crypto-symbol">{{crypto.currentPrice }}{{currency | currencypipe}}</p>
+    <p class="crypto-symbol" [appColorpercent]="percent">{{percent | percentformater}}</p>
+  </div>
+
+  
+  <div class="chart-container canvas" id="chartcontainer">
+    <ion-buttons>
+      <ion-button size="small" (click)="updatechart(1)"  [class.selected]="days === 1">
+        {{'CRYPTOVIEW.1D'| translate}}
+      </ion-button>
+      <ion-button size="small" (click)="updatechart(7)" [class.selected]="days === 7">
+        {{'CRYPTOVIEW.1W'| translate}}
+      </ion-button>
+      <ion-button size="small" (click)="updatechart(30)" [class.selected]="days === 30">
+        {{'CRYPTOVIEW.1M'| translate}}
+      </ion-button>
+      <ion-button size="small" (click)="updatechart(365)" [class.selected]="days === 365">
+        {{'CRYPTOVIEW.1Y'| translate}}
+      </ion-button>
+    </ion-buttons>
+    <canvas id="waveChart"></canvas>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin: 25px;" (click)="changecurrency()">
+    <ion-fab-button >
+      <ion-text style="font-size: 20px;">{{currency | currencypipe  }}</ion-text>
+    </ion-fab-button>
+  </ion-fab>
+
+  
+  
+  
+</ion-content>

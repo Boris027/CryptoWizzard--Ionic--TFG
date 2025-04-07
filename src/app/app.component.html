@@ -1,0 +1,62 @@
+
+<ion-app>
+
+  <!--<ion-menu-button id="menu" (click)="openMenu()" style="position: fixed; z-index: 1000;" *ngIf="vermenu">
+    <ion-icon name="menu"></ion-icon>
+  </ion-menu-button>-->
+  <ion-header *ngIf="vermenu">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button id="menu" (click)="openMenu()"></ion-menu-button> 
+      </ion-buttons>
+      <ion-title slot="start">CryptoWizzard</ion-title> <!-- Colocando el título en el slot correcto -->
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" side="start" *ngIf="vermenu" class="menu">
+      <!-- Cabecera del menú -->
+      <ion-header *ngIf="vermenu">
+        <ion-toolbar color="primary" class="header-toolbar">
+          <ion-buttons slot="start">
+            <ion-menu-button id="menu" (click)="openMenu()" class="menu-btn"></ion-menu-button>
+          </ion-buttons>
+          <ion-title class="app-title">App Title</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <!-- Contenedor de la imagen de usuario, nombre y correo -->
+        <div class="profile-section">
+          <ion-avatar class="user-img">
+            <img [src]="user.img">
+          </ion-avatar>
+          
+          <div class="user-info">
+            <span class="user-name">{{user.username}}</span>
+            <span class="user-email">{{user.email}}</span>
+          </div>
+        </div>
+
+        <!-- Barra separadora -->
+        <div class="divider"></div>
+
+        <!-- Menú de navegación -->
+        <ion-list id="inbox-list">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item routerDirection="root" lines="none" detail="false" routerLinkActive="selected" button (click)="navigate(p.url)" class="menu-item">
+              <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title | translate }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+      
+
+    </ion-menu>
+
+    <!-- Contenedor de contenido principal -->
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+  
+</ion-app>

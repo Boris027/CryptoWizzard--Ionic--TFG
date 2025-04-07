@@ -1,0 +1,34 @@
+/* Mantén solo una vez cada @import */
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+/* Importaciones de PrimeNG */
+@import "primeng/resources/themes/lara-dark-indigo/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+//para solucionar el error que da primeng con el tipo de letra
+* {
+  font-family: Arial, sans-serif !important; /* Evalúa si realmente necesitas el !important */
+}
+
+:root{
+  
+  
+}
+ion-header ion-toolbar:first-of-type {
+  text-align: center;
+}
+ion-item {
+  --border-radius: 10px!important;  /* Ajusta el valor a tu preferencia */
+}

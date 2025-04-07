@@ -1,0 +1,18 @@
+<ion-card class="list-card">
+  <ion-card-header class="card-header">
+    <ion-card-title>{{ list.title }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content class="card-content">
+    <p>{{ list.description }}</p>
+  </ion-card-content>
+
+  <ion-footer class="card-footer">
+    <ion-button expand="block"  class="action-btn" (click)="modify($event)">
+      {{ 'COMMON.MODIFY' | translate}}
+    </ion-button>
+    <ion-button expand="block" color="danger" class="action-btn" (click)="deletethis($event)">
+      {{ 'COMMON.DELETE' | translate}}
+    </ion-button>
+  </ion-footer>
+</ion-card>

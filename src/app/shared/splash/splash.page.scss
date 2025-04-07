@@ -1,0 +1,9 @@
+ng-lottie {
+    position: absolute;
+    top: 50%; /* Coloca el formulario en el centro vertical */
+    left: 50%; /* Coloca el formulario en el centro horizontal */
+    transform: translate(-50%, -50%); /* Ajusta el formulario para que quede perfectamente centrado */
+    width: 5%; /* Ancho del formulario (50% del ancho de la pantalla) */
+    min-width: 350px; /* Ancho mínimo del formulario para pantallas pequeñas */
+    margin: 0 auto; /* Esto asegura que se centre si el formulario no tiene un `position: absolute` */
+}

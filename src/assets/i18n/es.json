@@ -1,0 +1,127 @@
+{
+    "COMMON": {
+        "LANGUAGE": "Idioma",
+        "SPANISH": "Español",
+        "ENGLISH": "Inglés",
+        "ERROR": {
+            "LOAD": "Error al cargar los datos",
+            "SAVE": "Error al guardar los cambios"
+        },
+        "SUCCESS": {
+            "SAVE": "Cambios guardados exitosamente"
+        },
+        "OR":"o",
+        "CLOSE":"Cerrar",
+        "YES":"Si",
+        "NO":"No",
+        "SAVE":"Guardar",
+        "CANCEL":"Cancelar",
+        "CLOSESESSION":"¿Quieres cerrar sesión?",
+        "MODIFY":"Modificar",
+        "DELETE":"Eliminar",
+        "CRYPTO":"Criptomoneda"
+    },
+    "MAINMENU": {
+        "HOME": "Inicio",
+        "SEARCH": "Buscar",
+        "LIST": "Lista",
+        "LANGUAGE":"Idioma",
+        "PROFILE": "Perfil",
+        "LOGOUT": "Cerrar sesión",
+        "SELECTLANGUAGE":"Elegir idioma",
+        "ABOUTUS":"Sobre nosotros"
+    },
+    "CRUDUSER": {
+        "USERNAME": "Nombre de usuario",
+        "EMAIL": "Correo electrónico",
+        "PASSWORD": "Contraseña",
+        "LOGIN": {
+            "LOGIN": "Iniciar sesión",
+            "LOGINSUCCESSFUL":"Se ha iniciado sesión con éxito"
+        },
+        "REGISTER": {
+            "REGISTER": "Registrarse",
+            "REGISTERSUCCESSFUL":"Se ha registrado el usuario con éxito",
+            "SELECTGENDER":"Selecciona un genero",
+            "MALE":"Hombre",
+            "FEMALE":"Mujer",
+            "OTHER":"Otro"
+        },
+        "ERRORS":{
+            "PASSWORDREQUIRED":"Debe introducir una contraseña",
+            "EMAILREQUIRED":"Debe introducir un correo electrónico",
+            "PASSWORDMINLENGHT":"La contraseña debe tener al menos 6 carácteres",
+            "VALIDEDMAIL":"Debes introducir un correo electónico válido",
+            "VALIDUSERNAME":"Debes introducir un nombre de usuario valido",
+            "USERNAMEREQUIRED":"Debes introducir un nombre de usuario",
+            "GENDERSELECTED":"Debes seleccionar un género",
+            "UPDATEFAILED": "No se pudieron actualizar los datos",
+            "DELETEACCOUNTFAILED": "No se pudo eliminar la cuenta"
+        },"UPDATE":{
+            "UPDATESUCCESSFULL":"Datos actualizados con éxito",
+            "USERNAME":"Actualizar nombre de usuario",
+            "PASSWORD":"Actualizar contraseña",
+            "UPDATEDATA":"Actualizar"
+        },
+        "DELETEACCOUNTSUCCESSFUL": "Cuenta eliminada con éxito"
+
+    },
+    "CURRENCY":{
+        "CURRENCY":"Moneda",
+        "EURO":"Euro",
+        "DOLLAR":"Dolar",
+        "LIBRA":"Libra"
+    },
+    "PROFILE":{
+        "DELETEACCOUNT":"Eliminar cuenta",
+        "MODIFY":"Modificar cuenta",
+        "DELETEACCOUNTQUESTION":"¿Quieres eliminar la cuenta?"
+    },
+    "LISTS":{
+        "LISTS":"Listas",
+        "CREATELISTS":"Crear lista",
+        "TITLE":"Título",
+        "TITLEENTER":"Ingrese el título",
+        "DESCRIPTIONENTER":"Ingrese la descripción",
+        "DESCRIPTION":"Descripción",
+        "ADDLIST":"Crear Lista",
+        "UPDATELIST":"Actualizar lista",
+        "TITLEREQUIRED":"El título es necesario",
+        "DESCRIPTIONREQUIRED":"La descripción es necesaria",
+        "MINLENGTHTITLE":"El titlulo debe tener por lo menos 3 caracteres",
+        "MINLENGTDESCRIPTION":"La descripción debe tener por lo menos 6 caracteres",
+        "DELETELISTQUESTION":"¿Quieres eliminar la lista?",
+        "DELETELIST":"Eliminar lista",
+        "ADDCRYPTO":"Añadir criptomoneda",
+        "LISTCREATEDSUCCESSFUL": "Lista creada con éxito",
+        "LISTMODIFIEDSUCCESSFUL": "Lista modificada con éxito",
+        "LISTDELETEDSUCCESSFUL": "Lista eliminada con éxito",
+        "LISTCREATIONFAILED": "No se pudo crear la lista",
+        "LISTMODIFICATIONFAILED": "No se pudo modificar la lista",
+        "LISTDELETIONFAILED": "No se pudo eliminar la lista"
+    },
+    "HOME":{
+        "HOME":"Inicio"
+    },"CRYPTOLIST":{
+        "CRYPTOADDEDSUCCESSFUL": "Criptomoneda añadida con éxito",
+        "CRYPTODELETESUCCESSFUL": "Criptomoneda eliminada con éxito",
+        "CRYPTOADDFAILED": "No se pudo añadir la criptomoneda",
+        "CRYPTODELETEFAILED": "No se pudo eliminar la criptomoneda"
+    },"CRYPTOVIEW":{
+        "1D":"1D",
+        "1W":"1S",
+        "1M":"1M",
+        "1Y":"1A",
+        "SELECTCURRENCY":"Selecionar moneda"
+    },"ABOUTUS":{
+        "ABOUTUS":"Sobre nosotros",
+        "PRESENTATION1":"Hola, soy",
+        "PRESENTATION2":"Estudiante en",
+        "PRESENTATION3":"Sobre este proyecto",
+        "PRESENTATION4":"Este proyecto forma parte de mi trabajo final para el trimestre. En él, he aplicado los conocimientos adquiridos durante el primer trimestre del segundo año de DAM, utilizando tecnologías como Ionic y Angular.",
+        "PRESENTATION5":"Conecta conmigo",
+        "PRESENTATION6":"Puedes seguirme en mi perfil de LinkedIn y también obtener más información sobre mi centro de estudios:",
+        "PRESENTATION7":"Mi linkedin",
+        "PRESENTATION8":"Mi centro de estudios"
+    }
+}

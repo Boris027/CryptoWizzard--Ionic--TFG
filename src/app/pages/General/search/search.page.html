@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-title>{{ 'MAINMENU.SEARCH' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false" [scrollY]="false" class="search-page">
+
+  
+
+  <div class="search-container">
+    <ion-item  class="search-bar">
+      <ion-input
+        [(ngModel)]="searchinput"
+        id="searchinput" 
+        (ionInput)="filterfinal($event)" 
+        label="{{ 'MAINMENU.SEARCH' | translate }}" 
+        labelPlacement="floating" 
+        placeholder="Bitcoin">
+      </ion-input>
+      <ion-icon (click)="takevoice()" name="mic" [ios]="'mic' + '-outline'" [md]="'mic' + '-sharp'" style="margin-right: 18px; cursor: pointer;" ></ion-icon>
+
+      <ion-icon name="search" [ios]="'search' + '-outline'" [md]="'search' + '-sharp'" style="margin-right: 18px;" ></ion-icon>
+
+    </ion-item>
+
+  </div>
+
+  <cdk-virtual-scroll-viewport itemSize="120" minBufferPx="1200" maxBufferPx="1200"  class="results-list ion-content-scroll-host" >
+    
+      <app-cryptosimplecard *cdkVirtualFor="let a of list" 
+        [crypto]="a"  
+        (click)="click(a.id)">
+      </app-cryptosimplecard ><br>
+   
+  </cdk-virtual-scroll-viewport>
+
+</ion-content>

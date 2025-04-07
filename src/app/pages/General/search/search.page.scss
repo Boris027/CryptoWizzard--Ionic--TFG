@@ -1,0 +1,55 @@
+cdk-virtual-scroll-viewport {
+    height: 90%!important;
+    width: 100%;
+  }
+
+  ion-content{
+    --keyboard-offset: 0px!important;
+  }
+
+  .search-page {
+  }
+  
+  /* Contenedor del buscador */
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem auto;
+    width: 100%;
+  }
+  
+  /* Barra de búsqueda */
+  .search-bar {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Input estilizado */
+  #searchinput {
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+  }
+  
+  /* Lista de resultados */
+  .results-list {
+    padding: 1rem;
+    height: 85%!important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espaciado entre items */
+  }
+  
+  ion-item {
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 600px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  ion-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }

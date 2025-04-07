@@ -1,0 +1,54 @@
+.class-center {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  }
+  
+  form {
+    width: 50%; /* Ancho del formulario (50% del ancho de la pantalla) */
+    min-width: 350px; /* Ancho mínimo del formulario para pantallas pequeñas */
+    margin: 0 auto; /* Esto asegura que se centre si el formulario no tiene `position: absolute` */
+    margin-top: 20px;
+  }
+  
+  ion-item {
+    margin-top: 10px !important; /* Espaciado superior en los items */
+  }
+  
+  ion-button {
+    margin-top: 10px !important; /* Espaciado superior en el botón */
+    margin-bottom: 10px !important; /* Espaciado inferior en el botón */
+  }
+  
+  ion-title {
+    text-align: center;
+  }
+  
+  #or{
+    display: block;
+  }
+  
+  ion-icon{
+    font-size: 24px
+  }
+  
+  .image{
+    border-radius: 20px !important;
+    overflow: hidden;
+    max-width: 300px;
+  }
+
+  p{
+    margin-left: 15px;
+  }
+  #valueaccessor{
+    margin-left: 15px;
+    margin-bottom: 5px;
+  }
+  
+  ion-content {
+    padding-top: 20px; /* Evita que el contenido quede pegado al header */
+    overflow-y: auto; /* Permite que el contenido sea desplazable si es necesario */
+  }
+  

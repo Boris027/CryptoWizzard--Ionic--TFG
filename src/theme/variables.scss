@@ -1,0 +1,54 @@
+// For information on how to create your own theme, please see:
+// http://ionicframework.com/docs/theming/
+:root {
+    /* Fondo principal */
+    --ion-background-color: #0a0a1e !important; /* Azul oscuro profundo */
+    --ion-text-color: #ffffff !important; /* Texto blanco para buen contraste */
+  
+    /* Fondos de Toolbar, Header y Footer */
+    --ion-toolbar-background: #1c1c3b !important; /* Azul medianoche */
+    --ion-header-background: #1c1c3b !important; /* Azul medianoche */
+    --ion-footer-background: #1c1c3b !important; /* Azul medianoche */
+  
+    /* Fondo de tarjetas y otros elementos */
+    --ion-card-background: #2a2955 !important; /* Azul intermedio para tarjetas */
+    --ion-item-background: transparent !important; /* Fondo transparente para elementos */
+  
+    /* Botones */
+    --ion-button-background: #007bff !important; /* Azul brillante inspirado en la imagen */
+    --ion-button-text-color: #ffffff !important; /* Texto blanco para los botones */
+  
+    /* Colores adicionales para consistencia */
+    --ion-color-primary: #007bff !important; /* Azul brillante */
+    --ion-color-secondary: #ffa726 !important; /* Naranja cálido */
+    --ion-color-tertiary: #00eaff !important; /* Cian eléctrico */
+    --ion-color-danger: var(--ion-color-negativenew)!important; /* Magenta oscuro */
+    --ion-color-success: var(--ion-color-positivenew) !important; /* Verde brillante */
+
+
+    --ion-modal-background: #2a2955 !important; /* Azul intermedio */
+    --ion-modal-text-color: #ffffff !important; /* Texto blanco */
+    --ion-modal-header-background: #007bff !important; /* Azul brillante para el encabezado */
+    --ion-modal-header-text-color: #ffffff !important; /* Texto blanco en el encabezado */
+    --ion-modal-button-background: #ffa726 !important; /* Naranja cálido para botones */
+    --ion-modal-button-text-color: #ffffff !important; /* Texto blanco en botones */
+    --ion-modal-shadow-color: rgba(0, 234, 255, 0.6) !important; /* Sombra cian suave */
+    --ion-modal-border-radius: 16px !important; /* Bordes redondeados para un efecto moderno */
+
+
+    //colores personalizados
+    --ion-color-negativenew:#ff4d6d !important;
+    --ion-color-positivenew:#00c853 !important;
+
+
+    
+
+}
+  
+@media (prefers-color-scheme: dark) {
+    :root.ios ion-modal {
+      --ion-background-color: #0a0a1e!important; /* Blanco, o el color que prefieras */
+      --ion-toolbar-background: --ion-toolbar-background!important; /* Claro para no usar el oscuro */
+      //--ion-toolbar-border-color: --ion-background-color!important; /* Cambia a un color más claro */
+    }
+  }
