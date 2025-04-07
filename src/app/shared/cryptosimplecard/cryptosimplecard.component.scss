@@ -1,0 +1,92 @@
+/* Tarjeta de criptomoneda */
+.crypto-card {
+  box-sizing: border-box;
+  height: auto;
+  margin: 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover */
+.crypto-card:hover {
+  transform: translateY(-6px);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor de la cabecera */
+.card-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Información de la criptomoneda */
+.crypto-info {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Nombre de la criptomoneda */
+.crypto-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* Símbolo de la criptomoneda */
+.crypto-symbol {
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+/* Botón de eliminar */
+.delete-btn {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-btn ion-icon {
+  font-size: 24px;
+  color: #d9534f; /* Color rojo para el icono */
+}
+
+/* Estilos responsive */
+@media (max-width: 600px) {
+  .card-header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Ajuste para el botón de eliminar en pantallas pequeñas */
+  .delete-btn {
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+
+  /* Ajuste de tamaño para el nombre */
+  .crypto-name {
+    font-size: 1.1rem;
+  }
+
+  /* Ajuste de tamaño para el símbolo */
+  .crypto-symbol {
+    font-size: 0.9rem;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 400px) {
+  .crypto-name {
+    font-size: 1rem;
+  }
+
+  .crypto-symbol {
+    font-size: 0.8rem;
+  }
+}

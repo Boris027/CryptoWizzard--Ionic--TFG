@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ 'LISTS.LISTS' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  <ion-button shape="round" size="large" class="fixed-bottom-right large-button" (click)="createlist()">
+    <ion-icon slot="icon-only" name="add"></ion-icon>
+  </ion-button>
+
+  
+  <ion-grid>
+    <ion-row>
+      <!-- 1 columna en pantallas pequeñas, 2 en medianas y 3 en grandes -->
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let a of lists">
+        <app-listcrypto 
+          [list]="a" 
+          (eventemiter)="getdata($event)" 
+          [routerLink]="['/listcontent', a.id]">
+        </app-listcrypto>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

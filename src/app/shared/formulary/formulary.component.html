@@ -1,0 +1,67 @@
+<form [formGroup]="Formulary" (ngSubmit)="submitForm()" novalidate >
+  <ion-img src="../../assets/logo.jpeg" style="width: 40%; margin: auto; " class="image" *ngIf="type=='register' || type=='login'"/><br>
+  
+  <!--username-->
+  <ion-item *ngIf="type=='register' || type=='update'">
+    <ion-input  formControlName="username" label="{{'CRUDUSER.USERNAME' | translate}}" labelPlacement="floating" placeholder="example1234"></ion-input>
+  </ion-item>
+  <ion-text class="input-error" color="danger" *ngIf="username?.invalid  && (username?.dirty || username?.touched) && type=='register' || type=='update'" >
+    <p *ngIf="username?.errors?.['required']">{{'CRUDUSER.ERRORS.USERNAMEREQUIRED' | translate}}</p>
+  </ion-text>
+  
+  <!--email-->
+  <ion-item>
+    <ion-input  formControlName="email" label="{{'CRUDUSER.EMAIL' | translate}}" labelPlacement="floating" placeholder="example@example.com"></ion-input>
+  </ion-item>
+  
+  <ion-text class="input-error" color="danger" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+    <p *ngIf="email?.errors?.['required']">{{'CRUDUSER.ERRORS.EMAILREQUIRED' | translate}}</p>
+    <p *ngIf="email?.errors?.['pattern']">{{'CRUDUSER.ERRORS.VALIDEDMAIL' | translate}}</p>
+  </ion-text>
+
+  <!--password-->
+  <ion-item *ngIf="type=='login' || type=='register'">
+    <ion-input [type]="passwordType"formControlName="password" label="{{'CRUDUSER.PASSWORD' | translate}}" labelPlacement="floating" placeholder="*********"/>
+    <ion-button (click)='hideShowPassword()'  fill="clear" >
+      <ion-icon item-end [name]="passwordIcon" class="passwordIcon"  />
+    </ion-button>
+  </ion-item>
+  <ion-text class="input-error" color="danger" *ngIf="password?.invalid && (password?.dirty || password?.touched) && (type=='register' || type=='login') " >
+    <p *ngIf="password?.errors?.['required']">{{'CRUDUSER.ERRORS.PASSWORDREQUIRED' | translate}}</p>
+    <p *ngIf="password?.errors?.['minlength']">{{'CRUDUSER.ERRORS.PASSWORDMINLENGHT' | translate}}</p>
+  </ion-text>
+
+  <!--genero-->
+  <div id="valueaccessor" *ngIf="type=='register' || type=='update'">
+    <app-custom-gender  formControlName="gender" ></app-custom-gender>
+  </div>
+  <ion-text class="input-error" color="danger" *ngIf="gender?.invalid && (gender?.dirty || gender?.touched)">
+    <p *ngIf="gender?.errors?.['required']">{{'CRUDUSER.ERRORS.GENDERSELECTED' | translate}}</p>
+  </ion-text>
+
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" expand="block" [disabled]="!Formulary.valid" *ngIf="type=='register'">
+        {{'CRUDUSER.REGISTER.REGISTER' | translate}}
+      </ion-button><br>
+      <ion-button type="submit" expand="block" [disabled]="!Formulary.valid" *ngIf="type=='login'">
+        {{'CRUDUSER.LOGIN.LOGIN' | translate}}
+      </ion-button>
+      <ion-button type="submit" expand="block" [disabled]="!Formulary.valid || !Formulary.dirty" *ngIf="type=='update'">
+        {{'CRUDUSER.UPDATE.UPDATEDATA' | translate}}
+      </ion-button>
+
+      <ion-text id="or" class="ion-text-center"  *ngIf="type!='update'">{{'COMMON.OR' | translate}}</ion-text><br>
+      
+      
+      <ion-button expand="block" [routerLink]="'/login'" *ngIf="type=='register'">
+        {{'CRUDUSER.LOGIN.LOGIN' | translate}}
+      </ion-button>
+      <ion-button expand="block" [routerLink]="'/register'" *ngIf="type=='login'">
+        {{'CRUDUSER.REGISTER.REGISTER' | translate}}
+      </ion-button>
+      
+    </ion-col>
+  </ion-row>
+</form>
+

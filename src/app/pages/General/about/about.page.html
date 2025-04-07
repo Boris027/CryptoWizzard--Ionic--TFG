@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ 'MAINMENU.ABOUTUS' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+
+  <div id="container">
+    <ion-card class="about-section">
+      <img class="profile-image" src="./../../../../assets/fotoBoris.jpg" />
+      <ion-card-header>
+        <ion-card-title>{{ 'ABOUTUS.PRESENTATION1' | translate }} Boris</ion-card-title>
+        <ion-card-subtitle>{{ 'ABOUTUS.PRESENTATION2' | translate }} <strong>CPIFP ALAN TURING</strong></ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  
+    <ion-card class="project-section">
+      <ion-card-header>
+        <ion-card-title>{{ 'ABOUTUS.PRESENTATION3' | translate }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ 'ABOUTUS.PRESENTATION4' | translate }}</p>
+        <img class="profile-image" src="./../../../../assets/cpifpalanturing.jpg" />
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card class="links-section" style="margin-bottom: 20px!important;">
+      <ion-card-header>
+        <ion-card-title>{{ 'ABOUTUS.PRESENTATION5' | translate }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>{{ 'ABOUTUS.PRESENTATION6' | translate }}</p>
+        <ion-button expand="block" color="primary" href="https://www.linkedin.com/in/bgallegorios/">
+          {{ 'ABOUTUS.PRESENTATION7' | translate }}
+        </ion-button>
+        <ion-button expand="block" color="secondary" href="https://fpalanturing.es/">CPIFP ALAN TURING</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  
+</ion-content>

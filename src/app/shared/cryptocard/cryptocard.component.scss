@@ -1,0 +1,118 @@
+
+
+
+
+  ion-card {
+    transition: transform 0.5s ease; 
+  }
+
+  ion-card:hover{
+    transform: scale(1.05);
+    transition: 0.5s;
+    cursor: pointer;
+
+  }.crypto-card {
+    margin: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .crypto-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+  }
+  
+  .crypto-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .crypto-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 12px; /* Agrega margen entre el nombre y la imagen */
+  }
+  
+  .crypto-name {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .crypto-symbol {
+    font-size: 14px;
+    color: gray;
+    margin-top: 4px;
+  }
+  
+  .crypto-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .crypto-card-content {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .crypto-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .crypto-price {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .price-change {
+    font-size: 14px;
+    margin-top: 4px;
+  }
+  
+  .positive {
+    color: green!important;
+  }
+  
+  .negative {
+    color: red;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .crypto-card-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .crypto-header-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .crypto-info {
+      margin-right: 0; /* Elimina el margen entre el nombre y la imagen */
+      text-align: center;
+    }
+  
+    .crypto-image {
+      width: 60px;  /* Aumenta el tamaño de la imagen */
+      height: 60px; /* Aumenta el tamaño de la imagen */
+      margin-top: 8px;  /* Añade un margen superior para separar la imagen del texto */
+    }
+  
+    .crypto-card-content {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  

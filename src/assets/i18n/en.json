@@ -1,0 +1,131 @@
+{
+    "COMMON":{
+        "LANGUAGE":"Language",
+        "SPANISH":"Spanish",
+        "ENGLISH":"English",
+        "ERROR":{
+            "LOAD":"Error loading data",
+            "SAVE":"Error saving changes"
+        },
+        "SUCCESS":{
+            "SAVE":"Changes saves successfully"
+        },
+        "OR":"or",
+        "CLOSE":"Close",
+        "YES":"Yes",
+        "NO":"No",
+        "SAVE":"Save",
+        "CANCEL":"Cancel",
+        "CLOSESESSION": "Do you want to log out?",
+        "MODIFY":"Modify",
+        "DELETE":"Delete",
+        "CRYPTO":"Crypto"
+
+    },
+    "MAINMENU":{
+        "HOME":"Home",
+        "SEARCH":"Search",
+        "LIST":"List",
+        "LANGUAGE":"Language",
+        "PROFILE":"Profile",
+        "LOGOUT":"Log out",
+        "SELECTLANGUAGE":"Select Language",
+        "ABOUTUS":"About us"
+    },
+    "CRUDUSER":{
+        "USERNAME":"Username",
+        "EMAIL":"Email",
+        "PASSWORD":"Password",
+        "LOGIN":{
+            "LOGIN":"Login",
+            "LOGINSUCCESSFUL":"Login successful"
+        },
+        "REGISTER":{
+            "REGISTER":"Register",
+            "REGISTERSUCCESSFUL": "The user has been successfully registered",
+            "SELECTGENDER":"Select a gender",
+            "MALE":"Male",
+            "FEMALE":"Female",
+            "OTHER":"Other"
+        },
+        "ERRORS":{
+            "PASSWORDREQUIRED": "You must enter a password",
+            "EMAILREQUIRED": "You must enter an email address",
+            "PASSWORDMINLENGHT": "The password must be at least 6 characters long",
+            "VALIDEDMAIL": "You must enter a valid email address",
+            "VALIDUSERNAME": "You must enter a valid username",
+            "USERNAMEREQUIRED": "You must enter a username",
+            "GENDERSELECTED":"You must select a gender",
+            "UPDATEFAILED": "Failed to update data",
+            "DELETEACCOUNTFAILED": "Failed to delete account"
+        },"UPDATE": {
+            "UPDATESUCCESSFULL": "Data updated successfully",
+            "USERNAME": "Update username",
+            "PASSWORD": "Update password",
+            "UPDATEDATA":"Update"
+        },
+        "DELETEACCOUNTSUCCESSFUL": "Account successfully deleted"
+
+        
+    },
+    "CURRENCY":{
+        "CURRENCY":"Currency",
+        "EURO":"Euro",
+        "DOLLAR":"Dollar",
+        "LIBRA":"Pound"
+    },
+    "PROFILE":{
+        "DELETEACCOUNT":"Delete Account",
+        "MODIFY":"Modify account",
+        "DELETEACCOUNTQUESTION": "Do you want to delete the account?"
+    },
+    "LISTS":{
+        "LISTS":"Lists",
+        "CREATELISTS":"Create list",
+        "TITLE": "Title",
+        "DESCRIPTION": "Description",
+        "TITLEENTER": "Enter the title",
+        "DESCRIPTIONENTER": "Enter the description",
+        "ADDLIST": "Create List",
+        "UPDATELIST": "Update List",
+        "TITLEREQUIRED": "The title is required",
+        "DESCRIPTIONREQUIRED": "The description is required",
+        "MINLENGTHTITLE": "The title must have at least 3 characters",
+        "MINLENGTDESCRIPTION": "The description must have at least 6 characters",
+        "DELETELISTQUESTION": "Do you want to delete the list?",
+        "DELETELIST": "Delete list",
+        "ADDCRYPTO": "Add cryptocurrency",
+        "LISTCREATEDSUCCESSFUL": "List created successfully",
+        "LISTMODIFIEDSUCCESSFUL": "List modified successfully",
+        "LISTDELETEDSUCCESSFUL": "List deleted successfully",
+        "LISTCREATIONFAILED": "Failed to create the list",
+        "LISTMODIFICATIONFAILED": "Failed to modify the list",
+        "LISTDELETIONFAILED": "Failed to delete the list"
+    },"HOME":{
+        "HOME":"Home"
+    },"CRYPTOLIST":{
+        "CRYPTOADDEDSUCCESSFUL": "Cryptocurrency added successfully",
+        "CRYPTODELETESUCCESSFUL": "Cryptocurrency deleted successfully",
+        "CRYPTOADDFAILED": "Failed to add cryptocurrency",
+        "CRYPTODELETEFAILED": "Failed to delete cryptocurrency"
+    },"CRYPTOVIEW":{
+        "1D":"1D",
+        "1W":"1W",
+        "1M":"1M",
+        "1Y":"1Y",
+        "SELECTCURRENCY":"Select currency"
+
+    },
+    "ABOUTUS": {
+        "ABOUTUS": "About Us",
+        "PRESENTATION1": "Hello, I am",
+        "PRESENTATION2": "Student at",
+        "PRESENTATION3": "About this project",
+        "PRESENTATION4": "This project is part of my final work for the term. In it, I have applied the knowledge acquired during the first semester of the second year of DAM, using technologies such as Ionic and Angular.",
+        "PRESENTATION5": "Connect with me",
+        "PRESENTATION6": "You can follow me on my LinkedIn profile and also get more information about my school:",
+        "PRESENTATION7": "My LinkedIn",
+        "PRESENTATION8": "My school"
+    }
+
+}

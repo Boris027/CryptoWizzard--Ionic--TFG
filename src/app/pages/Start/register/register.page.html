@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{'CRUDUSER.REGISTER.REGISTER' | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false">
+  
+
+  
+  <div class="form-container">
+    <app-formulary [type]="'register'" (emitter)="register($event)"></app-formulary>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin: 20px;" (click)="present()">
+    <ion-fab-button>
+      <ion-icon name="language" [ios]="'language' + '-outline'" [md]="'language' + '-sharp'"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

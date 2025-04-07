@@ -1,0 +1,27 @@
+<ion-card class="crypto-card">
+  <ion-card-header class="crypto-card-header">
+    <div class="crypto-header-content">
+      <div class="crypto-info">
+        <ion-card-title class="crypto-name">
+          {{ crypto.name }}
+        </ion-card-title>
+        <span class="crypto-symbol">({{ crypto.symbol.toUpperCase() }})</span>
+      </div>
+
+      <ion-img [src]="crypto.image" class="crypto-image"></ion-img>
+    </div>
+  </ion-card-header>
+
+  <ion-card-content class="crypto-card-content">
+    <div class="crypto-stats">
+      <ion-card-subtitle class="crypto-price">
+        {{ crypto.currentPrice }}{{ currency | currencypipe }}
+      </ion-card-subtitle>
+      <ion-card-subtitle 
+      *ngIf="crypto.pricechangepercent24horus" 
+      [appColorpercent]="crypto.pricechangepercent24horus">
+      {{ (crypto.pricechangepercent24horus | percentformater) }}
+    </ion-card-subtitle>
+    </div>
+  </ion-card-content>
+</ion-card>

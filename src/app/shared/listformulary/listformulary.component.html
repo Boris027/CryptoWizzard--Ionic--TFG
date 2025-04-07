@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="updateOrCreate=='Create'">{{'LISTS.ADDLIST' | translate}}</ion-title>
+    <ion-title *ngIf="updateOrCreate=='Update'">{{'LISTS.UPDATELIST' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="close" size="large" [ios]="'close' + '-outline'" [md]="'close' + '-sharp'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="center-content">
+
+
+  <form [formGroup]="Formulary" class="center-form">
+    <ion-img src="./../../../assets/folderstarred.svg" />
+    
+    <ion-item >
+      <ion-label position="stacked">{{'LISTS.TITLE' | translate}}</ion-label>
+      <ion-input placeholder="{{'LISTS.TITLEENTER' | translate}}" formControlName="Title"></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="Title?.invalid && (Title?.dirty || Title?.touched)">
+      <p *ngIf="Title?.errors?.['required']">{{'LISTS.TITLEREQUIRED' | translate}}</p>
+      <p *ngIf="Title?.errors?.['minlength']">{{'LISTS.MINLENGTHTITLE' | translate}}</p>
+    </ion-text>
+
+    <ion-item>
+      <ion-label position="stacked">{{'LISTS.DESCRIPTION' | translate}}</ion-label>
+      <ion-textarea placeholder="{{'LISTS.DESCRIPTIONENTER' | translate}}" formControlName="Description"></ion-textarea>
+    </ion-item>
+    <ion-text color="danger" *ngIf="Description?.invalid && (Description?.dirty || Description?.touched)">
+      <p *ngIf="Description?.errors?.['required']">{{'LISTS.DESCRIPTIONREQUIRED' | translate}}</p>
+      <p *ngIf="Description?.errors?.['minlength']">{{'LISTS.MINLENGTDESCRIPTION' | translate}}</p>
+    </ion-text>
+
+    <ion-footer>
+      <ion-button expand="block" *ngIf="!Formulary.valid || !Formulary.dirty" disabled="">
+        {{'COMMON.SAVE' | translate}}
+      </ion-button>
+      <ion-button expand="block" *ngIf="Formulary.valid && Formulary.dirty" (click)="confirm()">
+        {{'COMMON.SAVE' | translate}}
+      </ion-button>
+    </ion-footer>
+  </form>
+</ion-content>

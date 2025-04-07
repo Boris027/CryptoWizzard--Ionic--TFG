@@ -1,0 +1,12 @@
+ion-content {
+  position: relative; /* Establece un contexto de posición para los elementos hijos */
+  height: 100vh;      /* Asegura que el ion-content ocupe toda la altura de la ventana */
+}
+
+app-formulary {
+  position: absolute;  /* Usamos absolute para posicionar el formulario */
+  top: 50%;             /* Lo mueve al 50% de la altura del contenedor */
+  left: 50%;            /* Lo mueve al 50% de la anchura del contenedor */
+  transform: translate(-50%, -50%); /* Ajusta la posición para centrarlo */
+  width: 100%;          /* Permite que el formulario use todo el ancho disponible */
+}

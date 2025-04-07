@@ -1,0 +1,7 @@
+{
+  "name": "CryptoWizzard-Ionic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

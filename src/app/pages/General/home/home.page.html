@@ -1,0 +1,36 @@
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      {{'HOME.HOME' | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!--<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>people</ion-title>
+  </ion-toolbar>
+</ion-header>-->
+
+<ion-content [fullscreen]="false" >
+  
+  
+  <div class="grid-container">
+     
+      <app-cryptocard [currency]="currency" [crypto]="a" *ngFor="let a of crypto" [routerLink]="['/cryptoview',a.id,currency]" ></app-cryptocard>
+    
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin: 25px;" (click)="changecurrency()">
+    <ion-fab-button>
+      <ion-text style="font-size: 20px;">{{currency | currencypipe  }}</ion-text>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+</ion-content>

@@ -1,0 +1,89 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ 'MAINMENU.PROFILE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false" class="profile-page">
+  
+
+  <ion-grid>
+    <ion-row class="ion-justify-content-center ion-margin-top">
+      <ion-col size="auto">
+        <div class="image-container">
+          <ion-avatar class="user-img">
+            <img [src]="user.img">
+          </ion-avatar>
+          
+          <div class="overlay" (click)="fileInput.click()"></div>
+          <ion-icon name="reload" class="refresh-icon" (click)="fileInput.click()"></ion-icon>
+        </div>
+        
+        <input type="file" #fileInput style="display: none" accept="image/*" (change)="onFileChange($event)" />
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-margin-bottom">
+      <ion-col size="auto">
+        <p class="profile-username">{{ user.username }}</p>
+        <p class="profile-email">{{ user.email }}</p>
+      </ion-col>
+    </ion-row>
+
+    <app-formulary type="update" (emitter)="update($event)" [user]="user" *ngIf="user.id!=''"></app-formulary>
+
+
+    <!--<form [formGroup]="formularypassword" (ngSubmit)="updatepassword()">
+      <ion-row class="ion-justify-content-center ion-margin-top">
+        <ion-col size="12" size-md="8">
+          <ion-item>
+            <ion-input [type]="passwordType" label="{{'CRUDUSER.PASSWORD' | translate}}" labelPlacement="floating" placeholder="*********" formControlName="password"/>
+            <ion-button (click)='hideShowPassword()' fill="clear">
+              <ion-icon item-end [name]="passwordIcon" class="passwordIcon"  />
+            </ion-button>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center ion-margin-top">
+        <ion-col size="12" size-md="8">
+          <ion-text class="input-error" color="danger" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+            <p *ngIf="password?.errors?.['required']">{{'CRUDUSER.ERRORS.PASSWORDREQUIRED' | translate}}</p>
+            <p *ngIf="password?.errors?.['minlength']">{{'CRUDUSER.ERRORS.PASSWORDMINLENGHT' | translate}}</p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+
+      <ion-row class="ion-justify-content-center ion-margin-top">
+        <ion-col size="12" size-md="8">
+          <ion-button expand="block" color="primary"  class="update-button" type="submit" [disabled]="!formularypassword.valid">
+            {{ 'CRUDUSER.UPDATE.PASSWORD' | translate }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>-->
+
+    <ion-row class="ion-justify-content-center ion-margin-top formulary">
+      <ion-col size="12" size-md="8">
+        <ion-select 
+          label="{{ 'CURRENCY.CURRENCY' | translate }}" 
+          label-placement="floating" 
+          fill="outline" 
+          [(ngModel)]="selectedCurrency"
+          (ngModelChange)="onChange($event)" 
+          class="currency-select">
+          <ion-select-option value="eur">{{ 'CURRENCY.EURO' | translate }} (€)</ion-select-option>
+          <ion-select-option value="usd">{{ 'CURRENCY.DOLLAR' | translate }} ($)</ion-select-option>
+          <ion-select-option value="gbp">{{ 'CURRENCY.LIBRA' | translate }} (£)</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-justify-content-center ion-margin-top formulary">
+      <ion-col size="12" size-md="8" class="ion-text-center">
+        <ion-button expand="block" color="danger" fill="outline" (click)="deleteaccount()">{{ 'PROFILE.DELETEACCOUNT' | translate }}</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

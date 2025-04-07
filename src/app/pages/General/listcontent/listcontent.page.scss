@@ -1,0 +1,30 @@
+
+.large-button {
+  --width: 120px !important; /* Aumenta el ancho del botón */
+  --height: 120px !important; /* Aumenta la altura del botón */
+  --icon-size: 70px !important; /* Aumenta el tamaño del icono */
+  font-size: 24px !important; /* Aumenta el tamaño del texto si se agrega alguno */
+}
+
+.fixed-bottom-right {
+  position: fixed !important; /* Fijar el botón en la pantalla */
+  bottom: 30px !important; /* Distancia desde la parte inferior */
+  right: 50px !important; /* Distancia desde la parte derecha */
+  z-index: 1000 !important; /* Asegura que el botón esté por encima de otros elementos */
+}
+
+
+/* Título dentro del card */
+.list-title {
+  font-size: 1.6rem; /* Ajuste del tamaño del texto */
+  font-weight: bold; /* Hacer el título más destacado */
+  text-align: center;
+}
+
+/* Descripción dentro del card */
+.list-description {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.6; /* Espaciado para mejorar la legibilidad */
+  margin-top: 10px;
+}
