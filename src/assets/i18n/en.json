@@ -30,6 +30,7 @@
         "PROFILE":"Profile",
         "LOGOUT":"Log out",
         "SELECTLANGUAGE":"Select Language",
+        "ADMINPANEL":"Admin Panel",
         "ABOUTUS":"About us"
     },
     "CRUDUSER":{

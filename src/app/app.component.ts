@@ -33,7 +33,7 @@ export class AppComponent {
   }
 
   subscriptions:Subscription[]=[]
-  user:BasicUser={id:"",username:"",email:"",img:"",gender:''}
+  user:BasicUser={id:"",username:"",email:"",img:"",gender:'',isAdmin:false}
 
   private setMenuTitles(lang:string) {
     this.subscriptions.push(this.translate.use(lang).subscribe(() => {
@@ -55,10 +55,16 @@ export class AppComponent {
       this.translate.get('MAINMENU.ABOUTUS').subscribe((translation) => {
         this.appPages[5].title = translation;
       });
-      this.translate.get('MAINMENU.LOGOUT').subscribe((translation) => {
+      this.translate.get('MAINMENU.ADMINPANEL').subscribe((translation) => {
         this.appPages[6].title = translation;
       });
+      this.translate.get('MAINMENU.LOGOUT').subscribe((translation) => {
+        this.appPages[7].title = translation;
+      });
     }));
+
+
+    
   }
   
 
@@ -69,6 +75,7 @@ export class AppComponent {
     { title: this.translate.instant("MAINMENU.PROFILE"), url: '/profile', icon: 'person' },
     { title: this.translate.instant("MAINMENU.LANGUAGE"), url: '/language', icon: 'language' },
     { title: this.translate.instant("MAINMENU.ABOUTUS"), url: '/about', icon: 'information' },
+    { title: this.translate.instant("MAINMENU.ADMINPANEL"), url: '/admin-panel', icon: 'people' },
     { title: this.translate.instant("MAINMENU.LOGOUT"), url: '/logout', icon: 'log-out' }
   ];
 
@@ -91,6 +98,9 @@ export class AppComponent {
 
     this.subscriptions.push(this.userservice.GetBasicUser().subscribe({
       next:(value)=>{
+        if(value.isAdmin==false){
+          this.appPages=this.appPages.filter(c=>c.url!="/admin-panel")
+        }
       },
     }))
 

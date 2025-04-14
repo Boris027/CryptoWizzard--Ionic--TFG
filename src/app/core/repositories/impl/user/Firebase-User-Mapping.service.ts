@@ -74,13 +74,14 @@ export class FirebaseUserMapping implements IUserBaseMapping<User>{
     updateuserdata(data: any) {
         throw new Error("Method not implemented.");
     }
-    GetBasicUser(data: LoginResponse,name?:string,gender?:string,image?:string):BasicUser {
+    GetBasicUser(data: LoginResponse,name?:string,gender?:string,image?:string,isAdmin?:boolean):BasicUser {
         return {
             username:name!,
             email:data.email,
             id:data.uid,
             gender:gender!,
-            img:image??""
+            img:image??"",
+            isAdmin:isAdmin??false
         }
         throw new Error("Method not implemented.");
     }

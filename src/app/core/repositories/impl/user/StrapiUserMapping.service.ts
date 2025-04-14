@@ -329,7 +329,8 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
         id:""+data.id,
         email:data.email,
         username:data.username,
-        img:data.image.url
+        img:data.image.url,
+        isAdmin:data.isAdmin??false
       }
     }else{
       return {
@@ -337,7 +338,8 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
         id:""+data.id,
         email:data.email,
         username:data.username,
-        img:""
+        img:"",
+        isAdmin:data.isAdmin??false
       }
     }
     

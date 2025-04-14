@@ -32,12 +32,12 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
         return new Observable ((observer)=>{
             onAuthStateChanged(auth, async (user) => {
                 if (user) {
-
                   let firestore:Firestore=this.firebasemainservice.getfirestore()
                   let personref=doc(firestore,`persons/${user.uid}`)
                   let docsnap=await getDoc(personref)
                   let data:any=docsnap.data()
-                  observer.next(this.mapping.GetBasicUser(user,data.name,data.gender,data.image))
+                  
+                  observer.next(this.mapping.GetBasicUser(user,data.name,data.gender,data.image,data.isAdmin))
                   observer.complete()
                     
                 } else {

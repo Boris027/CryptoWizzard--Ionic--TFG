@@ -12,5 +12,5 @@ export interface IUserBaseMapping<T>{
     addcryptoresponse(data:any):any
     addcryptotolist(data:any):any
     updateuserdata(data:any):any
-    GetBasicUser(data:any,name?:string,gender?:string,image?:string):any
+    GetBasicUser(data:any,name?:string,gender?:string,image?:string,isAdmin?:boolean):any
 }
