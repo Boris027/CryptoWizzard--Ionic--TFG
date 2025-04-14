@@ -118,10 +118,18 @@
         "PRESENTATION1":"Hola, soy",
         "PRESENTATION2":"Estudiante en",
         "PRESENTATION3":"Sobre este proyecto",
-        "PRESENTATION4":"Este proyecto forma parte de mi trabajo final para el trimestre. En él, he aplicado los conocimientos adquiridos durante el primer trimestre del segundo año de DAM, utilizando tecnologías como Ionic y Angular.",
+        "PRESENTATION4":"Este proyecto forma parte de nuestro trabajo final del curso. En el que hemos aplicado los conocimientos adquiridos a lo largo del segundo año de DAM, utilizando tecnologías como Ionic y Angular.",
         "PRESENTATION5":"Conecta conmigo",
         "PRESENTATION6":"Puedes seguirme en mi perfil de LinkedIn y también obtener más información sobre mi centro de estudios:",
         "PRESENTATION7":"Mi linkedin",
-        "PRESENTATION8":"Mi centro de estudios"
+        "PRESENTATION8":"Mi centro de estudios",
+        "SKILLS": {
+            "TITLE": "Habilidades del equipo",
+            "SKILL1": "Desarrollo Web / Móvil (Ionic, Android)",
+            "SKILL2": "Backend (Java, Kotlin, JavaScript, TypeScript)",
+            "SKILL3": "Herramientas (GitHub, VSC, Android Studio, Figma)",
+            "SKILL4": "Trabajo en equipo, dedicación, flexibilidad",
+            "SKILL5": "Idiomas: Español (nativo), Inglés (B1-B2)"
+        }
     }
 }
