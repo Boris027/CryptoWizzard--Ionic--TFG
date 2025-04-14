@@ -122,11 +122,18 @@
         "PRESENTATION1": "Hello, I am",
         "PRESENTATION2": "Student at",
         "PRESENTATION3": "About this project",
-        "PRESENTATION4": "This project is part of my final work for the term. In it, I have applied the knowledge acquired during the first semester of the second year of DAM, using technologies such as Ionic and Angular.",
+        "PRESENTATION4": "This project is part of our final work for the degree. In which we have applied the knowledge acquired during the second year of DAM, using technologies such as Ionic and Angular.",
         "PRESENTATION5": "Connect with me",
         "PRESENTATION6": "You can follow me on my LinkedIn profile and also get more information about my school:",
         "PRESENTATION7": "My LinkedIn",
-        "PRESENTATION8": "My school"
+        "PRESENTATION8": "My school",
+        "SKILLS": {
+            "TITLE": "Team Skills",
+            "SKILL1": "Web / Mobile Development (Ionic, Android)",
+            "SKILL2": "Backend (Java, Kotlin, JavaScript, TypeScript)",
+            "SKILL3": "Tools (GitHub, VSC, Android Studio, Figma)",
+            "SKILL4": "Teamwork, focus, flexibility",
+            "SKILL5": "Languages: Spanish (native), English (B1-B2)"
+        }
     }
-
 }
