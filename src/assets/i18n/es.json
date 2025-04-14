@@ -29,6 +29,7 @@
         "PROFILE": "Perfil",
         "LOGOUT": "Cerrar sesión",
         "SELECTLANGUAGE":"Elegir idioma",
+        "ADMINPANEL":"Panel de Administrador",
         "ABOUTUS":"Sobre nosotros"
     },
     "CRUDUSER": {

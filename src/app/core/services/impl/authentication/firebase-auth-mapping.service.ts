@@ -13,7 +13,8 @@ export interface LoginResponse {
     lastLoginAt: string
     apiKey: string
     appName: string,
-    accessToken:string
+    accessToken:string,
+    isAdmin:string
   }
   
   export interface providedata {
@@ -44,12 +45,15 @@ export class FirebaseAuthMappingService implements IAuthenticationMapping{
         throw new Error("Method not implemented.");
     }
     LoginResponse(response: LoginResponse):User {
+        console.log("response")
+        console.log(response)
         return {
             id:response.uid,
             email:response.email,
             token:response.accessToken,
             username:"xd",
-            gender:"male"
+            gender:"male",
+            isAdmin:response.isAdmin
         }
         throw new Error("Method not implemented.");
     }
@@ -59,7 +63,8 @@ export class FirebaseAuthMappingService implements IAuthenticationMapping{
             email:response.email,
             token:response.accessToken,
             username:name,
-            gender:gender
+            gender:gender,
+            isAdmin:false
         }
     }
     GetUserResponse(response: LoginResponse, token: string) {
@@ -68,7 +73,8 @@ export class FirebaseAuthMappingService implements IAuthenticationMapping{
             email:response.email,
             token:response.accessToken,
             username:"xd",
-            gender:"male"
+            gender:"male",
+            isAdmin:response.isAdmin
         }
         throw new Error("Method not implemented.");
     }

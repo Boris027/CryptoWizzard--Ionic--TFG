@@ -23,7 +23,7 @@ export class ProfilePage implements OnInit {
 
 
   selectedCurrency: string="usd";
-  user:BasicUser={id:"",email:"",username:"",img:"",gender:''}
+  user:BasicUser={id:"",email:"",username:"",img:"",gender:'',isAdmin:false}
   formularypassword: FormGroup;
   private subscriptions:Subscription[]=[]
 

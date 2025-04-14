@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { SplashPage } from './shared/splash/splash.page';
 import { AuthGuard } from './core/guards/auth.guard';
 import { AuthGuard2 } from './core/guards/auth2.guard';
+import { AuthGuardAdmin } from './core/guards/authAdmin.guard';
 
 const routes: Routes = [
   {
@@ -64,6 +65,12 @@ const routes: Routes = [
     canActivate:[AuthGuard],
     loadChildren: () => import('./pages/General/about/about.module').then( m => m.AboutPageModule)
   },
+  {
+    path: 'admin-panel',
+    canActivate:[AuthGuardAdmin],
+    loadChildren: () => import('./pages/General/admin-panel/admin-panel.module').then( m => m.AdminPanelPageModule)
+  },
+
 
 
 

@@ -61,7 +61,8 @@ export class StrapiAuthMappingService implements IAuthenticationMapping{
             id:""+response.user.id,
             username:response.user.username,
             email:response.user.email,
-            token:response.jwt
+            token:response.jwt,
+            isAdmin:"false"
         }
     }
     RegisterResponse(response: StrapiLoginResponse):User {
@@ -70,7 +71,8 @@ export class StrapiAuthMappingService implements IAuthenticationMapping{
             id:""+response.user.id,
             username:response.user.username,
             email:response.user.email,
-            token:response.jwt
+            token:response.jwt,
+            isAdmin:"false"
         }
     }
 
@@ -80,7 +82,8 @@ export class StrapiAuthMappingService implements IAuthenticationMapping{
             gender:response.gender,
             username:response.username,
             email:response.email,
-            token:token
+            token:token,
+            isAdmin:"false"
         }
     }
     

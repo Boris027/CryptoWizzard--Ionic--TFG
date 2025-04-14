@@ -45,7 +45,8 @@ export class FirebaseAuthenticationService extends BaseAutenticationService impl
                     name:authenticationregister.username,
                     email:authenticationregister.email,
                     gender:authenticationregister.gender,
-                    image:""
+                    image:"",
+                    isAdmin:false
                 })
 
                 observer.next(this.mapping.RegisterResponse(userCredential,authenticationregister.username,authenticationregister.gender))
@@ -82,7 +83,6 @@ export class FirebaseAuthenticationService extends BaseAutenticationService impl
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     observer.next(this.mapping.GetUserResponse(user,""))
-                    console.log(user)
                     observer.complete()
                 } else {
                    observer.error(new Error("there is no user loged"))
@@ -91,7 +91,7 @@ export class FirebaseAuthenticationService extends BaseAutenticationService impl
         })
         
 
-        let asad:User={id:"sad",username:"",gender:"",email:"",token:"asd"}
+        let asad:User={id:"sad",username:"",gender:"",email:"",token:"asd",isAdmin:"false"}
         return of(asad)
         return throwError(new Error('Error al obtener usuario'));
         //throw new Error("Method not implemented.");

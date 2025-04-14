@@ -19,7 +19,8 @@ export class UserBaseService<T extends User> implements IUserbaseService<T>{
         username: '',
         email: '',
         img:"",
-        gender:''
+        gender:'',
+        isAdmin:false
     });
 
     constructor(
