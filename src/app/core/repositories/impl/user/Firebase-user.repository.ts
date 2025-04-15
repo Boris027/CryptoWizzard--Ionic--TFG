@@ -9,7 +9,7 @@ import { FIREBASE_MAIN_SERVICE, USER_API_URL_TOKEN, USER_MAPPING_TOKEN } from '.
 import { HttpClient } from '@angular/common/http';
 import { IUserBaseMapping } from '../../interfaces/user/UserBaseMapping.interface';
 import { getAuth, onAuthStateChanged, updateEmail } from 'firebase/auth';
-import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, query, setDoc, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, updateDoc,limit,startAfter, startAt } from 'firebase/firestore';
 import { IFirebaseMainService } from 'src/app/core/services/interfaces/firebasemain.service.interface';
 import { FirebaseApp } from 'firebase/app';
 
@@ -26,6 +26,61 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
     ){
       super(httpclient,api,mapping)
     }
+
+    
+  override AdminGetUsersPagination(token: string, page: number, limitxd: number): Observable<any> {
+    const auth = getAuth();
+        return new Observable ((observer)=>{
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                  /*let personref=doc(firestore,`persons/${user.uid}`)
+                  let docsnap=await getDoc(personref)
+                  let data:any=docsnap.data()*/
+                  
+
+                  const db = this.firebasemainservice.getfirestore(); 
+
+                  // referencia a la colección "persons"
+                  const personsRef = collection(db, "persons");
+
+                  //asi saca el ultimo usuario para hacer la paginacion a partir de este
+                  let docSnap:any="";
+                  if(token!=""){
+                    docSnap = await getDoc(doc(db, "persons",token));
+                  }
+
+
+                  // crea la query, ordenando por el campo "name"
+                  let q:any=[]
+                  if(token!=""){
+                    q = query(personsRef, orderBy("name"), limit(limitxd),startAfter(docSnap));
+                  }else{
+                    q = query(personsRef, orderBy("name"), limit(limitxd),startAt(docSnap));
+                  }
+                   
+
+                  // ejecuta la query
+                  const documentSnapshots = await getDocs(q);
+
+                  // muestra los datos en consola
+                  let arrayBasicUser: any[]=[]
+                  documentSnapshots.forEach((doc:any) => {
+                    arrayBasicUser.push(this.mapping.GetBasicUser({uid:doc.id,email:doc.data().email},doc.data().name,doc.data().gender,"",doc.data().isAdmin))
+                  });
+                  observer.next(arrayBasicUser)
+                  observer.complete()
+                    
+                } else {
+                   observer.error(new Error("there is no user loged"))
+                }
+            });
+        }
+      )
+    throw new Error('Method not implemented.');
+  }
+  override AdminDeleteUser(token: string, iduser: string): Observable<any> {
+    throw new Error('Method not implemented.');
+  }
 
   override GetBasicUser(token: string, id: string): Observable<BasicUser> {
     const auth = getAuth();

@@ -23,6 +23,13 @@ export class StrapiUserRepository extends UserBaseRepository<User> implements IU
         super(httpclient,api,mapping)
     }
     
+    override AdminGetUsersPagination(token: string, page: number, limit: number): Observable<any> {
+        throw new Error("Method not implemented.");
+    }
+    override AdminDeleteUser(token: string, iduser: string): Observable<any> {
+        throw new Error("Method not implemented.");
+    }
+    
     
 
     override GetListFromUser(token: string): Observable<any> {
