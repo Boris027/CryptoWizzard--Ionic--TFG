@@ -84,9 +84,15 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
   override AdminDeleteUser(token: string, iduser: string): Observable<any> {
     //const eliminarUsuarioCallable = this.functions.httpsCallable('eliminarUsuario');
     //return eliminarUsuarioCallable({ uidAEliminar: iduser });
-    console.log(this.firebasemainservice.getFunctions())
-    const adminDeleteUser = httpsCallable(this.firebasemainservice.getFunctions(), 'eliminarUsuario');
 
+
+    const db = this.firebasemainservice.getfirestore(); 
+    // elimina coleccion del ususario
+    deleteDoc(doc(db, "persons", iduser));
+
+    //elimina usuario
+    return this.httpclient.post("https://eliminarusuario-bamoiskzbq-uc.a.run.app",{uidAEliminar:iduser})
+    //adminDeleteUser({ uidAEliminar: iduser });
     //return eliminarUsuarioCallable({ uidAEliminar: iduser });
     throw new Error('Method not implemented.');
   }
