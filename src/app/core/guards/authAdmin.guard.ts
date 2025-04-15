@@ -28,7 +28,6 @@ import { IUserbaseService } from "../services/interfaces/user/User-base-service.
       //este guard sirve para si una persona que tiene usuario y token interno intenta acceder al login o register
       return this.userService.GetBasicUser().pipe(
         map((user) => {
-            console.log(user)
           if (user.isAdmin==true) {
             return true;
             }else{

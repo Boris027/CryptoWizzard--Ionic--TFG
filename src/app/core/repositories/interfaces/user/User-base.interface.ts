@@ -14,5 +14,7 @@ export interface IUserbaseRepositoy<T>{
     removeCryptoFromList(token:string,listid:string,cryptoid:string):Observable<any>
     findcryptobyid(token:string,idcrypto:string):Observable<any>
     addcryptotodatabase(token:string,crypto:BasicCrypto):Observable<any>,
-    updateuserdata(token:string,data:any,userid:string):Observable<any>
+    updateuserdata(token:string,data:any,userid:string):Observable<any>,
+    AdminGetUsersPagination(token:string, page: number, limit: number): Observable<any>
+    AdminDeleteUser(token:string, iduser:string): Observable<any>
 }

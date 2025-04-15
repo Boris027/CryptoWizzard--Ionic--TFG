@@ -29,6 +29,7 @@ export class UserBaseService<T extends User> implements IUserbaseService<T>{
     ){
         
     }
+    
 
 
     GetBehaviourUser():Observable<BasicUser>{
@@ -88,9 +89,14 @@ export class UserBaseService<T extends User> implements IUserbaseService<T>{
         return this.repository.removelistFromUser(this.auth.getToken(),listid+"")
     }
     
-    
     removeCryptoFromList(listid:string,cryptoid:string): Observable<any> {
         return this.repository.removeCryptoFromList(this.auth.getToken(),listid,cryptoid)
     }
-    
+   
+    AdminGetUsersPagination(token: string, page: number, limit: number): Observable<any> {
+        return this.repository.AdminGetUsersPagination(token,page,limit)
+    }
+    AdminDeleteUser(token: string, iduser: string): Observable<any> {
+        throw new Error("Method not implemented.");
+    }
 }
