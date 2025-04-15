@@ -10,6 +10,13 @@ import { IUserbaseService } from 'src/app/core/services/interfaces/user/User-bas
   styleUrls: ['./admin-panel.page.scss'],
 })
 export class AdminPanelPage implements OnInit {
+  users = [
+    { username: 'Anag', email: 'ana@gmail.com', gender: 'Femenino', isAdmin: true },
+    { username: 'Eddar', email: 'eddar@gmail.com', gender: 'Masculino', isAdmin: false },
+    { username: 'Eddar', email: 'eddar@gmail.com', gender: 'Masculino', isAdmin: false },
+    { username: 'Eddar', email: 'eddar@gmail.com', gender: 'Masculino', isAdmin: false },
+    { username: 'Eddar', email: 'eddar@gmail.com', gender: 'Masculino', isAdmin: false },
+  ];
 
   constructor(
     @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
@@ -20,4 +27,13 @@ export class AdminPanelPage implements OnInit {
   ngOnInit() {
   }
 
+  editUser(user: any) {
+    console.log('Editar usuario:', user);
+    // Aquí puedes navegar a otra página o abrir un modal
+  }
+  
+  deleteUser(user: any) {
+    console.log('Eliminar usuario:', user);
+    // Aquí puedes abrir una alerta de confirmación
+  }
 }

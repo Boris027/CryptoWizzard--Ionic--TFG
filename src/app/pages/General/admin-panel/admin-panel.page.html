@@ -5,5 +5,33 @@
 </ion-header>
 
 <ion-content [fullscreen]="false" class="profile-page">
-  
+  <div class="table-container">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>Usuario</th>
+          <th>Email</th>
+          <th>Género</th>
+          <th>Administrador</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.gender }}</td>
+          <td>{{ user.isAdmin ? 'Sí' : 'No' }}</td>
+          <td class="actions">
+            <ion-button fill="clear" color="warning" (click)="editUser(user)">
+              <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" color="danger" (click)="deleteUser(user)">
+              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+            </ion-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </ion-content>

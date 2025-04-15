@@ -1,0 +1,52 @@
+.table-container {
+    padding: 16px;
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0 4px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    thead {
+        background-color: var(--ion-header-background);
+        color: white;
+
+        th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+
+    tbody {
+        tr {
+            background-color: var(--ion-modal-background);
+            position: relative;
+            border-bottom: none;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 2%;
+                width: 96%;
+                height: 1px;
+                background-color: #c0c0c0;
+            }
+
+            &:last-child::after {
+                display: none;
+            }
+
+            td {
+                padding: 12px;
+                font-size: 15px;
+                text-align: center;
+            }
+        }
+    }
+}
