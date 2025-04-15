@@ -22,6 +22,7 @@ import { FirebaseAuthMappingService } from "../services/impl/authentication/fire
 import { FirebaseUserRepository } from "./impl/user/Firebase-user.repository";
 import { IFirebaseMainService } from "../services/interfaces/firebasemain.service.interface";
 import { FirebaseMediaService } from "../services/impl/media/firebase-media.service";
+import { AngularFireFunctions } from "@angular/fire/compat/functions";
 
 
 
@@ -61,7 +62,7 @@ function createStrapiRepository(httpclient:HttpClient,apiurltoken:string,mapping
 export const userfactoryservice:FactoryProvider={
     provide:USER_REPOSITORY_TOKEN,
     deps:[BACKEND_TOKEN,HttpClient,USER_API_URL_TOKEN,USER_MAPPING_TOKEN,FIREBASE_MAIN_SERVICE],
-    useFactory:(backend:string,httpclient:HttpClient,apiurltoken:string,mapping:IUserBaseMapping<any>,firebasemainservice:IFirebaseMainService)=>{
+    useFactory:(backend:string,httpclient:HttpClient,apiurltoken:string,mapping:IUserBaseMapping<any>,firebasemainservice:IFirebaseMainService,functions: AngularFireFunctions)=>{
 
       switch(backend){
         case 'http':
@@ -73,7 +74,7 @@ export const userfactoryservice:FactoryProvider={
         case 'strapi':
           return createStrapiRepository(httpclient,apiurltoken,mapping)
         case 'firebase':
-          return new FirebaseUserRepository(httpclient,apiurltoken,mapping,firebasemainservice)
+          return new FirebaseUserRepository(httpclient,apiurltoken,mapping,firebasemainservice,functions)
         default:
           throw new Error("BACKEND NOT IMPLEMENTED");
       }

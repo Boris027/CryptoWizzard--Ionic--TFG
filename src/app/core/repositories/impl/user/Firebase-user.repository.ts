@@ -12,6 +12,8 @@ import { getAuth, onAuthStateChanged, updateEmail } from 'firebase/auth';
 import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, updateDoc,limit,startAfter, startAt } from 'firebase/firestore';
 import { IFirebaseMainService } from 'src/app/core/services/interfaces/firebasemain.service.interface';
 import { FirebaseApp } from 'firebase/app';
+import { AngularFireFunctions } from '@angular/fire/compat/functions';
+import { getFunctions, httpsCallable } from 'firebase/functions'; // Asegúrate de importar httpsCallable correctamente.
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,8 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
         httpclient:HttpClient,
         @Inject(USER_API_URL_TOKEN) api:string,
         @Inject(USER_MAPPING_TOKEN) mapping:IUserBaseMapping<User>,
-        @Inject (FIREBASE_MAIN_SERVICE) private firebasemainservice:IFirebaseMainService
+        @Inject (FIREBASE_MAIN_SERVICE) private firebasemainservice:IFirebaseMainService,
+        private functions: AngularFireFunctions
     ){
       super(httpclient,api,mapping)
     }
@@ -79,6 +82,12 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
     throw new Error('Method not implemented.');
   }
   override AdminDeleteUser(token: string, iduser: string): Observable<any> {
+    //const eliminarUsuarioCallable = this.functions.httpsCallable('eliminarUsuario');
+    //return eliminarUsuarioCallable({ uidAEliminar: iduser });
+    console.log(this.firebasemainservice.getFunctions())
+    const adminDeleteUser = httpsCallable(this.firebasemainservice.getFunctions(), 'eliminarUsuario');
+
+    //return eliminarUsuarioCallable({ uidAEliminar: iduser });
     throw new Error('Method not implemented.');
   }
 

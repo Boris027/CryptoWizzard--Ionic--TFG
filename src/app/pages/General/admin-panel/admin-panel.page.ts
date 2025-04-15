@@ -20,11 +20,15 @@ export class AdminPanelPage implements OnInit {
 
   constructor(
     @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
+    @Inject(USER_SERVICE_TOKEN) private userService:IUserbaseService<User>
   ){
     this.authservice.setmenu(true)
   }
 
   ngOnInit() {
+    this.userService.AdminDeleteUser("","6yUx0dqxd7U6yMuwl3RoNDmvbv33").subscribe(c=>{
+      console.log(c)
+    })
   }
 
   editUser(user: any) {
