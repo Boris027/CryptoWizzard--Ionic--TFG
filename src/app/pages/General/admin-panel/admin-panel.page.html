@@ -9,24 +9,24 @@
     <table class="user-table">
       <thead>
         <tr>
-          <th>Usuario</th>
-          <th>Email</th>
-          <th>Género</th>
-          <th>Administrador</th>
-          <th>Acciones</th>
+          <th>{{ 'ADMIN_PANEL.TABLE.USERNAME' | translate }}</th>
+          <th>{{ 'ADMIN_PANEL.TABLE.EMAIL' | translate }}</th>
+          <th>{{ 'ADMIN_PANEL.TABLE.GENDER' | translate }}</th>
+          <th>{{ 'ADMIN_PANEL.TABLE.ADMIN' | translate }}</th>
+          <th>{{ 'ADMIN_PANEL.TABLE.ACTIONS' | translate }}</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of users">
           <td>{{ user.username }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.gender }}</td>
-          <td>{{ user.isAdmin ? 'Sí' : 'No' }}</td>
+          <td>{{ user.gender === 'male' ? ('CRUDUSER.REGISTER.MALE' | translate) : user.gender === 'female' ? ('CRUDUSER.REGISTER.FEMALE' | translate) : ('CRUDUSER.REGISTER.OTHER' | translate) }}</td>
+          <td>{{ user.isAdmin ? ('COMMON.YES' | translate) : ('COMMON.NO' | translate) }}</td>
           <td class="actions">
             <ion-button fill="clear" color="warning" (click)="editUser(user)">
               <ion-icon slot="icon-only" name="create-outline"></ion-icon>
             </ion-button>
-            <ion-button fill="clear" color="danger" (click)="deleteUser(user)">
+            <ion-button fill="clear" color="danger" (click)="deleteUser(user.id)">
               <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
             </ion-button>
           </td>
@@ -34,4 +34,8 @@
       </tbody>
     </table>
   </div>
+
+  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

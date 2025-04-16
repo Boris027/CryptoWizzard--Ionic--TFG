@@ -132,5 +132,13 @@
             "SKILL4": "Trabajo en equipo, dedicación, flexibilidad",
             "SKILL5": "Idiomas: Español (nativo), Inglés (B1-B2)"
         }
+    },"ADMIN_PANEL":{
+        "TABLE":{
+            "USERNAME": "Usuario",
+            "EMAIL": "Email",
+            "GENDER": "Género",
+            "ADMIN": "Administrador",
+            "ACTIONS": "Acciones"
+        }
     }
 }
