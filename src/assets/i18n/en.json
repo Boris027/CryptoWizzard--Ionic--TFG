@@ -116,8 +116,7 @@
         "1Y":"1Y",
         "SELECTCURRENCY":"Select currency"
 
-    },
-    "ABOUTUS": {
+    }, "ABOUTUS": {
         "ABOUTUS": "About Us",
         "PRESENTATION1": "Hello, I am",
         "PRESENTATION2": "Student at",
@@ -134,6 +133,14 @@
             "SKILL3": "Tools (GitHub, VSC, Android Studio, Figma)",
             "SKILL4": "Teamwork, focus, flexibility",
             "SKILL5": "Languages: Spanish (native), English (B1-B2)"
+        }
+    },"ADMIN_PANEL":{
+        "TABLE":{
+            "USERNAME": "Username",
+            "EMAIL": "Email",
+            "GENDER": "Gender",
+            "ADMIN": "Admin",
+            "ACTIONS": "Actions"
         }
     }
 }
