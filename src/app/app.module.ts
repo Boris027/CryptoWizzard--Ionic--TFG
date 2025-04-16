@@ -19,6 +19,7 @@ import { CoinGekoMapping } from './core/repositories/impl/crypto/CoinGekoMapping
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 import { FirebaseMainService } from './core/services/impl/firebasemain.service';
+import { AngularFireFunctionsModule } from '@angular/fire/compat/functions';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -26,7 +27,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,
+  imports: [BrowserModule,AngularFireFunctionsModule  , IonicModule.forRoot(), AppRoutingModule,BrowserAnimationsModule,
     TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
