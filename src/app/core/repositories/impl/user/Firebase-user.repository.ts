@@ -30,6 +30,35 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
       super(httpclient,api,mapping)
     }
 
+
+  override AdminUpdateUser(token: string, iduser: string, username: string, gender: string, isAdminxd: boolean): Observable<any> {
+    let database:Firestore=this.firebasemainservice.getfirestore()
+    const auth = getAuth();
+    return new Observable((observer)=>{
+      onAuthStateChanged(auth, async (user) => {
+        if (user) {
+          const docref = doc(database, `persons`, iduser);
+
+          let updatedoc:any={};
+          if(username!=""){
+            updatedoc.name=username
+          }
+          if(gender!=""){
+            updatedoc.gender=gender
+          }
+          if(isAdminxd==true ||isAdminxd==false){
+            updatedoc.isAdmin=isAdminxd
+          }
+          let docupdate=await updateDoc(docref,updatedoc); 
+          observer.next({iduser:iduser,username:username,gender:gender,isAdmin:isAdminxd})
+   
+        }else {
+          observer.error(new Error("there is no user loged"))
+        }
+      })
+    })
+  }
+
     
   override AdminGetUsersPagination(token: string, page: number, limitxd: number): Observable<any> {
     const auth = getAuth();

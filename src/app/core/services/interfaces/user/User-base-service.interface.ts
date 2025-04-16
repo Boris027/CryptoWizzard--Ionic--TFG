@@ -18,4 +18,5 @@ export interface IUserbaseService<T>{
     GetBehaviourUser():Observable<BasicUser>
     AdminGetUsersPagination(token:string, page: number, limit: number): Observable<any>
     AdminDeleteUser(token:string, iduser:string): Observable<any>
+    AdminUpdateUser(token: string, iduser: string, username: string, gender: string, isAdmin: boolean): Observable<any>
 }
