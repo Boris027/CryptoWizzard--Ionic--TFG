@@ -19,6 +19,9 @@ export class UserBaseRepository<T extends User> implements IUserbaseRepositoy<T>
         @Inject(USER_API_URL_TOKEN) protected api:string,
         @Inject(USER_MAPPING_TOKEN) protected mapping:IUserBaseMapping<User>,
     ){}
+    AdminUpdateUser(token: string, iduser: string, username: string, gender: string, isAdmin: boolean): Observable<any> {
+        throw new Error("Method not implemented.");
+    }
     AdminGetUsersPagination(token: string, page: number, limit: number): Observable<any> {
         throw new Error("Method not implemented.");
     }

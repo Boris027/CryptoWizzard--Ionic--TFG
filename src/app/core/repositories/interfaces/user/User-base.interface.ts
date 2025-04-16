@@ -17,4 +17,6 @@ export interface IUserbaseRepositoy<T>{
     updateuserdata(token:string,data:any,userid:string):Observable<any>,
     AdminGetUsersPagination(token:string, page: number, limit: number): Observable<any>
     AdminDeleteUser(token:string, iduser:string): Observable<any>
+    AdminUpdateUser(token: string, iduser: string, username: string, gender: string, isAdmin: boolean): Observable<any>
+
 }
