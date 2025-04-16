@@ -17,7 +17,7 @@ export class AdminPanelPage implements OnInit {
 
   constructor(
     @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
-    @Inject(USER_SERVICE_TOKEN) private userService: IUserbaseService<User>,
+    @Inject(USER_SERVICE_TOKEN) private userService:IUserbaseService<User>
   ){
     this.authservice.setmenu(true)
   }

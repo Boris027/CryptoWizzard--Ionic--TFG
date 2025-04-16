@@ -97,6 +97,6 @@ export class UserBaseService<T extends User> implements IUserbaseService<T>{
         return this.repository.AdminGetUsersPagination(token,page,limit)
     }
     AdminDeleteUser(token: string, iduser: string): Observable<any> {
-        throw new Error("Method not implemented.");
+        return this.repository.AdminDeleteUser(token,iduser)
     }
 }
