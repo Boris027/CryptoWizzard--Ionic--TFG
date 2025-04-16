@@ -98,7 +98,7 @@ export class AppComponent {
 
     this.subscriptions.push(this.userservice.GetBasicUser().subscribe({
       next:(value)=>{
-        if(value.isAdmin==false){
+        if(value.isAdmin!=true){
           this.appPages=this.appPages.filter(c=>c.url!="/admin-panel")
         }
       },
@@ -112,6 +112,8 @@ export class AppComponent {
     }))
 
   }
+
+  
 
   vermenu:boolean=true
 
