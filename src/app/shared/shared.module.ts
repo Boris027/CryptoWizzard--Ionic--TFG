@@ -14,11 +14,12 @@ import { RouterModule } from '@angular/router';
 import { CustomGenderComponent } from './custom-gender/custom-gender.component';
 import { Dropdown, DropdownModule } from 'primeng/dropdown';
 import { ColorpercentDirective } from '../core/directives/colorpercent.directive';
+import { AdminFormularyComponent } from './admin-formulary/admin-formulary.component';
 
 
 
 @NgModule({
-  declarations: [CryptocardComponent,CryptosimplecardComponent,ListcryptoComponent,ListformularyComponent,FormularyComponent,CustomGenderComponent],
+  declarations: [CryptocardComponent,CryptosimplecardComponent,ListcryptoComponent,ListformularyComponent,FormularyComponent,CustomGenderComponent,AdminFormularyComponent],
   imports: [
     CommonModule,
     IonicModule,
@@ -31,6 +32,6 @@ import { ColorpercentDirective } from '../core/directives/colorpercent.directive
     FormsModule,
     ColorpercentDirective
   ],
-  exports:[CryptocardComponent,CryptosimplecardComponent,ListcryptoComponent,ListformularyComponent,FormularyComponent,CustomGenderComponent]
+  exports:[CryptocardComponent,CryptosimplecardComponent,ListcryptoComponent,ListformularyComponent,FormularyComponent,CustomGenderComponent,AdminFormularyComponent]
 })
 export class SharedModule { }
