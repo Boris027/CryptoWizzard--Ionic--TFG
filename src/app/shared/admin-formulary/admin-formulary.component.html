@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'PROFILE.MODIFY' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="close" size="large" [ios]="'close' + '-outline'" [md]="'close' + '-sharp'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="center-content">
+  <form [formGroup]="formulary" class="center-form">
+    <ion-img src="./../../../assets/logo.jpeg" />
+
+    <!--username-->
+    <ion-item>
+      <ion-input  formControlName="username" label="{{'CRUDUSER.USERNAME' | translate}}" labelPlacement="floating" placeholder="example1234"></ion-input>
+    </ion-item>
+    <ion-text class="input-error" color="danger" *ngIf="username?.invalid  && (username?.dirty || username?.touched)" >
+      <p *ngIf="username?.errors?.['required']">{{'CRUDUSER.ERRORS.USERNAMEREQUIRED' | translate}}</p>
+    </ion-text>
+
+    <!--genero-->
+    <div id="valueaccessor">
+      <app-custom-gender formControlName="gender"></app-custom-gender>
+    </div>
+    <ion-text class="input-error" color="danger" *ngIf="gender?.invalid && (gender?.dirty || gender?.touched)">
+      <p *ngIf="gender?.errors?.['required']">{{'CRUDUSER.ERRORS.GENDERSELECTED' | translate}}</p>
+    </ion-text>
+
+    <!-- admin -->
+    <ion-item>
+      <ion-label>{{ 'ADMIN_PANEL.TABLE.ADMIN' | translate }}</ion-label>
+      <ion-toggle formControlName="isAdmin"></ion-toggle>
+    </ion-item>
+
+    <ion-footer>
+      <ion-button expand="block" *ngIf="!formulary.valid || !formulary.dirty" disabled="">
+        {{'COMMON.SAVE' | translate}}
+      </ion-button>
+      <ion-button expand="block" *ngIf="formulary.valid && formulary.dirty" (click)="confirm()">
+        {{'COMMON.SAVE' | translate}}
+      </ion-button>
+    </ion-footer>
+  </form>
+</ion-content>
