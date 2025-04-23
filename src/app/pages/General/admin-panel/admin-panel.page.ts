@@ -1,7 +1,9 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { IonInfiniteScrollCustomEvent } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
+import * as saveAs from 'file-saver';
 import { BasicUser, User } from 'src/app/core/models/User.model';
 import { AUTH_TOKEN, USER_SERVICE_TOKEN } from 'src/app/core/repositories/repository.tokens';
 import { IAuthenticationService } from 'src/app/core/services/interfaces/authentication/authentication.interface';
@@ -66,6 +68,29 @@ export class AdminPanelPage {
       this.shared.showToast("success",this.translate.instant("CRUDUSER.DELETEACCOUNTSUCCESSFUL"));
       this.loadUsers();
     });
+  }
+
+  downloadCsv() {
+    this.userService.getUsersCsv().subscribe({
+      next: (response: HttpResponse<Blob>) => {
+        const contentDisposition = response.headers.get('Content-Disposition');
+        const filename = this.extractFileName(contentDisposition) ?? this.translate.instant("ADMIN_PANEL.CSV_BUTTON.FILENAME");
+        const blob = new Blob([response.body as BlobPart], {
+          type: 'text/csv;charset=utf-8'
+        });
+        saveAs(blob, filename);
+        this.shared.showToast('success',this.translate.instant('ADMIN_PANEL.CSV_BUTTON.SUCCESS'));
+      },
+      error: (err: unknown) => {
+        this.shared.showToast('success',this.translate.instant('ADMIN_PANEL.CSV_BUTTON.ERROR'));
+      }
+    });
+  }
+
+  private extractFileName(header: string | null): string | null {
+    if (!header) return null;
+    const match = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(header);
+    return match ? match[1].replace(/['"]/g, '') : null;
   }
 
   async presentModal(user:BasicUser) {

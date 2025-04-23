@@ -11,6 +11,7 @@ export const environment = {
   uploadapi:"http://localhost:1337/api/upload",
   cryptoapiurl:"https://api.coingecko.com/api/v3/",
   cryptoken:"",
+  userCsv:"https://cryptowizzard-tfg.onrender.com/export-users"
 };
 
 /*

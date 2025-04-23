@@ -1,5 +1,5 @@
 import { FactoryProvider } from "@angular/core";
-import { AUTENTICATION_URL_TOKEN, AUTH_MAPPING_TOKEN, AUTH_TOKEN, BACKEND_TOKEN, CRYPTOTOKEN_TOKEN, CRYPTO_API_URL_TOKEN, CRYPTO_MAPPING_TOKEN, CRYPTO_REPOSITORY_TOKEN, CRYPTO_SERVICE_TOKEN, FIREBASE_CONFIG_TOKEN, FIREBASE_MAIN_SERVICE, LOGIN_API_URL_TOKEN, REGISTER_API_URL_TOKEN, UPLOAD_API_URL_TOKEN, USER_API_URL_TOKEN, USER_MAPPING_TOKEN, USER_REPOSITORY_TOKEN, USER_SERVICE_TOKEN } from "./repository.tokens";
+import { AUTENTICATION_URL_TOKEN, AUTH_MAPPING_TOKEN, AUTH_TOKEN, BACKEND_TOKEN, CRYPTOTOKEN_TOKEN, CRYPTO_API_URL_TOKEN, CRYPTO_MAPPING_TOKEN, CRYPTO_REPOSITORY_TOKEN, CRYPTO_SERVICE_TOKEN, FIREBASE_CONFIG_TOKEN, FIREBASE_MAIN_SERVICE, LOGIN_API_URL_TOKEN, REGISTER_API_URL_TOKEN, UPLOAD_API_URL_TOKEN, USER_API_URL_TOKEN, USER_CSV_URL_TOKEN, USER_MAPPING_TOKEN, USER_REPOSITORY_TOKEN, USER_SERVICE_TOKEN } from "./repository.tokens";
 import { HttpClient } from "@angular/common/http";
 import { StrapiAutenticationService } from "../services/impl/authentication/strapi-autentication.service";
 import { StrapiAuthMappingService } from "../services/impl/authentication/strapi-auth-mapping.service";
@@ -131,7 +131,7 @@ deps: [BACKEND_TOKEN]
 
 export const UserServiceFactory:FactoryProvider = {
   provide: USER_SERVICE_TOKEN,
-  useFactory: (backend:string,repository:IUserbaseRepositoy<any>,authentication:IAuthenticationService) => {
+  useFactory: (backend:string,repository:IUserbaseRepositoy<any>,authentication:IAuthenticationService,userCsvUrl:string,http:HttpClient) => {
     switch(backend){
       case 'http':
         throw new Error("BACKEND NOT IMPLEMENTED");
@@ -140,15 +140,15 @@ export const UserServiceFactory:FactoryProvider = {
       case 'json-server':
         throw new Error("BACKEND NOT IMPLEMENTED");
       case 'strapi':
-        return new UserStrapiService(repository,authentication);
+        return new UserStrapiService(repository,authentication,userCsvUrl,http);
       case 'firebase':
-        return new UserFirebaseService(repository,authentication);
+        return new UserFirebaseService(repository,authentication,userCsvUrl,http);
       default:
         throw new Error("BACKEND NOT IMPLEMENTED");
     }
     
   },
-deps: [BACKEND_TOKEN,USER_REPOSITORY_TOKEN,AUTH_TOKEN]
+deps: [BACKEND_TOKEN,USER_REPOSITORY_TOKEN,AUTH_TOKEN, USER_CSV_URL_TOKEN,HttpClient]
 };
 
 export const AuthenticationServiceFactory:FactoryProvider = {

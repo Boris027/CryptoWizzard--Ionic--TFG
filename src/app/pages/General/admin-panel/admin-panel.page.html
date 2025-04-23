@@ -5,6 +5,10 @@
 </ion-header>
 
 <ion-content [fullscreen]="false" class="profile-page">
+  <div class="button-container ion-text-end">
+    <ion-button (click)="downloadCsv()">{{ 'ADMIN_PANEL.CSV_BUTTON.TEXT' | translate }}</ion-button>
+  </div>
+
   <div class="table-container">
     <table class="user-table">
       <thead>
