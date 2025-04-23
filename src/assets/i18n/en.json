@@ -135,6 +135,12 @@
             "SKILL5": "Languages: Spanish (native), English (B1-B2)"
         }
     },"ADMIN_PANEL":{
+        "CSV_BUTTON": {
+            "TEXT": "Download CSV",
+            "FILENAME": "users.csv",
+            "SUCCESS": "CSV file downloaded successfully",
+            "ERROR": "Error while downloading CSV file"
+        },
         "TABLE":{
             "USERNAME": "Username",
             "EMAIL": "Email",

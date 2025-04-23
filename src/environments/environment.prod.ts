@@ -6,5 +6,6 @@ export const environment = {
   authenticationurl: "https://tasks-7l1r.onrender.com/api/users/me",
   uploadapi: "https://tasks-7l1r.onrender.com/api/upload",
   cryptoapiurl:"https://api.coingecko.com/api/v3/",
-  cryptoken:""
+  cryptoken:"",
+  userCsv:"https://cryptowizzard-tfg.onrender.com/export-users"
 };

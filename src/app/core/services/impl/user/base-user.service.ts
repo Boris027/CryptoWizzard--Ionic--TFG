@@ -1,12 +1,13 @@
 import { Inject, Injectable } from "@angular/core";
 import { IUserbaseService } from "../../interfaces/user/User-base-service.interface";
 import { BasicUser, User } from "src/app/core/models/User.model";
-import { AUTH_TOKEN, USER_REPOSITORY_TOKEN } from "src/app/core/repositories/repository.tokens";
+import { AUTH_TOKEN, USER_CSV_URL_TOKEN, USER_REPOSITORY_TOKEN } from "src/app/core/repositories/repository.tokens";
 import { IUserbaseRepositoy } from "src/app/core/repositories/interfaces/user/User-base.interface";
 import { BasicList, CryptoList } from "src/app/core/models/CryptoList.model";
 import { BehaviorSubject, map, Observable } from "rxjs";
 import { BasicCrypto } from "src/app/core/models/Crypto.model";
 import { IAuthenticationService } from "../../interfaces/authentication/authentication.interface";
+import { HttpClient, HttpResponse } from "@angular/common/http";
 
 @Injectable({
     providedIn: 'root'
@@ -25,13 +26,17 @@ export class UserBaseService<T extends User> implements IUserbaseService<T>{
 
     constructor(
         @Inject (USER_REPOSITORY_TOKEN) protected repository:IUserbaseRepositoy<User>,
-        @Inject (AUTH_TOKEN) protected auth:IAuthenticationService
+        @Inject (AUTH_TOKEN) protected auth:IAuthenticationService,
+        @Inject(USER_CSV_URL_TOKEN) protected url:string,
+        protected http:HttpClient
     ){
         
     }
     
     
-
+    getUsersCsv(): Observable<HttpResponse<Blob>> {
+        return this.http.get(this.url, { responseType: 'blob', observe: 'response' });
+    }
 
     GetBehaviourUser():Observable<BasicUser>{
         return this.user.asObservable()

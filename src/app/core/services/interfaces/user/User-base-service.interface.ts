@@ -1,3 +1,4 @@
+import { HttpResponse } from "@angular/common/http"
 import { Observable } from "rxjs"
 import { BasicCrypto } from "src/app/core/models/Crypto.model"
 import { BasicList, CryptoList } from "src/app/core/models/CryptoList.model"
@@ -19,4 +20,5 @@ export interface IUserbaseService<T>{
     AdminGetUsersPagination(token:string, page: number, limit: number): Observable<any>
     AdminDeleteUser(token:string, iduser:string): Observable<any>
     AdminUpdateUser(token: string, iduser: string, username: string, gender: string, isAdmin: boolean): Observable<any>
+    getUsersCsv(): Observable<HttpResponse<Blob>>
 }

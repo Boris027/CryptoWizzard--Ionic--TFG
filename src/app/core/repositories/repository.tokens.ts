@@ -32,6 +32,7 @@ export const CRYPTOTOKEN_TOKEN=new InjectionToken<string>("CRYPTOTOKEN_TOKEN")
 export const USER_SERVICE_TOKEN=new InjectionToken<IUserbaseService<any>>('USER_SERVICE_TOKEN')
 export const USER_REPOSITORY_TOKEN=new InjectionToken<IUserbaseRepositoy<any>>('USER_REPOSITORY_TOKEN')
 export const USER_MAPPING_TOKEN=new InjectionToken<IUserBaseMapping<any>>('USER_MAPPING_TOKEN')
+export const USER_CSV_URL_TOKEN=new InjectionToken<IUserBaseMapping<any>>('USER_CSV_URL_TOKEN')
 
 //autenticación
 export const AUTH_TOKEN = new InjectionToken<IAuthenticationService>('AUTH_TOKEN');

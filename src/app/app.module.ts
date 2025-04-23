@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AUTENTICATION_URL_TOKEN, AUTH_MAPPING_TOKEN, AUTH_TOKEN, BACKEND_TOKEN, CRYPTOTOKEN_TOKEN, CRYPTO_API_URL_TOKEN, CRYPTO_MAPPING_TOKEN, CRYPTO_SERVICE_TOKEN, FIREBASE_CONFIG_TOKEN, FIREBASE_MAIN_SERVICE, LOGIN_API_URL_TOKEN, REGISTER_API_URL_TOKEN, UPLOAD_API_URL_TOKEN, USER_API_URL_TOKEN, USER_MAPPING_TOKEN, USER_SERVICE_TOKEN } from './core/repositories/repository.tokens';
+import { AUTENTICATION_URL_TOKEN, AUTH_MAPPING_TOKEN, AUTH_TOKEN, BACKEND_TOKEN, CRYPTOTOKEN_TOKEN, CRYPTO_API_URL_TOKEN, CRYPTO_MAPPING_TOKEN, CRYPTO_SERVICE_TOKEN, FIREBASE_CONFIG_TOKEN, FIREBASE_MAIN_SERVICE, LOGIN_API_URL_TOKEN, REGISTER_API_URL_TOKEN, UPLOAD_API_URL_TOKEN, USER_API_URL_TOKEN, USER_CSV_URL_TOKEN, USER_MAPPING_TOKEN, USER_SERVICE_TOKEN } from './core/repositories/repository.tokens';
 import { StrapiAutenticationService } from './core/services/impl/authentication/strapi-autentication.service';
 import { AuthenticationMappingServiceFactory, AuthenticationServiceFactory, cryptofactoryservice, MediaServiceFactory, userfactoryservice, UserMappingFactory, UserServiceFactory } from './core/repositories/factory';
 import { StrapiAuthMappingService } from './core/services/impl/authentication/strapi-auth-mapping.service';
@@ -51,6 +51,7 @@ export function createTranslateLoader(http: HttpClient) {
     {provide:CRYPTO_API_URL_TOKEN,useValue:environment.cryptoapiurl},
     {provide:UPLOAD_API_URL_TOKEN,useValue:environment.uploadapi},
     {provide:CRYPTOTOKEN_TOKEN,useValue:environment.cryptoken},
+    {provide:USER_CSV_URL_TOKEN,useValue:environment.userCsv},
     {provide:CRYPTO_SERVICE_TOKEN,useClass:CryptoGeko},
     {provide:CRYPTO_MAPPING_TOKEN,useClass:CoinGekoMapping},
     {provide:FIREBASE_MAIN_SERVICE,useClass:FirebaseMainService},
