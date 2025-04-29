@@ -38,15 +38,7 @@ la integración de datos dinámicos en la app. Además, ofrece servicios como au
 
 La aplicación está desplegada en Netlify y puedes probarla directamente haciendo clic en el siguiente enlace:
 
-[**CryptoWizzard en Netlify**](https://cryptowizzard.netlify.app)
-
-## Video de demostración 🎥
-
-Puedes ver una demostración completa del funcionamiento de la aplicación en el siguiente video:  
-
-[**Ver video de demostración 1ºTrimestre**](https://drive.google.com/file/d/1dLqfOQoSxVefwbIMKuXf3pabG_65abSN/view?usp=sharing)
-
-[**Ver video de demostración 2ºTrimestre**](https://drive.google.com/file/d/1M_JLNoPKE5guThAdWZujbDO_ObBoqbXv/view?usp=sharing)
+[**CryptoWizzard en Netlify**](https://cryptowizzardtfg.netlify.app/)
 
 ## Imagenes 📸
 
