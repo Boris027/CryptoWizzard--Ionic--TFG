@@ -43,12 +43,13 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
           if(username!=""){
             updatedoc.name=username
           }
-          if(gender!=""){
+          if(gender!="" && gender!=undefined){
             updatedoc.gender=gender
           }
           if(isAdminxd==true ||isAdminxd==false){
             updatedoc.isAdmin=isAdminxd
           }
+
           let docupdate=await updateDoc(docref,updatedoc); 
           observer.next({iduser:iduser,username:username,gender:gender,isAdmin:isAdminxd})
    

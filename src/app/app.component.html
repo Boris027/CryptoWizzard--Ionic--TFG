@@ -44,7 +44,7 @@
         <!-- Menú de navegación -->
         <ion-list id="inbox-list">
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" lines="none" detail="false" routerLinkActive="selected" button (click)="navigate(p.url)" class="menu-item">
+            <ion-item routerDirection="root" lines="none" detail="false" routerLinkActive="selected" button (click)="navigate(p.url)" class="menu-item" *ngIf="!p.hidden">
               <ion-icon aria-hidden="true" slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
               <ion-label>{{ p.title | translate }}</ion-label>
             </ion-item>

@@ -69,14 +69,14 @@ export class AppComponent {
   
 
   public appPages = [
-    { title: this.translate.get("MAINMENU.HOME"), url: '/home', icon: 'Home' },
-    { title: this.translate.instant("MAINMENU.SEARCH"), url: '/search', icon: 'Search' },
-    { title: this.translate.instant("MAINMENU.LIST"), url: '/list', icon: 'star' },
-    { title: this.translate.instant("MAINMENU.PROFILE"), url: '/profile', icon: 'person' },
-    { title: this.translate.instant("MAINMENU.LANGUAGE"), url: '/language', icon: 'language' },
-    { title: this.translate.instant("MAINMENU.ABOUTUS"), url: '/about', icon: 'information' },
-    { title: this.translate.instant("MAINMENU.ADMINPANEL"), url: '/admin-panel', icon: 'people' },
-    { title: this.translate.instant("MAINMENU.LOGOUT"), url: '/logout', icon: 'log-out' }
+    { title: this.translate.get("MAINMENU.HOME"), url: '/home', icon: 'Home',hidden:false },
+    { title: this.translate.instant("MAINMENU.SEARCH"), url: '/search', icon: 'Search',hidden:false },
+    { title: this.translate.instant("MAINMENU.LIST"), url: '/list', icon: 'star',hidden:false },
+    { title: this.translate.instant("MAINMENU.PROFILE"), url: '/profile', icon: 'person',hidden:false },
+    { title: this.translate.instant("MAINMENU.LANGUAGE"), url: '/language', icon: 'language',hidden:false },
+    { title: this.translate.instant("MAINMENU.ABOUTUS"), url: '/about', icon: 'information',hidden:false },
+    { title: this.translate.instant("MAINMENU.ADMINPANEL"), url: '/admin-panel', icon: 'people',hidden:false },
+    { title: this.translate.instant("MAINMENU.LOGOUT"), url: '/logout', icon: 'log-out',hidden:false }
   ];
 
   
@@ -98,16 +98,33 @@ export class AppComponent {
 
     this.subscriptions.push(this.userservice.GetBasicUser().subscribe({
       next:(value)=>{
-        if(value.isAdmin!=true){
-          this.appPages=this.appPages.filter(c=>c.url!="/admin-panel")
-        }
+        /*if(value.isAdmin!=true){
+          //this.appPages=this.appPages.filter(c=>c.url!="/admin-panel")
+          const element=this.appPages.find(c=>c.url!="/admin-panel")
+          if(element){
+            element.hidden=true
+          }
+          this.appPages=this.appPages
+        }*/
       },
     }))
 
+    //Oculta o muestra el boton del panel de usuario
     this.subscriptions.push(this.userservice.GetBehaviourUser().subscribe({
       next:(value)=>{
-        
-          this.user=value
+        this.user=value
+        if(value.isAdmin){
+          const element=this.appPages.find(c=>c.url=="/admin-panel")
+          if(element){
+            element.hidden=false
+          }
+        }else if(value.isAdmin==false){
+          const element=this.appPages.find(c=>c.url=="/admin-panel")
+          if(element){
+            element.hidden=true
+          }
+        }
+        this.appPages=this.appPages
       },
     }))
 
