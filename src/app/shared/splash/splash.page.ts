@@ -46,7 +46,11 @@ export class SplashPage implements OnInit {
 
     const sub2=timer(1500).subscribe({
       next:(value)=>{
-        this.router.navigate(['/'+valor])
+        this.router.navigate(['/'+valor]).then(() => {
+          if(valor=="login"){
+            location.reload()
+          }
+        })
       },error:(err)=>{
         this.router.navigate(['/'+valor])
       },
