@@ -1,0 +1,1951 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SearchPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/General/search/search.page.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-search</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./search.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./search.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#currency" >currency</a>
+                            </li>
+                            <li>
+                                <a href="#hardlist" >hardlist</a>
+                            </li>
+                            <li>
+                                <a href="#idlist" >idlist</a>
+                            </li>
+                            <li>
+                                <a href="#inactivitytimeout" >inactivitytimeout</a>
+                            </li>
+                            <li>
+                                <a href="#isStoppedSpeechRecog" >isStoppedSpeechRecog</a>
+                            </li>
+                            <li>
+                                <a href="#list" >list</a>
+                            </li>
+                            <li>
+                                <a href="#recognition" >recognition</a>
+                            </li>
+                            <li>
+                                <a href="#searchinput" >searchinput</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#susbscriptions" >susbscriptions</a>
+                            </li>
+                            <li>
+                                <a href="#text" >text</a>
+                            </li>
+                            <li>
+                                <a href="#textemporal" >textemporal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#addcryptotodatabase" >addcryptotodatabase</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#addcryptotolist" >addcryptotolist</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#click" >click</a>
+                            </li>
+                            <li>
+                                <a href="#filterfinal" >filterfinal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getcryptobyid" >getcryptobyid</a>
+                            </li>
+                            <li>
+                                <a href="#init" >init</a>
+                            </li>
+                            <li>
+                                <a href="#juntartexto" >juntartexto</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#start" >start</a>
+                            </li>
+                            <li>
+                                <a href="#stop" >stop</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#takevoice" >takevoice</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authservice: <a href="../interfaces/IAuthenticationService.html" target="_self">IAuthenticationService</a>, translate: TranslateService, shared: <a href="../injectables/SharedService.html" target="_self">SharedService</a>, activateroute: ActivatedRoute, router: Router, userservice: IUserbaseService<User>, cryptoservice: ICryptobaseService<BasicCrypto>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/General/search/search.page.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Constructor to inject services and initialize route params.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IAuthenticationService.html" target="_self" >IAuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Auth service for user session and config.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Translate service for i18n.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>shared</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedService.html" target="_self" >SharedService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Shared service for common helpers like toast.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>activateroute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Current activated route.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Angular router for navigation.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>userservice</td>
+                                                  
+                                                        <td>
+                                                                    <code>IUserbaseService&lt;User&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>User-related data service.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>cryptoservice</td>
+                                                  
+                                                        <td>
+                                                                    <code>ICryptobaseService&lt;BasicCrypto&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Crypto service for querying data.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addcryptotodatabase"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>addcryptotodatabase</b></span>
+                        <a href="#addcryptotodatabase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addcryptotodatabase(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adds a crypto to the user database.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Crypto ID to add.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise that resolves when complete.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addcryptotolist"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>addcryptotolist</b></span>
+                        <a href="#addcryptotolist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addcryptotolist(idlist: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idcrypto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idcryptoxd: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adds a crypto to a user list.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idlist</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID of the list.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>idcrypto</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID of the crypto in DB.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>idcryptoxd</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>External ID of the crypto (e.g., from API).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise that resolves when added.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="click"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>click</b></span>
+                        <a href="#click"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>click(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Handles click on a crypto. Navigates or adds crypto to user list.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID of the selected crypto.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterfinal"></a>
+                    <span class="name">
+                        <span ><b>filterfinal</b></span>
+                        <a href="#filterfinal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>filterfinal(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Filters the crypto list based on search input value.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Event containing the search string.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getcryptobyid"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getcryptobyid</b></span>
+                        <a href="#getcryptobyid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getcryptobyid(idcrypto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Returns the ID of a crypto from the user database, or -1 if not found.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idcrypto</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>ID of the crypto to search.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;number&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Promise resolving to the database crypto ID.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="init"></a>
+                    <span class="name">
+                        <span ><b>init</b></span>
+                        <a href="#init"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>init()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="214"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:214</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initializes speech recognition configuration and timeout handler.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="juntartexto"></a>
+                    <span class="name">
+                        <span ><b>juntartexto</b></span>
+                        <a href="#juntartexto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>juntartexto()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:248</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Combines spoken text results and resets the temporary buffer.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="199"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:199</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Angular lifecycle hook called when the component is destroyed.
+Unsubscribes from all active subscriptions to prevent memory leaks.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook that initializes voice recognition and fetches the list of cryptos.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="start"></a>
+                    <span class="name">
+                        <span ><b>start</b></span>
+                        <a href="#start"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>start()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:231</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Starts speech recognition using WebKit engine.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stop"></a>
+                    <span class="name">
+                        <span ><b>stop</b></span>
+                        <a href="#stop"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>stop()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="239"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:239</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Stops speech recognition and stores the last spoken text.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="takevoice"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>takevoice</b></span>
+                        <a href="#takevoice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>takevoice()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="162"
+                                    class="link-to-prism">src/app/pages/General/search/search.page.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Starts voice recognition using Capacitor or WebKit fallback.
+Updates the search input once speech is detected.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currency"></a>
+                    <span class="name">
+                        <span ><b>currency</b></span>
+                        <a href="#currency"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.authservice.getCurrency()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/pages/General/search/search.page.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hardlist"></a>
+                    <span class="name">
+                        <span ><b>hardlist</b></span>
+                        <a href="#hardlist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BasicCrypto[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/pages/General/search/search.page.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="idlist"></a>
+                    <span class="name">
+                        <span ><b>idlist</b></span>
+                        <a href="#idlist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/General/search/search.page.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inactivitytimeout"></a>
+                    <span class="name">
+                        <span ><b>inactivitytimeout</b></span>
+                        <a href="#inactivitytimeout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="205" class="link-to-prism">src/app/pages/General/search/search.page.ts:205</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isStoppedSpeechRecog"></a>
+                    <span class="name">
+                        <span ><b>isStoppedSpeechRecog</b></span>
+                        <a href="#isStoppedSpeechRecog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">src/app/pages/General/search/search.page.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="list"></a>
+                    <span class="name">
+                        <span ><b>list</b></span>
+                        <a href="#list"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BasicCrypto[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/pages/General/search/search.page.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recognition"></a>
+                    <span class="name">
+                        <span ><b>recognition</b></span>
+                        <a href="#recognition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new webkitSpeechRecognition()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="206" class="link-to-prism">src/app/pages/General/search/search.page.ts:206</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="searchinput"></a>
+                    <span class="name">
+                        <span ><b>searchinput</b></span>
+                        <a href="#searchinput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/General/search/search.page.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="susbscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>susbscriptions</b></span>
+                        <a href="#susbscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/General/search/search.page.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="text"></a>
+                    <span class="name">
+                        <span ><b>text</b></span>
+                        <a href="#text"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="209" class="link-to-prism">src/app/pages/General/search/search.page.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="textemporal"></a>
+                    <span class="name">
+                        <span ><b>textemporal</b></span>
+                        <a href="#textemporal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;string&gt;(&quot;&quot;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="208" class="link-to-prism">src/app/pages/General/search/search.page.ts:208</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, OnInit } from &#x27;@angular/core&#x27;;
+import { BasicCrypto } from &#x27;src/app/core/models/Crypto.model&#x27;;
+import { AUTH_TOKEN, CRYPTO_SERVICE_TOKEN, USER_SERVICE_TOKEN } from &#x27;src/app/core/repositories/repository.tokens&#x27;;
+import { ICryptobaseService } from &#x27;src/app/core/services/interfaces/crypto/Crypto-base-service.interface&#x27;;
+import { IAuthenticationService } from &#x27;src/app/core/services/interfaces/authentication/authentication.interface&#x27;;
+import { BehaviorSubject, Subscription } from &#x27;rxjs&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { IUserbaseService } from &#x27;src/app/core/services/interfaces/user/User-base-service.interface&#x27;;
+import { User } from &#x27;src/app/core/models/User.model&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+import { SharedService } from &#x27;src/app/shared/sharedservice/shared.service&#x27;;
+import { SpeechRecognition } from &#x27;@capacitor-community/speech-recognition&#x27;;
+import { Capacitor } from &#x27;@capacitor/core&#x27;;
+
+declare var webkitSpeechRecognition: any;
+
+@Component({
+  selector: &#x27;app-search&#x27;,
+  templateUrl: &#x27;./search.page.html&#x27;,
+  styleUrls: [&#x27;./search.page.scss&#x27;],
+})
+/**
+ * Component that provides search functionality for cryptocurrencies.
+ * It allows navigation to detail views or adding cryptos to a user list.
+ * Includes voice search via Capacitor or WebKit-based recognition.
+ */
+export class SearchPage implements OnInit {
+  idlist:string&#x3D;&quot;&quot;
+  searchinput:string&#x3D;&quot;&quot;
+  private susbscriptions:Subscription[]&#x3D;[]
+
+  /**
+   * Constructor to inject services and initialize route params.
+   *
+   * @param authservice Auth service for user session and config.
+   * @param translate Translate service for i18n.
+   * @param shared Shared service for common helpers like toast.
+   * @param activateroute Current activated route.
+   * @param router Angular router for navigation.
+   * @param userservice User-related data service.
+   * @param cryptoservice Crypto service for querying data.
+   */
+  constructor(
+    @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
+    private translate: TranslateService,
+    private shared:SharedService,
+    private activateroute:ActivatedRoute,
+    private router:Router,
+    @Inject(USER_SERVICE_TOKEN) private userservice:IUserbaseService&lt;User&gt;,
+    @Inject(CRYPTO_SERVICE_TOKEN) private cryptoservice:ICryptobaseService&lt;BasicCrypto&gt;,
+  ) { 
+    this.authservice.setmenu(true)
+    this.activateroute.paramMap.subscribe(params&#x3D;&gt;{
+      this.idlist&#x3D;params.get(&#x27;id&#x27;)??&quot;&quot;
+    })
+  }
+
+  hardlist:BasicCrypto[]&#x3D;[]
+  list:BasicCrypto[]&#x3D;[]
+  currency&#x3D;this.authservice.getCurrency()
+
+  /**
+   * Lifecycle hook that initializes voice recognition and fetches the list of cryptos.
+   */
+  ngOnInit() {
+    this.init()
+    this.susbscriptions.push(this.cryptoservice.getAllSimple().subscribe({
+      next:(value)&#x3D;&gt;{
+        this.hardlist.push(...value)
+        this.list&#x3D;value
+      },
+    }))
+  }
+
+  /**
+   * Filters the crypto list based on search input value.
+   *
+   * @param event Event containing the search string.
+   */
+  filterfinal(event: any){
+    let value&#x3D;event.detail.value
+    
+    this.list&#x3D;this.hardlist.filter(c&#x3D;&gt;c.name.includes(value))
+  }
+
+  /**
+   * Handles click on a crypto. Navigates or adds crypto to user list.
+   *
+   * @param id ID of the selected crypto.
+   */
+  async click(id:string){
+    if(this.idlist&#x3D;&#x3D;&quot;&quot;){
+      this.router.navigate([&#x27;/cryptoview&#x27;,id,this.currency])
+    }else{
+      let idfinal&#x3D;await this.getcryptobyid(&quot;&quot;+id)
+      if(idfinal+&quot;&quot;!&#x3D;&quot;-1&quot;){
+        let data&#x3D;await this.addcryptotolist(this.idlist,idfinal+&quot;&quot;,id)
+        this.shared.showToast(&quot;success&quot;,this.translate.instant(&quot;CRYPTOLIST.CRYPTOADDEDSUCCESSFUL&quot;))
+        this.router.navigate([&#x27;/listcontent&#x27;,this.idlist])
+      }else{
+        idfinal&#x3D;await this.addcryptotodatabase(id)
+        this.click(id)
+      }
+    }
+  }
+
+  /**
+   * Returns the ID of a crypto from the user database, or -1 if not found.
+   *
+   * @param idcrypto ID of the crypto to search.
+   * @returns Promise resolving to the database crypto ID.
+   */
+  async getcryptobyid(idcrypto:string):Promise&lt;number&gt;{
+    return new Promise&lt;number&gt;((resolve,reject)&#x3D;&gt;{
+      this.susbscriptions.push(this.userservice.findcryptobyid(idcrypto).subscribe({
+        next:(value)&#x3D;&gt;{
+            resolve(value)
+        },
+      }))
+    })
+  }
+
+  /**
+   * Adds a crypto to the user database.
+   *
+   * @param id Crypto ID to add.
+   * @returns Promise that resolves when complete.
+   */
+  async addcryptotodatabase(id:string){
+    return new Promise&lt;any&gt;((resolve,reject)&#x3D;&gt;{
+      this.susbscriptions.push(this.userservice.addcryptotodatabase(this.list.filter(c&#x3D;&gt;c.id&#x3D;&#x3D;id)[0]).subscribe({
+        next:(value)&#x3D;&gt;{
+            resolve(value)
+        },
+      }))
+    })
+  }
+
+  /**
+   * Adds a crypto to a user list.
+   *
+   * @param idlist ID of the list.
+   * @param idcrypto ID of the crypto in DB.
+   * @param idcryptoxd External ID of the crypto (e.g., from API).
+   * @returns Promise that resolves when added.
+   */
+  async addcryptotolist(idlist:string,idcrypto:string,idcryptoxd:string){
+    let crypto&#x3D;this.list.filter(c&#x3D;&gt;c.id&#x3D;&#x3D;idcryptoxd)[0]
+    return new Promise&lt;any&gt;((resolve,reject)&#x3D;&gt;{
+      this.susbscriptions.push(this.userservice.addCryptoToList(idlist,idcrypto,crypto).subscribe({
+        next:(value)&#x3D;&gt;{
+          resolve(value)
+        },
+      }))
+    })
+  }
+
+  /**
+   * Starts voice recognition using Capacitor or WebKit fallback.
+   * Updates the search input once speech is detected.
+   */
+  async takevoice() {
+    if(Capacitor.isNativePlatform()){
+      try{
+        await SpeechRecognition.requestPermissions();
+      
+        await SpeechRecognition.available();
+    
+        const result &#x3D; await SpeechRecognition.start({
+          language: &quot;es-ES&quot;,
+          maxResults: 1,
+        });
+        
+        const spokenText &#x3D; result.matches[0];
+        
+        this.searchinput&#x3D;spokenText
+        this.filterfinal({detail:{value:spokenText}})
+      } catch (error) {
+        console.error(&#x27;Error en el reconocimiento de voz:&#x27;, error);
+      }
+    }else{
+      this.start()
+      this.susbscriptions.push(this.textemporal.subscribe({
+        next:(value)&#x3D;&gt;{
+          if(value!&#x3D;&quot;&quot;){
+            this.searchinput&#x3D;value
+            this.filterfinal({detail:{value:value}})
+          }
+        },
+      }))
+    }
+    
+  }
+
+  /**
+   * Angular lifecycle hook called when the component is destroyed.
+   * Unsubscribes from all active subscriptions to prevent memory leaks.
+   */
+  ngOnDestroy(){
+    this.susbscriptions.forEach(c&#x3D;&gt;{
+      c.unsubscribe()
+    })
+  }
+
+  inactivitytimeout:any
+  recognition &#x3D; new webkitSpeechRecognition();
+  isStoppedSpeechRecog &#x3D; false;
+  textemporal: BehaviorSubject&lt;string&gt; &#x3D;new BehaviorSubject&lt;string&gt;(&quot;&quot;);
+  text: string &#x3D; &#x27;&#x27;;
+
+  /**
+   * Initializes speech recognition configuration and timeout handler.
+   */
+  init() {
+    this.recognition.addEventListener(&#x27;result&#x27;, (event: any) &#x3D;&gt; {
+      const transcript &#x3D; event.results[0][0].transcript
+      if (event.results[0].isFinal) {
+        this.textemporal.next(transcript);
+      }
+
+      clearTimeout(this.inactivitytimeout);
+      this.inactivitytimeout &#x3D; setTimeout(() &#x3D;&gt; {
+        this.stop();
+      }, 3000); 
+    });
+  }
+
+  /**
+   * Starts speech recognition using WebKit engine.
+   */
+  start() {
+    this.isStoppedSpeechRecog &#x3D; false;
+    this.recognition.start();
+  }
+
+  /**
+   * Stops speech recognition and stores the last spoken text.
+   */
+  stop() {
+    this.isStoppedSpeechRecog &#x3D; true;
+    this.juntartexto();
+    this.recognition.stop();
+  }
+
+  /**
+   * Combines spoken text results and resets the temporary buffer.
+   */
+  juntartexto() {
+    this.text &#x3D; &#x60;${this.text} ${this.textemporal}.&#x60;;
+    this.textemporal.next(&#x27;&#x27;);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header [translucent]&#x3D;&quot;true&quot;&gt;
+  &lt;ion-toolbar &gt;
+    &lt;ion-title&gt;{{ &#x27;MAINMENU.SEARCH&#x27; | translate }}&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content [fullscreen]&#x3D;&quot;false&quot; [scrollY]&#x3D;&quot;false&quot; class&#x3D;&quot;search-page&quot;&gt;
+
+  
+
+  &lt;div class&#x3D;&quot;search-container&quot;&gt;
+    &lt;ion-item  class&#x3D;&quot;search-bar&quot;&gt;
+      &lt;ion-input
+        [(ngModel)]&#x3D;&quot;searchinput&quot;
+        id&#x3D;&quot;searchinput&quot; 
+        (ionInput)&#x3D;&quot;filterfinal($event)&quot; 
+        label&#x3D;&quot;{{ &#x27;MAINMENU.SEARCH&#x27; | translate }}&quot; 
+        labelPlacement&#x3D;&quot;floating&quot; 
+        placeholder&#x3D;&quot;Bitcoin&quot;&gt;
+      &lt;/ion-input&gt;
+      &lt;ion-icon (click)&#x3D;&quot;takevoice()&quot; name&#x3D;&quot;mic&quot; [ios]&#x3D;&quot;&#x27;mic&#x27; + &#x27;-outline&#x27;&quot; [md]&#x3D;&quot;&#x27;mic&#x27; + &#x27;-sharp&#x27;&quot; style&#x3D;&quot;margin-right: 18px; cursor: pointer;&quot; &gt;&lt;/ion-icon&gt;
+
+      &lt;ion-icon name&#x3D;&quot;search&quot; [ios]&#x3D;&quot;&#x27;search&#x27; + &#x27;-outline&#x27;&quot; [md]&#x3D;&quot;&#x27;search&#x27; + &#x27;-sharp&#x27;&quot; style&#x3D;&quot;margin-right: 18px;&quot; &gt;&lt;/ion-icon&gt;
+
+    &lt;/ion-item&gt;
+
+  &lt;/div&gt;
+
+  &lt;cdk-virtual-scroll-viewport itemSize&#x3D;&quot;120&quot; minBufferPx&#x3D;&quot;1200&quot; maxBufferPx&#x3D;&quot;1200&quot;  class&#x3D;&quot;results-list ion-content-scroll-host&quot; &gt;
+    
+      &lt;app-cryptosimplecard *cdkVirtualFor&#x3D;&quot;let a of list&quot; 
+        [crypto]&#x3D;&quot;a&quot;  
+        (click)&#x3D;&quot;click(a.id)&quot;&gt;
+      &lt;/app-cryptosimplecard &gt;&lt;br&gt;
+   
+  &lt;/cdk-virtual-scroll-viewport&gt;
+
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./search.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">cdk-virtual-scroll-viewport {
+    height: 90%!important;
+    width: 100%;
+  }
+
+  ion-content{
+    --keyboard-offset: 0px!important;
+  }
+
+  .search-page {
+  }
+  
+  /* Contenedor del buscador */
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem auto;
+    width: 100%;
+  }
+  
+  /* Barra de búsqueda */
+  .search-bar {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Input estilizado */
+  #searchinput {
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+  }
+  
+  /* Lista de resultados */
+  .results-list {
+    padding: 1rem;
+    height: 85%!important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Espaciado entre items */
+  }
+  
+  ion-item {
+    border-radius: 10px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 600px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  ion-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  <ion-toolbar >    <ion-title>{{ \'MAINMENU.SEARCH\' | translate }}</ion-title>  </ion-toolbar></ion-header><ion-content [fullscreen]="false" [scrollY]="false" class="search-page">    <div class="search-container">    <ion-item  class="search-bar">      <ion-input        [(ngModel)]="searchinput"        id="searchinput"         (ionInput)="filterfinal($event)"         label="{{ \'MAINMENU.SEARCH\' | translate }}"         labelPlacement="floating"         placeholder="Bitcoin">      </ion-input>      <ion-icon (click)="takevoice()" name="mic" [ios]="\'mic\' + \'-outline\'" [md]="\'mic\' + \'-sharp\'" style="margin-right: 18px; cursor: pointer;" ></ion-icon>      <ion-icon name="search" [ios]="\'search\' + \'-outline\'" [md]="\'search\' + \'-sharp\'" style="margin-right: 18px;" ></ion-icon>    </ion-item>  </div>  <cdk-virtual-scroll-viewport itemSize="120" minBufferPx="1200" maxBufferPx="1200"  class="results-list ion-content-scroll-host" >          <app-cryptosimplecard *cdkVirtualFor="let a of list"         [crypto]="a"          (click)="click(a.id)">      </app-cryptosimplecard ><br>     </cdk-virtual-scroll-viewport></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminFormularyComponent', 'selector': 'app-admin-formulary'},{'name': 'AdminPanelPage', 'selector': 'app-admin-panel'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CryptocardComponent', 'selector': 'app-cryptocard'},{'name': 'CryptosimplecardComponent', 'selector': 'app-cryptosimplecard'},{'name': 'CryptoviewPage', 'selector': 'app-cryptoview'},{'name': 'CustomGenderComponent', 'selector': 'app-custom-gender'},{'name': 'FormularyComponent', 'selector': 'app-formulary'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ListcontentPage', 'selector': 'app-listcontent'},{'name': 'ListcryptoComponent', 'selector': 'app-listcrypto'},{'name': 'ListformularyComponent', 'selector': 'app-listformulary'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SearchPage', 'selector': 'app-search'},{'name': 'SplashPage', 'selector': 'app-splash'}];
+    var DIRECTIVES = [{'name': 'BackgraphbuttonDirective', 'selector': '[appBackgraphbutton]'},{'name': 'ColorpercentDirective', 'selector': '[appColorpercent]'}];
+    var ACTUAL_COMPONENT = {'name': 'SearchPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SearchPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

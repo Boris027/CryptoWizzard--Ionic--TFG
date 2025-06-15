@@ -1,0 +1,721 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AboutPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/General/about/about.page.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>AboutPage component.</p>
+<p>This component represents the About page of the application.
+On initialization, it sets the menu visibility to true using the authentication service.</p>
+
+    </p>
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-about</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./about.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./about.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authservice: <a href="../interfaces/IAuthenticationService.html" target="_self">IAuthenticationService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/General/about/about.page.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of AboutPage.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IAuthenticationService.html" target="_self" >IAuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>The authentication service used to manage auth state and UI.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/pages/General/about/about.page.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook called on component initialization.
+Sets the menu to be visible.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, OnInit } from &#x27;@angular/core&#x27;;
+import { AUTH_TOKEN } from &#x27;src/app/core/repositories/repository.tokens&#x27;;
+import { IAuthenticationService } from &#x27;src/app/core/services/interfaces/authentication/authentication.interface&#x27;;
+
+/**
+ * AboutPage component.
+ * 
+ * This component represents the About page of the application.
+ * On initialization, it sets the menu visibility to true using the authentication service.
+ */
+@Component({
+  selector: &#x27;app-about&#x27;,
+  templateUrl: &#x27;./about.page.html&#x27;,
+  styleUrls: [&#x27;./about.page.scss&#x27;],
+})
+export class AboutPage implements OnInit {
+  /**
+   * Creates an instance of AboutPage.
+   * @param authservice The authentication service used to manage auth state and UI.
+   */
+  constructor(
+    @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
+  ) { }
+
+  /**
+   * Lifecycle hook called on component initialization.
+   * Sets the menu to be visible.
+   */
+  ngOnInit() {
+    this.authservice.setmenu(true)
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header [translucent]&#x3D;&quot;true&quot;&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;{{ &#x27;MAINMENU.ABOUTUS&#x27; | translate}}&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content [fullscreen]&#x3D;&quot;false&quot;&gt;
+  &lt;ion-grid&gt;
+    &lt;ion-row&gt;
+      &lt;ion-col size&#x3D;&quot;12&quot; size-md&#x3D;&quot;6&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;about-section&quot;&gt;
+          &lt;img class&#x3D;&quot;profile-image&quot; src&#x3D;&quot;./../../../../assets/fotoBoris.jpg&quot; /&gt;
+          &lt;ion-card-header&gt;
+            &lt;ion-card-title&gt;{{ &#x27;ABOUTUS.PRESENTATION1&#x27; | translate }} Boris&lt;/ion-card-title&gt;
+            &lt;ion-card-subtitle&gt;{{ &#x27;ABOUTUS.PRESENTATION2&#x27; | translate }} &lt;strong&gt;CPIFP ALAN TURING&lt;/strong&gt;&lt;/ion-card-subtitle&gt;
+          &lt;/ion-card-header&gt;
+        &lt;/ion-card&gt;
+      &lt;/ion-col&gt;
+
+      &lt;ion-col size&#x3D;&quot;12&quot; size-md&#x3D;&quot;6&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;about-section&quot;&gt;
+          &lt;img class&#x3D;&quot;profile-image&quot; src&#x3D;&quot;./../../../../assets/fotoEloy.jpg&quot; /&gt;
+          &lt;ion-card-header&gt;
+            &lt;ion-card-title&gt;{{ &#x27;ABOUTUS.PRESENTATION1&#x27; | translate }} Eloy&lt;/ion-card-title&gt;
+            &lt;ion-card-subtitle&gt;{{ &#x27;ABOUTUS.PRESENTATION2&#x27; | translate }} &lt;strong&gt;CPIFP ALAN TURING&lt;/strong&gt;&lt;/ion-card-subtitle&gt;
+          &lt;/ion-card-header&gt;
+        &lt;/ion-card&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+
+    &lt;ion-row&gt;
+      &lt;ion-col size&#x3D;&quot;12&quot; size-md&#x3D;&quot;6&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;project-section&quot;&gt;
+          &lt;ion-card-header&gt;
+            &lt;ion-card-title&gt;{{ &#x27;ABOUTUS.SKILLS.TITLE&#x27; | translate }}&lt;/ion-card-title&gt;
+          &lt;/ion-card-header&gt;
+          &lt;ion-card-content&gt;
+            &lt;ion-item&gt;
+              &lt;ion-icon name&#x3D;&quot;code-slash-outline&quot; slot&#x3D;&quot;start&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-label&gt;{{ &#x27;ABOUTUS.SKILLS.SKILL1&#x27; | translate }}&lt;/ion-label&gt;
+            &lt;/ion-item&gt;
+            &lt;ion-item&gt;
+              &lt;ion-icon name&#x3D;&quot;server-outline&quot; slot&#x3D;&quot;start&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-label&gt;{{ &#x27;ABOUTUS.SKILLS.SKILL2&#x27; | translate }}&lt;/ion-label&gt;
+            &lt;/ion-item&gt;
+            &lt;ion-item&gt;
+              &lt;ion-icon name&#x3D;&quot;construct-outline&quot; slot&#x3D;&quot;start&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-label&gt;{{ &#x27;ABOUTUS.SKILLS.SKILL3&#x27; | translate }}&lt;/ion-label&gt;
+            &lt;/ion-item&gt;
+            &lt;ion-item&gt;
+              &lt;ion-icon name&#x3D;&quot;bulb-outline&quot; slot&#x3D;&quot;start&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-label&gt;{{ &#x27;ABOUTUS.SKILLS.SKILL4&#x27; | translate }}&lt;/ion-label&gt;
+            &lt;/ion-item&gt;
+            &lt;ion-item&gt;
+              &lt;ion-icon name&#x3D;&quot;language-outline&quot; slot&#x3D;&quot;start&quot;&gt;&lt;/ion-icon&gt;
+              &lt;ion-label&gt;{{ &#x27;ABOUTUS.SKILLS.SKILL5&#x27; | translate }}&lt;/ion-label&gt;
+            &lt;/ion-item&gt;
+          &lt;/ion-card-content&gt;
+        &lt;/ion-card&gt;
+      &lt;/ion-col&gt;
+
+      &lt;ion-col size&#x3D;&quot;12&quot; size-md&#x3D;&quot;6&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;project-section&quot;&gt;
+          &lt;ion-card-header&gt;
+            &lt;ion-card-title&gt;{{ &#x27;ABOUTUS.PRESENTATION3&#x27; | translate }}&lt;/ion-card-title&gt;
+          &lt;/ion-card-header&gt;
+          &lt;ion-card-content&gt;
+            &lt;p&gt;{{ &#x27;ABOUTUS.PRESENTATION4&#x27; | translate }}&lt;/p&gt;
+            &lt;img class&#x3D;&quot;profile-image&quot; src&#x3D;&quot;./../../../../assets/cpifpalanturing.jpg&quot;/&gt;
+          &lt;/ion-card-content&gt;
+        &lt;/ion-card&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+
+    &lt;ion-row&gt;
+      &lt;ion-col size&#x3D;&quot;12&quot; size-md&#x3D;&quot;6&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;links-section&quot; style&#x3D;&quot;margin-bottom: 20px!important;&quot;&gt;
+          &lt;ion-card-header&gt;
+            &lt;ion-card-title&gt;{{ &#x27;ABOUTUS.PRESENTATION5&#x27; | translate }} (Boris)&lt;/ion-card-title&gt;
+          &lt;/ion-card-header&gt;
+          &lt;ion-card-content&gt;
+            &lt;p&gt;{{ &#x27;ABOUTUS.PRESENTATION6&#x27; | translate }}&lt;/p&gt;
+            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;primary&quot; href&#x3D;&quot;https://www.linkedin.com/in/bgallegorios/&quot;&gt;
+              {{ &#x27;ABOUTUS.PRESENTATION7&#x27; | translate }}
+            &lt;/ion-button&gt;
+            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;secondary&quot; href&#x3D;&quot;https://fpalanturing.es/&quot;&gt;CPIFP ALAN TURING&lt;/ion-button&gt;
+          &lt;/ion-card-content&gt;
+        &lt;/ion-card&gt;
+      &lt;/ion-col&gt;
+
+      &lt;ion-col size&#x3D;&quot;12&quot; size-md&#x3D;&quot;6&quot;&gt;
+        &lt;ion-card class&#x3D;&quot;links-section&quot; style&#x3D;&quot;margin-bottom: 20px!important;&quot;&gt;
+          &lt;ion-card-header&gt;
+            &lt;ion-card-title&gt;{{ &#x27;ABOUTUS.PRESENTATION5&#x27; | translate }} (Eloy)&lt;/ion-card-title&gt;
+          &lt;/ion-card-header&gt;
+          &lt;ion-card-content&gt;
+            &lt;p&gt;{{ &#x27;ABOUTUS.PRESENTATION6&#x27; | translate }}&lt;/p&gt;
+            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;primary&quot; href&#x3D;&quot;https://www.linkedin.com/in/eloy-leiva-lópez-8255b1238/&quot;&gt;
+              {{ &#x27;ABOUTUS.PRESENTATION7&#x27; | translate }}
+            &lt;/ion-button&gt;
+            &lt;ion-button expand&#x3D;&quot;block&quot; color&#x3D;&quot;secondary&quot; href&#x3D;&quot;https://fpalanturing.es/&quot;&gt;CPIFP ALAN TURING&lt;/ion-button&gt;
+          &lt;/ion-card-content&gt;
+        &lt;/ion-card&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+  &lt;/ion-grid&gt;
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./about.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.about-section {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .profile-image {
+    margin-top: 20px!important;
+    display: block;
+    margin: auto;
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  .role {
+    font-size: 1.2rem;
+  }
+
+  .project-section {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .project-section h3 {
+    margin-bottom: 10px;
+  }
+
+  .project-section p {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .center-image {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .links-section {
+    text-align: center;
+  }
+
+  .links-section ion-button {
+    margin: 10px 0;
+  }
+
+  img{
+    border-radius: 50%!important;
+  }
+
+  #container{
+
+    margin: auto;
+    max-width: 90%;
+  }
+
+
+  /////////
+  /// 
+  /// /* Estilos generales */
+#container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+ion-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 16px;
+}
+
+ion-card-header {
+  padding-bottom: 8px;
+}
+
+ion-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+ion-card-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+ion-card-content {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+
+
+/* Sección de Enlaces */
+.links-section ion-button {
+  margin: 10px 0;
+}
+
+
+
+/* Ajustes de espaciado y márgenes */
+ion-card {
+  margin-bottom: 20px;
+}
+
+ion-card-header, ion-card-content {
+  padding: 16px;
+}
+
+ion-button {
+  --padding-start: 16px;
+  --padding-end: 16px;
+  margin-top: 12px;
+  border-radius: 8px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  <ion-toolbar>    <ion-title>{{ \'MAINMENU.ABOUTUS\' | translate}}</ion-title>  </ion-toolbar></ion-header><ion-content [fullscreen]="false">  <ion-grid>    <ion-row>      <ion-col size="12" size-md="6">        <ion-card class="about-section">          <img class="profile-image" src="./../../../../assets/fotoBoris.jpg" />          <ion-card-header>            <ion-card-title>{{ \'ABOUTUS.PRESENTATION1\' | translate }} Boris</ion-card-title>            <ion-card-subtitle>{{ \'ABOUTUS.PRESENTATION2\' | translate }} <strong>CPIFP ALAN TURING</strong></ion-card-subtitle>          </ion-card-header>        </ion-card>      </ion-col>      <ion-col size="12" size-md="6">        <ion-card class="about-section">          <img class="profile-image" src="./../../../../assets/fotoEloy.jpg" />          <ion-card-header>            <ion-card-title>{{ \'ABOUTUS.PRESENTATION1\' | translate }} Eloy</ion-card-title>            <ion-card-subtitle>{{ \'ABOUTUS.PRESENTATION2\' | translate }} <strong>CPIFP ALAN TURING</strong></ion-card-subtitle>          </ion-card-header>        </ion-card>      </ion-col>    </ion-row>    <ion-row>      <ion-col size="12" size-md="6">        <ion-card class="project-section">          <ion-card-header>            <ion-card-title>{{ \'ABOUTUS.SKILLS.TITLE\' | translate }}</ion-card-title>          </ion-card-header>          <ion-card-content>            <ion-item>              <ion-icon name="code-slash-outline" slot="start"></ion-icon>              <ion-label>{{ \'ABOUTUS.SKILLS.SKILL1\' | translate }}</ion-label>            </ion-item>            <ion-item>              <ion-icon name="server-outline" slot="start"></ion-icon>              <ion-label>{{ \'ABOUTUS.SKILLS.SKILL2\' | translate }}</ion-label>            </ion-item>            <ion-item>              <ion-icon name="construct-outline" slot="start"></ion-icon>              <ion-label>{{ \'ABOUTUS.SKILLS.SKILL3\' | translate }}</ion-label>            </ion-item>            <ion-item>              <ion-icon name="bulb-outline" slot="start"></ion-icon>              <ion-label>{{ \'ABOUTUS.SKILLS.SKILL4\' | translate }}</ion-label>            </ion-item>            <ion-item>              <ion-icon name="language-outline" slot="start"></ion-icon>              <ion-label>{{ \'ABOUTUS.SKILLS.SKILL5\' | translate }}</ion-label>            </ion-item>          </ion-card-content>        </ion-card>      </ion-col>      <ion-col size="12" size-md="6">        <ion-card class="project-section">          <ion-card-header>            <ion-card-title>{{ \'ABOUTUS.PRESENTATION3\' | translate }}</ion-card-title>          </ion-card-header>          <ion-card-content>            <p>{{ \'ABOUTUS.PRESENTATION4\' | translate }}</p>            <img class="profile-image" src="./../../../../assets/cpifpalanturing.jpg"/>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row>    <ion-row>      <ion-col size="12" size-md="6">        <ion-card class="links-section" style="margin-bottom: 20px!important;">          <ion-card-header>            <ion-card-title>{{ \'ABOUTUS.PRESENTATION5\' | translate }} (Boris)</ion-card-title>          </ion-card-header>          <ion-card-content>            <p>{{ \'ABOUTUS.PRESENTATION6\' | translate }}</p>            <ion-button expand="block" color="primary" href="https://www.linkedin.com/in/bgallegorios/">              {{ \'ABOUTUS.PRESENTATION7\' | translate }}            </ion-button>            <ion-button expand="block" color="secondary" href="https://fpalanturing.es/">CPIFP ALAN TURING</ion-button>          </ion-card-content>        </ion-card>      </ion-col>      <ion-col size="12" size-md="6">        <ion-card class="links-section" style="margin-bottom: 20px!important;">          <ion-card-header>            <ion-card-title>{{ \'ABOUTUS.PRESENTATION5\' | translate }} (Eloy)</ion-card-title>          </ion-card-header>          <ion-card-content>            <p>{{ \'ABOUTUS.PRESENTATION6\' | translate }}</p>            <ion-button expand="block" color="primary" href="https://www.linkedin.com/in/eloy-leiva-lópez-8255b1238/">              {{ \'ABOUTUS.PRESENTATION7\' | translate }}            </ion-button>            <ion-button expand="block" color="secondary" href="https://fpalanturing.es/">CPIFP ALAN TURING</ion-button>          </ion-card-content>        </ion-card>      </ion-col>    </ion-row>  </ion-grid></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminFormularyComponent', 'selector': 'app-admin-formulary'},{'name': 'AdminPanelPage', 'selector': 'app-admin-panel'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CryptocardComponent', 'selector': 'app-cryptocard'},{'name': 'CryptosimplecardComponent', 'selector': 'app-cryptosimplecard'},{'name': 'CryptoviewPage', 'selector': 'app-cryptoview'},{'name': 'CustomGenderComponent', 'selector': 'app-custom-gender'},{'name': 'FormularyComponent', 'selector': 'app-formulary'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ListcontentPage', 'selector': 'app-listcontent'},{'name': 'ListcryptoComponent', 'selector': 'app-listcrypto'},{'name': 'ListformularyComponent', 'selector': 'app-listformulary'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SearchPage', 'selector': 'app-search'},{'name': 'SplashPage', 'selector': 'app-splash'}];
+    var DIRECTIVES = [{'name': 'BackgraphbuttonDirective', 'selector': '[appBackgraphbutton]'},{'name': 'ColorpercentDirective', 'selector': '[appColorpercent]'}];
+    var ACTUAL_COMPONENT = {'name': 'AboutPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AboutPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1805 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CryptoviewPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/General/cryptoview/cryptoview.page.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>CryptoviewPage component.</p>
+<p>Displays detailed cryptocurrency information and a price history chart.
+Supports changing currency display and time range for the price data.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>CurrencyPipe</code>
+                                <code><a href="../directives/BackgraphbuttonDirective.html" target="_self" >BackgraphbuttonDirective</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-cryptoview</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./cryptoview.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./cryptoview.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#chart" >chart</a>
+                            </li>
+                            <li>
+                                <a href="#crypto" >crypto</a>
+                            </li>
+                            <li>
+                                <a href="#currency" >currency</a>
+                            </li>
+                            <li>
+                                <a href="#days" >days</a>
+                            </li>
+                            <li>
+                                <a href="#id" >id</a>
+                            </li>
+                            <li>
+                                <a href="#percent" >percent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#suscriptions" >suscriptions</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#changecurrency" >changecurrency</a>
+                            </li>
+                            <li>
+                                <a href="#createchart" >createchart</a>
+                            </li>
+                            <li>
+                                <a href="#createWaveChart" >createWaveChart</a>
+                            </li>
+                            <li>
+                                <a href="#formatTooltipLabel" >formatTooltipLabel</a>
+                            </li>
+                            <li>
+                                <a href="#getdatacrypto" >getdatacrypto</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewWillEnter" >ionViewWillEnter</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewWillLeave" >ionViewWillLeave</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#updatechart" >updatechart</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(currencypipe: CurrencyPipe, authservice: <a href="../interfaces/IAuthenticationService.html" target="_self">IAuthenticationService</a>, activateroute: ActivatedRoute, cryptoservice: ICryptobaseService<any>, translate: TranslateService, translation: <a href="../injectables/TranslationService.html" target="_self">TranslationService</a>, alertcontroller: AlertController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of CryptoviewPage.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>currencypipe</td>
+                                                  
+                                                        <td>
+                                                                    <code>CurrencyPipe</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Pipe to format currency symbols.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>authservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IAuthenticationService.html" target="_self" >IAuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Authentication service.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>activateroute</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Provides access to route parameters.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>cryptoservice</td>
+                                                  
+                                                        <td>
+                                                                    <code>ICryptobaseService&lt;any&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Service to fetch crypto data.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Translation service for i18n.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translation</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TranslationService.html" target="_self" >TranslationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Custom translation helper service.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>alertcontroller</td>
+                                                  
+                                                        <td>
+                                                                    <code>AlertController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Ionic AlertController for dialogs.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changecurrency"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>changecurrency</b></span>
+                        <a href="#changecurrency"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changecurrency()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="325"
+                                    class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:325</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Opens an alert to allow the user to change the displayed currency.
+Updates the crypto data and chart accordingly.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createchart"></a>
+                    <span class="name">
+                        <span ><b>createchart</b></span>
+                        <a href="#createchart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createchart()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates the initial Chart.js line chart with price data for 1 day.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createWaveChart"></a>
+                    <span class="name">
+                        <span ><b>createWaveChart</b></span>
+                        <a href="#createWaveChart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createWaveChart(list: number[], list2: string[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Creates a Chart.js line chart displaying the price data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>list</td>
+                                            <td>
+                                                        <code>number[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Array of prices.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>list2</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Array of formatted date strings.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formatTooltipLabel"></a>
+                    <span class="name">
+                        <span ><b>formatTooltipLabel</b></span>
+                        <a href="#formatTooltipLabel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>formatTooltipLabel(tooltipItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="315"
+                                    class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:315</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Formats the tooltip label in the chart.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tooltipItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Tooltip item from Chart.js.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Formatted string with price and currency symbol.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getdatacrypto"></a>
+                    <span class="name">
+                        <span ><b>getdatacrypto</b></span>
+                        <a href="#getdatacrypto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getdatacrypto()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Fetches cryptocurrency details by id and currency.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewWillEnter"></a>
+                    <span class="name">
+                        <span ><b>ionViewWillEnter</b></span>
+                        <a href="#ionViewWillEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewWillEnter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook: called when the page is about to enter and become active.
+Sets menu state, reads route parameters, initializes chart and data.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewWillLeave"></a>
+                    <span class="name">
+                        <span ><b>ionViewWillLeave</b></span>
+                        <a href="#ionViewWillLeave"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewWillLeave()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="156"
+                                    class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:156</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook: called when the page is about to leave.
+Cleans up the chart and removes the canvas element.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="304"
+                                    class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:304</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook: called when the component is destroyed.
+Unsubscribes all subscriptions to prevent memory leaks.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatechart"></a>
+                    <span class="name">
+                        <span ><b>updatechart</b></span>
+                        <a href="#updatechart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updatechart(number: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the price chart based on the selected number of days.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>number</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Number of days to display.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chart"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>chart</b></span>
+                        <a href="#chart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="crypto"></a>
+                    <span class="name">
+                        <span ><b>crypto</b></span>
+                        <a href="#crypto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AdvancedCrypto.html" target="_self" >AdvancedCrypto</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{id:&#x27;&#x27;,name:&#x27;&#x27;,symbol:&#x27;&#x27;,image:&#x27;&#x27;,currentPrice:0}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currency"></a>
+                    <span class="name">
+                        <span ><b>currency</b></span>
+                        <a href="#currency"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;eur&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="days"></a>
+                    <span class="name">
+                        <span ><b>days</b></span>
+                        <a href="#days"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="percent"></a>
+                    <span class="name">
+                        <span ><b>percent</b></span>
+                        <a href="#percent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="suscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>suscriptions</b></span>
+                        <a href="#suscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/General/cryptoview/cryptoview.page.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { AlertController } from &#x27;@ionic/angular&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+import { Chart, registerables } from &#x27;chart.js&#x27;;
+import { Subscription } from &#x27;rxjs&#x27;;
+import { BackgraphbuttonDirective } from &#x27;src/app/core/directives/backgraphbutton.directive&#x27;;
+import { AdvancedCrypto, CryptoGraphPrice } from &#x27;src/app/core/models/Crypto.model&#x27;;
+import { CurrencyPipe } from &#x27;src/app/core/pipes/currency.pipe&#x27;;
+import { AUTH_TOKEN, CRYPTO_SERVICE_TOKEN } from &#x27;src/app/core/repositories/repository.tokens&#x27;;
+import { TranslationService } from &#x27;src/app/core/services/impl/translation.service&#x27;;
+import { IAuthenticationService } from &#x27;src/app/core/services/interfaces/authentication/authentication.interface&#x27;;
+import { ICryptobaseService } from &#x27;src/app/core/services/interfaces/crypto/Crypto-base-service.interface&#x27;;
+
+Chart.register(...registerables);
+
+/**
+ * CryptoviewPage component.
+ * 
+ * Displays detailed cryptocurrency information and a price history chart.
+ * Supports changing currency display and time range for the price data.
+ */
+@Component({
+  selector: &#x27;app-cryptoview&#x27;,
+  templateUrl: &#x27;./cryptoview.page.html&#x27;,
+  styleUrls: [&#x27;./cryptoview.page.scss&#x27;],
+  providers:[CurrencyPipe,BackgraphbuttonDirective],
+})
+export class CryptoviewPage {
+  id:string&#x3D;&quot;&quot;
+  currency:string&#x3D;&quot;eur&quot;
+  crypto:AdvancedCrypto&#x3D;{id:&#x27;&#x27;,name:&#x27;&#x27;,symbol:&#x27;&#x27;,image:&#x27;&#x27;,currentPrice:0}
+  days:number&#x3D;1
+  percent:number&#x3D;0;
+  public chart: any;
+  private suscriptions: Subscription[] &#x3D; [];
+
+  /**
+   * Creates an instance of CryptoviewPage.
+   * @param currencypipe Pipe to format currency symbols.
+   * @param authservice Authentication service.
+   * @param activateroute Provides access to route parameters.
+   * @param cryptoservice Service to fetch crypto data.
+   * @param translate Translation service for i18n.
+   * @param translation Custom translation helper service.
+   * @param alertcontroller Ionic AlertController for dialogs.
+   */
+  constructor(
+    private currencypipe:CurrencyPipe,
+    @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
+    private activateroute:ActivatedRoute,
+    @Inject(CRYPTO_SERVICE_TOKEN) private cryptoservice:ICryptobaseService&lt;any&gt;,
+    private translate: TranslateService,
+    private translation: TranslationService,
+    private alertcontroller:AlertController
+  ) { }
+
+  /**
+   * Updates the price chart based on the selected number of days.
+   * @param number Number of days to display.
+   */
+  updatechart(number:number) {
+    this.days&#x3D;number
+    let list:number[]&#x3D;[]
+    let list2: number[]&#x3D;[]
+    this.suscriptions.push(this.cryptoservice.getPriceList(this.id,this.currency,number+&quot;&quot;).subscribe({
+      next:(value)&#x3D;&gt;{
+          let valuexd&#x3D;value as CryptoGraphPrice[]
+          list&#x3D;valuexd.map(c&#x3D;&gt;c.price)
+          list2&#x3D;valuexd.map(c&#x3D;&gt;c.date)
+          let date&#x3D;list2.map(c&#x3D;&gt;{
+            let date&#x3D; new Date(c)
+            const day &#x3D; String(date.getDate()).padStart(2, &#x27;0&#x27;);
+            const month &#x3D; String(date.getMonth() + 1).padStart(2, &#x27;0&#x27;);
+            const year &#x3D; date.getFullYear();
+            const hours &#x3D; String(date.getHours()).padStart(2, &#x27;0&#x27;);
+            const minutes &#x3D; String(date.getMinutes()).padStart(2, &#x27;0&#x27;);
+            if(this.days&lt;8){
+              return &quot;&quot;+day+&quot;/&quot;+month+&quot;/&quot;+year+&quot; &quot;+hours+&quot;:&quot;+minutes
+            }else{
+              return &quot;&quot;+day+&quot;/&quot;+month+&quot;/&quot;+year+&quot;&quot;
+            }
+          })
+          this.chart.data.labels&#x3D;date
+          this.chart.data.datasets[0].data&#x3D;list
+          this.percent&#x3D;((list[list.length-1]*100/list[0])-100)
+          this.chart.update()
+      },
+    }))
+  }
+
+  /**
+   * Lifecycle hook: called when the page is about to enter and become active.
+   * Sets menu state, reads route parameters, initializes chart and data.
+   */
+  ionViewWillEnter(){
+    this.authservice.setmenu(true)
+    this.suscriptions.push(this.activateroute.paramMap.subscribe(params&#x3D;&gt;{
+      this.id&#x3D;params.get(&#x27;id&#x27;)??&quot;bitcoin&quot;
+      this.currency&#x3D;params.get(&#x27;currency&#x27;)??&quot;eur&quot;
+    }))
+    if (this.chart) {
+      this.chart.destroy();
+    }
+    this.getdatacrypto()
+    this.createchart()
+  }
+
+  /**
+   * Fetches cryptocurrency details by id and currency.
+   */
+  getdatacrypto(){
+    this.suscriptions.push(this.cryptoservice.findbyId(this.id,this.currency).subscribe({
+      next:(value)&#x3D;&gt;{
+        this.crypto&#x3D;value[0]
+      },
+    }))
+  }
+
+  /**
+   * Creates the initial Chart.js line chart with price data for 1 day.
+   */
+  createchart(){
+    let list:number[]&#x3D;[]
+    let list2:number[]&#x3D;[]
+    let date:string[]&#x3D;[]
+    this.suscriptions.push(this.cryptoservice.getPriceList(this.id,this.currency,&quot;1&quot;).subscribe({
+      next:(value)&#x3D;&gt;{
+          let valuexd&#x3D;value as CryptoGraphPrice[]
+          list&#x3D;valuexd.map(c&#x3D;&gt;c.price)
+          list2&#x3D;valuexd.map(c&#x3D;&gt;c.date)
+          date&#x3D;list2.map(c&#x3D;&gt;{
+            let date&#x3D; new Date(c)
+            const day &#x3D; String(date.getDate()).padStart(2, &#x27;0&#x27;);
+            const month &#x3D; String(date.getMonth() + 1).padStart(2, &#x27;0&#x27;);
+            const year &#x3D; date.getFullYear();
+            const hours &#x3D; String(date.getHours()).padStart(2, &#x27;0&#x27;);
+            const minutes &#x3D; String(date.getMinutes()).padStart(2, &#x27;0&#x27;);
+            
+            if(this.days&lt;8){
+              return &quot;&quot;+day+&quot;/&quot;+month+&quot;/&quot;+year+&quot; &quot;+hours+&quot;:&quot;+minutes
+            }else{
+              return &quot;&quot;+day+&quot;/&quot;+month+&quot;/&quot;+year+&quot;&quot;
+            }
+          })
+          this.percent&#x3D;((list[list.length-1]*100/list[0])-100)
+          this.createWaveChart(list,date);
+      },
+    }))
+  }
+
+  /**
+   * Lifecycle hook: called when the page is about to leave.
+   * Cleans up the chart and removes the canvas element.
+   */
+  ionViewWillLeave() {
+    if (this.chart) {
+        this.chart.destroy();
+    }
+    ( &lt; HTMLCanvasElement &gt; document.getElementById(&#x27;waveChart&#x27;)).remove();
+  }
+
+  /**
+   * Creates a Chart.js line chart displaying the price data.
+   * @param list Array of prices.
+   * @param list2 Array of formatted date strings.
+   */
+  createWaveChart(list: number[], list2: string[]) {
+    let canvas &#x3D; document.getElementById(&#x27;waveChart&#x27;) as HTMLCanvasElement;
+    if (!canvas) {
+      canvas &#x3D; document.createElement(&#x27;canvas&#x27;);
+      canvas.id &#x3D; &#x27;waveChart&#x27;; 
+      document.getElementById(&#x27;chartcontainer&#x27;)?.appendChild(canvas); 
+    }
+    
+    const ctx &#x3D; canvas.getContext(&#x27;2d&#x27;);
+    if (!ctx) {
+      console.error(&#x27;Canvas context not found!&#x27;);
+      return;
+    }
+    
+    this.chart &#x3D; new Chart(ctx, {
+      type: &#x27;line&#x27;,
+      data: {
+        labels: list2,
+        datasets: [
+          {
+            label: &#x27;&#x27;,
+            data: list,
+            borderColor: &#x27;#4caf50&#x27;,
+            borderWidth: 3,
+            fill: true,
+            tension: 0.4,
+            backgroundColor: &#x27;rgba(76, 175, 80, 0.2)&#x27;,
+            pointRadius: 0,
+            pointHoverRadius: 6,
+            pointBackgroundColor: &#x27;#ffffff&#x27;,
+            pointBorderColor: &#x27;#4caf50&#x27;,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+            position: &#x27;top&#x27;,
+            labels: {
+              font: {
+                size: 14,
+                family: &#x27;Arial, sans-serif&#x27;,
+                weight: &#x27;bold&#x27;,
+              },
+              color: &#x27;#333&#x27;,
+            },
+          },
+          tooltip: {
+            enabled: true,
+            displayColors: false,
+            mode: &#x27;nearest&#x27;,
+            intersect: false,
+            callbacks: {
+              label: this.formatTooltipLabel.bind(this),
+              
+            },
+          },
+        },
+        interaction: {
+          mode: &#x27;nearest&#x27;,
+          intersect: false,
+          axis: &#x27;x&#x27;,
+        },
+        scales: {
+          x: {
+            title: {
+              display: false,
+              text: &#x27;Fecha&#x27;,
+              color: &#x27;#666&#x27;,
+              font: {
+                size: 16,
+                family: &#x27;Arial, sans-serif&#x27;,
+              },
+            },
+            grid: {
+              display: false,
+            },
+            ticks: {
+              color: &#x27;#666&#x27;,
+            },
+          },
+          y: {
+            title: {
+              display: false,
+              text: &#x27;Precio ($)&#x27;,
+              color: &#x27;#666&#x27;,
+              font: {
+                size: 16,
+                family: &#x27;Arial, sans-serif&#x27;,
+              },
+            },
+            grid: {
+              color: &#x27;rgba(200, 200, 200, 0.2)&#x27;,
+            },
+            ticks: {
+              color: &#x27;#666&#x27;,
+            },
+          },
+        },
+      },
+      plugins: [
+        {
+          id: &#x27;verticalLine&#x27;,
+          afterDraw: (chart) &#x3D;&gt; {
+            const tooltip &#x3D; chart.tooltip;
+            if (tooltip &amp;&amp; tooltip.getActiveElements().length) {
+              const ctx &#x3D; chart.ctx;
+              
+              const activeElement &#x3D; tooltip.getActiveElements()[0];
+              const x &#x3D; activeElement.element.x;
+              
+              const yTop &#x3D; chart.scales[&#x27;y&#x27;].top;
+              const yBottom &#x3D; chart.scales[&#x27;y&#x27;].bottom;
+              
+              ctx.save();
+              ctx.beginPath();
+              ctx.moveTo(x, yTop);
+              ctx.lineTo(x, yBottom);
+              ctx.lineWidth &#x3D; 1;
+              ctx.strokeStyle &#x3D; &#x27;#00eaff&#x27;;
+              ctx.stroke();
+              ctx.restore();
+            }
+          },
+        }
+      ],
+    });
+  }
+
+  /**
+   * Lifecycle hook: called when the component is destroyed.
+   * Unsubscribes all subscriptions to prevent memory leaks.
+   */
+  ngOnDestroy(){
+    this.suscriptions.forEach(c&#x3D;&gt;{
+      c.unsubscribe()
+    })
+  }
+
+  /**
+   * Formats the tooltip label in the chart.
+   * @param tooltipItem Tooltip item from Chart.js.
+   * @returns Formatted string with price and currency symbol.
+   */
+  formatTooltipLabel(tooltipItem: any): string {
+    let number &#x3D; tooltipItem.raw.toFixed(5);
+    let currencysymbol&#x3D;this.currencypipe.transform(this.currency)
+    return &#x60;${number} ${currencysymbol}&#x60;;
+  }
+
+  /**
+   * Opens an alert to allow the user to change the displayed currency.
+   * Updates the crypto data and chart accordingly.
+   */
+  async changecurrency(){
+    const alert &#x3D; await this.alertcontroller.create({
+      header: this.translate.instant(&#x27;CRYPTOVIEW.SELECTCURRENCY&#x27;), 
+      inputs: [
+        {
+          name: &#x27;language&#x27;,
+          type: &#x27;radio&#x27;,
+          label: this.translate.instant(&#x27;CURRENCY.DOLLAR&#x27;)+&quot; ($)&quot;,
+          value: &#x27;usd&#x27;, 
+          checked: this.currency &#x3D;&#x3D;&#x3D; &#x27;usd&#x27;, 
+        },
+        {
+          name: &#x27;language&#x27;,
+          type: &#x27;radio&#x27;,
+          label: this.translate.instant(&#x27;CURRENCY.EURO&#x27;)+&quot; (€)&quot;,
+          value: &#x27;eur&#x27;, 
+          checked: this.currency &#x3D;&#x3D;&#x3D; &#x27;eur&#x27;,
+        },
+        {
+          name: &#x27;language&#x27;,
+          type: &#x27;radio&#x27;,
+          label: this.translate.instant(&#x27;CURRENCY.LIBRA&#x27;)+&quot; (£)&quot;,
+          value: &#x27;gbp&#x27;, 
+          checked: this.currency &#x3D;&#x3D;&#x3D; &#x27;gbp&#x27;,
+        }
+      ],
+      buttons: [
+        {
+          text: this.translate.instant(&#x27;COMMON.CANCEL&#x27;), 
+          role: &#x27;cancel&#x27;,
+        },
+        {
+          text: this.translate.instant(&#x27;COMMON.SAVE&#x27;),
+          handler: (data) &#x3D;&gt; {
+            if (data) {
+              if(data!&#x3D;this.currency){
+                this.crypto&#x3D;{id:&#x27;&#x27;,name:&#x27;&#x27;,symbol:&#x27;&#x27;,image:&#x27;&#x27;,currentPrice:0}
+                this.currency&#x3D;data
+                this.getdatacrypto()
+                this.updatechart(this.days)
+              }
+            }
+          },
+        },
+      ],
+    });
+    await alert.present();
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header [translucent]&#x3D;&quot;true&quot;&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;{{ &#x27;COMMON.CRYPTO&#x27; | translate}}&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content [fullscreen]&#x3D;&quot;false&quot;&gt;
+  
+
+  &lt;div class&#x3D;&quot;crypto-info&quot;&gt;
+    &lt;ion-img class&#x3D;&quot;crypto-image&quot; [src]&#x3D;&quot;crypto.image&quot;&gt;&lt;/ion-img&gt;
+    &lt;p class&#x3D;&quot;crypto-name&quot;&gt;{{crypto.name}}&lt;/p&gt;
+    &lt;p class&#x3D;&quot;crypto-symbol&quot;&gt;({{crypto.symbol.toUpperCase()}})&lt;/p&gt;
+    &lt;p class&#x3D;&quot;crypto-symbol&quot;&gt;{{crypto.currentPrice }}{{currency | currencypipe}}&lt;/p&gt;
+    &lt;p class&#x3D;&quot;crypto-symbol&quot; [appColorpercent]&#x3D;&quot;percent&quot;&gt;{{percent | percentformater}}&lt;/p&gt;
+  &lt;/div&gt;
+
+  
+  &lt;div class&#x3D;&quot;chart-container canvas&quot; id&#x3D;&quot;chartcontainer&quot;&gt;
+    &lt;ion-buttons&gt;
+      &lt;ion-button size&#x3D;&quot;small&quot; (click)&#x3D;&quot;updatechart(1)&quot;  [class.selected]&#x3D;&quot;days &#x3D;&#x3D;&#x3D; 1&quot;&gt;
+        {{&#x27;CRYPTOVIEW.1D&#x27;| translate}}
+      &lt;/ion-button&gt;
+      &lt;ion-button size&#x3D;&quot;small&quot; (click)&#x3D;&quot;updatechart(7)&quot; [class.selected]&#x3D;&quot;days &#x3D;&#x3D;&#x3D; 7&quot;&gt;
+        {{&#x27;CRYPTOVIEW.1W&#x27;| translate}}
+      &lt;/ion-button&gt;
+      &lt;ion-button size&#x3D;&quot;small&quot; (click)&#x3D;&quot;updatechart(30)&quot; [class.selected]&#x3D;&quot;days &#x3D;&#x3D;&#x3D; 30&quot;&gt;
+        {{&#x27;CRYPTOVIEW.1M&#x27;| translate}}
+      &lt;/ion-button&gt;
+      &lt;ion-button size&#x3D;&quot;small&quot; (click)&#x3D;&quot;updatechart(365)&quot; [class.selected]&#x3D;&quot;days &#x3D;&#x3D;&#x3D; 365&quot;&gt;
+        {{&#x27;CRYPTOVIEW.1Y&#x27;| translate}}
+      &lt;/ion-button&gt;
+    &lt;/ion-buttons&gt;
+    &lt;canvas id&#x3D;&quot;waveChart&quot;&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+
+  &lt;ion-fab vertical&#x3D;&quot;bottom&quot; horizontal&#x3D;&quot;end&quot; slot&#x3D;&quot;fixed&quot; style&#x3D;&quot;margin: 25px;&quot; (click)&#x3D;&quot;changecurrency()&quot;&gt;
+    &lt;ion-fab-button &gt;
+      &lt;ion-text style&#x3D;&quot;font-size: 20px;&quot;&gt;{{currency | currencypipe  }}&lt;/ion-text&gt;
+    &lt;/ion-fab-button&gt;
+  &lt;/ion-fab&gt;
+
+  
+  
+  
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./cryptoview.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+
+
+
+
+.crypto-symbol {
+  font-size: 1.2em;
+  color: #666;
+  margin: 5px 0;
+}
+
+.crypto-price {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #28a745;
+  margin: 10px 0;
+}
+
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+}
+
+.canvas {
+  width: 100%!important;
+  max-width: 700px!important;
+  height: 450px!important;
+  border-radius: 8px!important;
+  display: block;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+@media (max-width: 991px) {
+  .canvas {
+    max-width: 90vw!important;
+    margin: auto;
+    height: 400px!important;
+    border-radius: 8px!important;
+    display: block;
+    box-sizing: border-box;
+    margin: auto;
+  }
+  
+}
+ion-buttons{
+  justify-content: right;
+}
+ion-button.selected {
+  background-color: #4caf50;  /* Color de fondo para el botón seleccionado */
+  color: black;                /* Cambiar color de texto */
+  border-radius: 20px;
+}
+.sc-ion-buttons-md-s ion-button:not(.button-round) {
+  --border-radius: 20px;
+}
+
+.crypto-info {
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+.crypto-image {
+  display: block;
+  margin: auto;
+  max-width: 150px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.crypto-name {
+  font-size: 24px;
+  color: rgb(217, 206, 206);
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.crypto-symbol {
+  font-size: 18px;
+  color: rgb(217, 206, 206);
+  margin: 5px 0;
+}
+
+.crypto-price {
+  font-size: 20px;
+  color: #2e7d32;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.crypto-percent {
+  font-size: 18px;
+  color: #e53935;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  <ion-toolbar>    <ion-title>{{ \'COMMON.CRYPTO\' | translate}}</ion-title>  </ion-toolbar></ion-header><ion-content [fullscreen]="false">    <div class="crypto-info">    <ion-img class="crypto-image" [src]="crypto.image"></ion-img>    <p class="crypto-name">{{crypto.name}}</p>    <p class="crypto-symbol">({{crypto.symbol.toUpperCase()}})</p>    <p class="crypto-symbol">{{crypto.currentPrice }}{{currency | currencypipe}}</p>    <p class="crypto-symbol" [appColorpercent]="percent">{{percent | percentformater}}</p>  </div>    <div class="chart-container canvas" id="chartcontainer">    <ion-buttons>      <ion-button size="small" (click)="updatechart(1)"  [class.selected]="days === 1">        {{\'CRYPTOVIEW.1D\'| translate}}      </ion-button>      <ion-button size="small" (click)="updatechart(7)" [class.selected]="days === 7">        {{\'CRYPTOVIEW.1W\'| translate}}      </ion-button>      <ion-button size="small" (click)="updatechart(30)" [class.selected]="days === 30">        {{\'CRYPTOVIEW.1M\'| translate}}      </ion-button>      <ion-button size="small" (click)="updatechart(365)" [class.selected]="days === 365">        {{\'CRYPTOVIEW.1Y\'| translate}}      </ion-button>    </ion-buttons>    <canvas id="waveChart"></canvas>  </div>  <ion-fab vertical="bottom" horizontal="end" slot="fixed" style="margin: 25px;" (click)="changecurrency()">    <ion-fab-button >      <ion-text style="font-size: 20px;">{{currency | currencypipe  }}</ion-text>    </ion-fab-button>  </ion-fab>      </ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminFormularyComponent', 'selector': 'app-admin-formulary'},{'name': 'AdminPanelPage', 'selector': 'app-admin-panel'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CryptocardComponent', 'selector': 'app-cryptocard'},{'name': 'CryptosimplecardComponent', 'selector': 'app-cryptosimplecard'},{'name': 'CryptoviewPage', 'selector': 'app-cryptoview'},{'name': 'CustomGenderComponent', 'selector': 'app-custom-gender'},{'name': 'FormularyComponent', 'selector': 'app-formulary'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ListcontentPage', 'selector': 'app-listcontent'},{'name': 'ListcryptoComponent', 'selector': 'app-listcrypto'},{'name': 'ListformularyComponent', 'selector': 'app-listformulary'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SearchPage', 'selector': 'app-search'},{'name': 'SplashPage', 'selector': 'app-splash'}];
+    var DIRECTIVES = [{'name': 'BackgraphbuttonDirective', 'selector': '[appBackgraphbutton]'},{'name': 'ColorpercentDirective', 'selector': '[appColorpercent]'}];
+    var ACTUAL_COMPONENT = {'name': 'CryptoviewPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CryptoviewPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

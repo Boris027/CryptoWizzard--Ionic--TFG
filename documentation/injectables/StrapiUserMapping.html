@@ -1,0 +1,1520 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >StrapiUserMapping</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/repositories/impl/user/StrapiUserMapping.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addcryptoresponse" >addcryptoresponse</a>
+                            </li>
+                            <li>
+                                <a href="#addcryptotodatabase" >addcryptotodatabase</a>
+                            </li>
+                            <li>
+                                <a href="#addcryptotolist" >addcryptotolist</a>
+                            </li>
+                            <li>
+                                <a href="#addlistUser" >addlistUser</a>
+                            </li>
+                            <li>
+                                <a href="#addlistUserResponse" >addlistUserResponse</a>
+                            </li>
+                            <li>
+                                <a href="#deletecryptofromlist" >deletecryptofromlist</a>
+                            </li>
+                            <li>
+                                <a href="#findcryptobyidresponse" >findcryptobyidresponse</a>
+                            </li>
+                            <li>
+                                <a href="#GetBasicUser" >GetBasicUser</a>
+                            </li>
+                            <li>
+                                <a href="#GetListFromUser" >GetListFromUser</a>
+                            </li>
+                            <li>
+                                <a href="#updatelistbody" >updatelistbody</a>
+                            </li>
+                            <li>
+                                <a href="#updateuserdata" >updateuserdata</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addcryptoresponse"></a>
+                    <span class="name">
+                        <span ><b>addcryptoresponse</b></span>
+                        <a href="#addcryptoresponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addcryptoresponse(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="297"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:297</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maps the response from adding a crypto to the database to BasicCrypto.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The response data.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/BasicCrypto.html" target="_self" >BasicCrypto</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>BasicCrypto with id, name, and symbol.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addcryptotodatabase"></a>
+                    <span class="name">
+                        <span ><b>addcryptotodatabase</b></span>
+                        <a href="#addcryptotodatabase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addcryptotodatabase(data: <a href="../interfaces/BasicCrypto.html" target="_self">BasicCrypto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="310"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:310</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Prepares the request body to add a crypto to the database.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BasicCrypto.html" target="_self" >BasicCrypto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The BasicCrypto to add.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/addcrypto.html" target="_self" >addcrypto</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The formatted request body.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addcryptotolist"></a>
+                    <span class="name">
+                        <span ><b>addcryptotolist</b></span>
+                        <a href="#addcryptotolist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addcryptotolist(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="323"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:323</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Prepares the request body to add a crypto to a favorite list.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The crypto ID to connect.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/updatecryptofromfavoritelist.html" target="_self" >updatecryptofromfavoritelist</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The formatted request body.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addlistUser"></a>
+                    <span class="name">
+                        <span ><b>addlistUser</b></span>
+                        <a href="#addlistUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addlistUser(data: <a href="../interfaces/CryptoList.html" target="_self">CryptoList</a>, iduser: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Prepares the request body to create a new favorite list for a user.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CryptoList.html" target="_self" >CryptoList</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The CryptoList data to add.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>iduser</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The user ID.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/createListRemote.html" target="_self" >createListRemote</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The formatted request body for list creation.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addlistUserResponse"></a>
+                    <span class="name">
+                        <span ><b>addlistUserResponse</b></span>
+                        <a href="#addlistUserResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addlistUserResponse(data: <a href="../interfaces/addlistresponse.html" target="_self">addlistresponse</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="244"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:244</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maps the server response after adding a list to a BasicList object.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/addlistresponse.html" target="_self" >addlistresponse</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Response from add list request.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/BasicList.html" target="_self" >BasicList</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>BasicList with title, description, and id.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deletecryptofromlist"></a>
+                    <span class="name">
+                        <span ><b>deletecryptofromlist</b></span>
+                        <a href="#deletecryptofromlist"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deletecryptofromlist(data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="267"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:267</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Prepares the request body to remove a crypto from a favorite list.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The crypto ID to disconnect.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/deletecryptofromfavoritelist.html" target="_self" >deletecryptofromfavoritelist</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The formatted request body to remove crypto.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findcryptobyidresponse"></a>
+                    <span class="name">
+                        <span ><b>findcryptobyidresponse</b></span>
+                        <a href="#findcryptobyidresponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>findcryptobyidresponse(data: <a href="../interfaces/getallresponse.html" target="_self">getallresponse</a>, cryptoid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="283"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:283</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Extracts the crypto ID from the response filtering by cryptoId.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/getallresponse.html" target="_self" >getallresponse</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The response data containing cryptos.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>cryptoid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The crypto ID to find.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The found crypto ID or -1 if not found.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetBasicUser"></a>
+                    <span class="name">
+                        <span ><b>GetBasicUser</b></span>
+                        <a href="#GetBasicUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GetBasicUser(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="361"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:361</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maps the raw user data response to BasicUser model.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The raw user data.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/BasicUser.html" target="_self" >BasicUser</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>BasicUser object with user info.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetListFromUser"></a>
+                    <span class="name">
+                        <span ><b>GetListFromUser</b></span>
+                        <a href="#GetListFromUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GetListFromUser(data: <a href="../interfaces/GetAllList.html" target="_self">GetAllList</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Maps the raw response data to an array of CryptoList objects.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/GetAllList.html" target="_self" >GetAllList</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The response containing user favorite lists.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>CryptoList[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Array of CryptoList mapped from the response.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatelistbody"></a>
+                    <span class="name">
+                        <span ><b>updatelistbody</b></span>
+                        <a href="#updatelistbody"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updatelistbody(data: <a href="../interfaces/BasicList.html" target="_self">BasicList</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="253"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:253</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Prepares the request body for updating a favorite list.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BasicList.html" target="_self" >BasicList</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The BasicList data with updates.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/CreateListUpdate.html" target="_self" >CreateListUpdate</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The formatted request body for list update.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateuserdata"></a>
+                    <span class="name">
+                        <span ><b>updateuserdata</b></span>
+                        <a href="#updateuserdata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>updateuserdata(data: <a href="../interfaces/updateuser.html" target="_self">updateuser</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="338"
+                                    class="link-to-prism">src/app/core/repositories/impl/user/StrapiUserMapping.service.ts:338</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Prepares the request body to update user data.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../interfaces/updateuser.html" target="_self" >updateuser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Object containing user data to update.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Object with updated fields.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { IUserBaseMapping } from &quot;../../interfaces/user/UserBaseMapping.interface&quot;;
+import { BasicUser, User } from &quot;src/app/core/models/User.model&quot;;
+import { BasicList, CryptoList } from &quot;src/app/core/models/CryptoList.model&quot;;
+import { BasicCrypto } from &quot;src/app/core/models/Crypto.model&quot;;
+
+export interface GetAllList {
+    id: number
+    username: string
+    email: string
+    provider: string
+    confirmed: boolean
+    blocked: boolean
+    createdAt: string
+    updatedAt: string
+    favoritelists: Favoritelist[]
+  }
+  
+  export interface Favoritelist {
+    id: number
+    Title: string
+    Description: string
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+    cryptos: Crypto[]
+  }
+  
+  export interface Crypto {
+    id: number
+    cryptoId: string
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+    Name: string
+    symbol: string
+  }
+
+  export interface createListRemote{
+    data:BodyCreateList
+  }
+  
+  export interface BodyCreateList{
+    Title:string,
+    Description:string,
+    users_permissions_user:number
+  }
+
+  export interface addlistresponse {
+    data: Data
+    meta: Meta
+  }
+  
+  export interface Data {
+    id: number
+    attributes: Attributes
+  }
+  
+  export interface Attributes {
+    Title: string
+    Description: string
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+  }
+  
+  export interface Meta {}
+
+  export interface CreateListUpdate{
+    data:bodyupdate
+  }
+  export interface bodyupdate{
+    Title:string,
+    Description:string
+  }
+
+  export interface deletecryptofromfavoritelist{
+    data:datadelete
+  }
+
+  export interface datadelete{
+    cryptos:cryptos
+  }
+  export interface cryptos{
+    disconnect:cryptoid[]
+  }
+  export interface cryptoid{
+    id:string
+  }
+  export interface getallresponse {
+    data: Data2[]
+    meta: any
+  }
+  
+  export interface Data2 {
+    id: number
+    attributes: Attributes2
+  }
+  export interface Attributes2 {
+    cryptoId: string
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+    Name: string
+    symbol: string
+  }
+  export interface addcrypto{
+    data:cryptoxd
+  }
+  export interface cryptoxd{
+    cryptoId:string,
+    Name:string,
+    symbol:string
+  }
+  export interface updatecryptofromfavoritelist{
+    data:updateCryptoData
+  }
+  export interface updateCryptoData{
+    cryptos:updateCryptos
+  }
+  export interface updateCryptos{
+    connect:updateCryptoId[]
+  }
+  export interface updateCryptoId{
+    id:number
+  }
+  export interface updateuser{
+    id:string
+    email:string,
+    password:string,
+    username:string,
+    gender:string,
+    image:any
+  }
+
+  export interface basicuseresponse{
+    id: number
+    username: string
+    email: string
+    provider: string
+    confirmed: boolean
+    blocked: boolean
+    createdAt: string
+    updatedAt: string
+    image: Image
+  }
+  export interface Image {
+    id: number
+    name: string
+    alternativeText: any
+    caption: any
+    width: number
+    height: number
+    formats: Formats
+    hash: string
+    ext: string
+    mime: string
+    size: number
+    url: string
+    previewUrl: any
+    provider: string
+    provider_metadata: any
+    createdAt: string
+    updatedAt: string
+  }
+  export interface Formats {
+    large: any
+    small: Small
+    medium: any
+    thumbnail: Thumbnail
+  }
+  export interface Thumbnail {
+    ext: string
+    url: string
+    hash: string
+    mime: string
+    name: string
+    path: any
+    size: number
+    width: number
+    height: number
+    provider_metadata: any
+  }
+
+  export interface Small {
+    ext: string
+    url: string
+    hash: string
+    mime: string
+    name: string
+    path: any
+    size: number
+    width: number
+    height: number
+    provider_metadata: any
+  }
+
+@Injectable({
+    providedIn: &#x27;root&#x27;
+})
+export class StrapiUserMapping implements IUserBaseMapping&lt;User&gt;{
+  /**
+   * Maps the raw response data to an array of CryptoList objects.
+   * @param data The response containing user favorite lists.
+   * @returns Array of CryptoList mapped from the response.
+   */
+  GetListFromUser(data: GetAllList): CryptoList[] {
+      return data.favoritelists.map(c&#x3D;&gt;{
+          return {
+              id:c.id+&quot;&quot;,
+              title:c.Title,
+              description:c.Description,
+              cryptos:c.cryptos.map(x&#x3D;&gt;{
+                  return {
+                      id:&quot;&quot;+x.cryptoId, 
+                      name:x.Name, 
+                      symbol:x.symbol}
+              })
+          }
+      })
+  }
+
+  /**
+   * Prepares the request body to create a new favorite list for a user.
+   * @param data The CryptoList data to add.
+   * @param iduser The user ID.
+   * @returns The formatted request body for list creation.
+   */
+  addlistUser(data:CryptoList,iduser:string):createListRemote{
+      return {
+          data:{
+              Title:data.title,
+              Description:data.description,
+              users_permissions_user:parseInt(iduser)
+          }
+      }
+  }
+
+  /**
+   * Maps the server response after adding a list to a BasicList object.
+   * @param data Response from add list request.
+   * @returns BasicList with title, description, and id.
+   */
+  addlistUserResponse(data: addlistresponse): BasicList {
+    return {title:data.data.attributes.Title, description:data.data.attributes.Description, id:data.data.id+&quot;&quot;}
+  }
+
+  /**
+   * Prepares the request body for updating a favorite list.
+   * @param data The BasicList data with updates.
+   * @returns The formatted request body for list update.
+   */
+  updatelistbody(data:BasicList):CreateListUpdate{
+    return {
+      data:{
+        Title:data.title,
+        Description:data.description
+      }
+    }
+  }
+
+  /**
+   * Prepares the request body to remove a crypto from a favorite list.
+   * @param data The crypto ID to disconnect.
+   * @returns The formatted request body to remove crypto.
+   */
+  deletecryptofromlist(data: string):deletecryptofromfavoritelist {
+    return {
+      data:{
+        cryptos:{
+          disconnect:[{id:data}]
+        }
+      }
+    }
+  }
+
+  /**
+   * Extracts the crypto ID from the response filtering by cryptoId.
+   * @param data The response data containing cryptos.
+   * @param cryptoid The crypto ID to find.
+   * @returns The found crypto ID or -1 if not found.
+   */
+  findcryptobyidresponse(data: getallresponse,cryptoid:string) {
+    let filter&#x3D;data.data.filter(c&#x3D;&gt;c.attributes.cryptoId&#x3D;&#x3D;cryptoid)
+    if(filter.length&gt;&#x3D;1){
+      return filter[0].id;
+    }else{
+      return -1
+    }
+  }
+
+  /**
+   * Maps the response from adding a crypto to the database to BasicCrypto.
+   * @param data The response data.
+   * @returns BasicCrypto with id, name, and symbol.
+   */
+  addcryptoresponse(data: any):BasicCrypto {
+    return {
+      id:data.data.attributes.cryptoId,
+      name:data.data.attributes.Name,
+      symbol:data.data.attributes.symbol
+    }
+  }
+
+  /**
+   * Prepares the request body to add a crypto to the database.
+   * @param data The BasicCrypto to add.
+   * @returns The formatted request body.
+   */
+  addcryptotodatabase(data: BasicCrypto):addcrypto {
+    return {data:{
+      cryptoId:data.id,
+      symbol:data.symbol,
+      Name:data.name
+    }}
+  }
+
+  /**
+   * Prepares the request body to add a crypto to a favorite list.
+   * @param id The crypto ID to connect.
+   * @returns The formatted request body.
+   */
+  addcryptotolist(id:string):updatecryptofromfavoritelist{
+    return {
+      data:{
+        cryptos:{
+          connect:[{id:parseInt(id)}]
+        }
+      }
+    }
+  }
+
+  /**
+   * Prepares the request body to update user data.
+   * @param data Object containing user data to update.
+   * @returns Object with updated fields.
+   */
+  updateuserdata(data: updateuser) {
+    let value:any&#x3D;{}
+    
+    if(data.email!&#x3D;undefined){
+      value.email&#x3D;data.email
+      return {email:data.email,gender:data.gender,username:data.username}
+    }
+    if(data.password!&#x3D;undefined){
+      value.password&#x3D;data.email
+      return {password:data.password}
+    }
+    
+    if(data.image!&#x3D;null){
+      return {image:data.image}
+    }
+    return value
+  }
+
+  /**
+   * Maps the raw user data response to BasicUser model.
+   * @param data The raw user data.
+   * @returns BasicUser object with user info.
+   */
+  GetBasicUser(data:any):BasicUser{
+    if(data.image!&#x3D;undefined){
+      return {
+        gender:data.gender,
+        id:&quot;&quot;+data.id,
+        email:data.email,
+        username:data.username,
+        img:data.image.url,
+        isAdmin:data.isAdmin??false
+      }
+    }else{
+      return {
+        gender:data.gender,
+        id:&quot;&quot;+data.id,
+        email:data.email,
+        username:data.username,
+        img:&quot;&quot;,
+        isAdmin:data.isAdmin??false
+      }
+    }
+  }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'StrapiUserMapping.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1211 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  FormularyComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/formulary/formulary.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-formulary</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./formulary.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./formulary.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#Formulary" >Formulary</a>
+                            </li>
+                            <li>
+                                <a href="#passwordIcon" >passwordIcon</a>
+                            </li>
+                            <li>
+                                <a href="#passwordType" >passwordType</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
+                                <a href="#typebackend" >typebackend</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#hideShowPassword" >hideShowPassword</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#submitForm" >submitForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#type" >type</a>
+                            </li>
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#emitter" >emitter</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#email" >email</a>
+                                </li>
+                                <li>
+                                    <a href="#password" >password</a>
+                                </li>
+                                <li>
+                                    <a href="#username" >username</a>
+                                </li>
+                                <li>
+                                    <a href="#gender" >gender</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fbbuilder: FormBuilder, typebackend: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fbbuilder</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>typebackend</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;login&quot;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:25</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user"></a>
+                        <b>user</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/BasicUser.html" target="_self" >BasicUser</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:26</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="emitter"></a>
+                        <b>emitter</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:24</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideShowPassword"></a>
+                    <span class="name">
+                        <span ><b>hideShowPassword</b></span>
+                        <a href="#hideShowPassword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>hideShowPassword()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/shared/formulary/formulary.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Toggles password visibility between &#39;password&#39; and &#39;text&#39; input types.
+Also toggles the password icon.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="36"
+                                    class="link-to-prism">src/app/shared/formulary/formulary.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the form controls and validators based on the <code>type</code> input.
+Also pre-fills values for update mode and disables email input if using Firebase backend.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submitForm"></a>
+                    <span class="name">
+                        <span ><b>submitForm</b></span>
+                        <a href="#submitForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submitForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/shared/formulary/formulary.component.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Submits the form and emits an object with the user data depending on the form type.</p>
+<ul>
+<li>For &quot;register&quot;: emits { username, email, password, gender }</li>
+<li>For &quot;login&quot;: emits { email, password }</li>
+<li>For &quot;update&quot;: emits { email, username, gender }</li>
+</ul>
+<p>Also resets form states to pristine and untouched after update.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Formulary"></a>
+                    <span class="name">
+                        <span ><b>Formulary</b></span>
+                        <a href="#Formulary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordIcon"></a>
+                    <span class="name">
+                        <span ><b>passwordIcon</b></span>
+                        <a href="#passwordIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;eye-off&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="passwordType"></a>
+                    <span class="name">
+                        <span ><b>passwordType</b></span>
+                        <a href="#passwordType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;password&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typebackend"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>typebackend</b></span>
+                        <a href="#typebackend"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Inject(BACKEND_TOKEN)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="email"></a>
+                        <span class="name"><b>email</b><a href="#email"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>email()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:82</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter for the email form control.</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="password"></a>
+                        <span class="name"><b>password</b><a href="#password"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>password()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:89</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter for the password form control.</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="username"></a>
+                        <span class="name"><b>username</b><a href="#username"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>username()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:96</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter for the username form control.</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gender"></a>
+                        <span class="name"><b>gender</b><a href="#gender"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>gender()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/shared/formulary/formulary.component.ts:103</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter for the gender form control.</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Inject, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { BasicUser } from &#x27;src/app/core/models/User.model&#x27;;
+import { BACKEND_TOKEN } from &#x27;src/app/core/repositories/repository.tokens&#x27;;
+
+@Component({
+  selector: &#x27;app-formulary&#x27;,
+  templateUrl: &#x27;./formulary.component.html&#x27;,
+  styleUrls: [&#x27;./formulary.component.scss&#x27;],
+})
+/**
+ * Form component that handles user authentication and profile management.
+ * Supports three modes controlled by the &#x60;type&#x60; input:
+ * - &quot;login&quot;: Form for user login with email and password fields.
+ * - &quot;register&quot;: Form for new user registration with username, email, password, and gender.
+ * - &quot;update&quot;: Form to update user information with username, email, and gender.
+ * 
+ * Emits the form data through the &#x60;emitter&#x60; output when submitted.
+ * 
+ * Disables email field when using Firebase backend during update mode.
+ */
+export class FormularyComponent  implements OnInit {
+  Formulary!: FormGroup;
+  @Output() emitter:EventEmitter&lt;any&gt; &#x3D;new EventEmitter&lt;any&gt;()
+  @Input() type:string&#x3D;&quot;login&quot;
+  @Input() user?:BasicUser
+  constructor(
+    private fbbuilder: FormBuilder,
+    @Inject(BACKEND_TOKEN) public typebackend:string
+  ) { }
+
+  /**
+   * Initializes the form controls and validators based on the &#x60;type&#x60; input.
+   * Also pre-fills values for update mode and disables email input if using Firebase backend.
+   */
+  ngOnInit() {
+    const emailPattern &#x3D; /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if(this.type&#x3D;&#x3D;&quot;register&quot;){
+      this.Formulary &#x3D; this.fbbuilder.group({
+        username:[&#x27;&#x27;,[Validators.required]],
+        email: [&#x27;&#x27;, [Validators.required,Validators.pattern(emailPattern)]],
+        password: [&#x27;&#x27;, [Validators.required,Validators.minLength(6)]],
+        gender:[&#x27;&#x27;,[Validators.required]]
+      });
+    }else if(this.type&#x3D;&#x3D;&quot;login&quot;){
+      this.Formulary &#x3D; this.fbbuilder.group({
+        email: [&#x27;&#x27;, [Validators.required,Validators.pattern(emailPattern)]],
+        password: [&#x27;&#x27;, [Validators.required,Validators.minLength(6)]],
+      });
+    }else if(this.type&#x3D;&#x3D;&quot;update&quot;){
+      this.Formulary &#x3D; this.fbbuilder.group({
+        username:[&#x27;&#x27;,[Validators.required]],
+        email: [&#x27;&#x27;, [Validators.required,Validators.pattern(emailPattern)]],
+        gender:[&#x27;&#x27;,[Validators.required]]
+      });
+      this.Formulary.get(&#x27;username&#x27;)?.setValue(this.user?.username)
+      this.Formulary.get(&#x27;email&#x27;)?.setValue(this.user?.email)
+      this.Formulary.get(&#x27;gender&#x27;)?.setValue(this.user?.gender);
+
+      if(this.typebackend&#x3D;&#x3D;&quot;firebase&quot;){
+        this.Formulary.get(&#x27;email&#x27;)?.disable()
+      }
+    }
+  }
+
+  passwordType: string &#x3D; &#x27;password&#x27;;
+  passwordIcon: string &#x3D; &#x27;eye-off&#x27;;
+
+  /**
+   * Toggles password visibility between &#x27;password&#x27; and &#x27;text&#x27; input types.
+   * Also toggles the password icon.
+   */
+  hideShowPassword() {
+    this.passwordType &#x3D; this.passwordType &#x3D;&#x3D;&#x3D; &#x27;text&#x27; ? &#x27;password&#x27; : &#x27;text&#x27;;
+    this.passwordIcon &#x3D; this.passwordIcon &#x3D;&#x3D;&#x3D; &#x27;eye-off&#x27; ? &#x27;eye&#x27; : &#x27;eye-off&#x27;;
+  }
+
+  /**
+   * Getter for the email form control.
+   */
+  get email(){
+    return this.Formulary.controls[&#x27;email&#x27;];
+  }
+
+  /**
+   * Getter for the password form control.
+   */
+  get password(){
+    return this.Formulary.controls[&#x27;password&#x27;];
+  }
+
+  /**
+   * Getter for the username form control.
+   */
+  get username(){
+    return this.Formulary.controls[&#x27;username&#x27;];
+  }
+
+  /**
+   * Getter for the gender form control.
+   */
+  get gender(){
+    return this.Formulary.controls[&#x27;gender&#x27;];
+  }
+
+  /**
+   * Submits the form and emits an object with the user data depending on the form type.
+   * - For &quot;register&quot;: emits { username, email, password, gender }
+   * - For &quot;login&quot;: emits { email, password }
+   * - For &quot;update&quot;: emits { email, username, gender }
+   * 
+   * Also resets form states to pristine and untouched after update.
+   */
+  submitForm(){
+    if(this.type&#x3D;&#x3D;&quot;register&quot;){
+      let username:string&#x3D;this.Formulary.get(&quot;username&quot;)?.value
+      let email:string&#x3D;this.Formulary.get(&quot;email&quot;)?.value
+      let password:string&#x3D;this.Formulary.get(&quot;password&quot;)?.value
+      let gender:any&#x3D;this.Formulary.get(&quot;gender&quot;)?.value
+      let userregister&#x3D;{username:username,email:email,password:password,gender:gender.value}
+      this.emitter.emit(userregister)
+    }else if(this.type&#x3D;&#x3D;&quot;login&quot;){
+      let email:string&#x3D;this.Formulary.get(&quot;email&quot;)?.value
+      let password:string&#x3D;this.Formulary.get(&quot;password&quot;)?.value
+      let userlogin&#x3D;{email:email,password:password}
+      this.emitter.emit(userlogin)
+    }else if(this.type&#x3D;&#x3D;&quot;update&quot;){
+      let username:string&#x3D;this.Formulary.get(&quot;username&quot;)?.value
+      let email:string&#x3D;this.Formulary.get(&quot;email&quot;)?.value
+      let gender:any&#x3D;this.Formulary.get(&quot;gender&quot;)?.value
+      let userupdate&#x3D;{email:email,username:username,gender:gender.value}
+      this.Formulary.markAsPristine();
+      this.Formulary.markAsUntouched();
+      this.emitter.emit(userupdate)
+    }
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;Formulary&quot; (ngSubmit)&#x3D;&quot;submitForm()&quot; novalidate &gt;
+  &lt;ion-img src&#x3D;&quot;../../assets/logo.jpeg&quot; style&#x3D;&quot;width: 40%; margin: auto; &quot; class&#x3D;&quot;image&quot; *ngIf&#x3D;&quot;type&#x3D;&#x3D;&#x27;register&#x27; || type&#x3D;&#x3D;&#x27;login&#x27;&quot;/&gt;&lt;br&gt;
+  
+  &lt;!--username--&gt;
+  &lt;ion-item *ngIf&#x3D;&quot;type&#x3D;&#x3D;&#x27;register&#x27; || type&#x3D;&#x3D;&#x27;update&#x27;&quot;&gt;
+    &lt;ion-input  formControlName&#x3D;&quot;username&quot; label&#x3D;&quot;{{&#x27;CRUDUSER.USERNAME&#x27; | translate}}&quot; labelPlacement&#x3D;&quot;floating&quot; placeholder&#x3D;&quot;example1234&quot;&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
+  &lt;ion-text class&#x3D;&quot;input-error&quot; color&#x3D;&quot;danger&quot; *ngIf&#x3D;&quot;username?.invalid  &amp;&amp; (username?.dirty || username?.touched) &amp;&amp; type&#x3D;&#x3D;&#x27;register&#x27; || type&#x3D;&#x3D;&#x27;update&#x27;&quot; &gt;
+    &lt;p *ngIf&#x3D;&quot;username?.errors?.[&#x27;required&#x27;]&quot;&gt;{{&#x27;CRUDUSER.ERRORS.USERNAMEREQUIRED&#x27; | translate}}&lt;/p&gt;
+  &lt;/ion-text&gt;
+  
+  &lt;!--email--&gt;
+  &lt;ion-item&gt;
+    &lt;ion-input  formControlName&#x3D;&quot;email&quot; label&#x3D;&quot;{{&#x27;CRUDUSER.EMAIL&#x27; | translate}}&quot; labelPlacement&#x3D;&quot;floating&quot; placeholder&#x3D;&quot;example@example.com&quot;&gt;&lt;/ion-input&gt;
+  &lt;/ion-item&gt;
+  
+  &lt;ion-text class&#x3D;&quot;input-error&quot; color&#x3D;&quot;danger&quot; *ngIf&#x3D;&quot;email?.invalid &amp;&amp; (email?.dirty || email?.touched)&quot;&gt;
+    &lt;p *ngIf&#x3D;&quot;email?.errors?.[&#x27;required&#x27;]&quot;&gt;{{&#x27;CRUDUSER.ERRORS.EMAILREQUIRED&#x27; | translate}}&lt;/p&gt;
+    &lt;p *ngIf&#x3D;&quot;email?.errors?.[&#x27;pattern&#x27;]&quot;&gt;{{&#x27;CRUDUSER.ERRORS.VALIDEDMAIL&#x27; | translate}}&lt;/p&gt;
+  &lt;/ion-text&gt;
+
+  &lt;!--password--&gt;
+  &lt;ion-item *ngIf&#x3D;&quot;type&#x3D;&#x3D;&#x27;login&#x27; || type&#x3D;&#x3D;&#x27;register&#x27;&quot;&gt;
+    &lt;ion-input [type]&#x3D;&quot;passwordType&quot;formControlName&#x3D;&quot;password&quot; label&#x3D;&quot;{{&#x27;CRUDUSER.PASSWORD&#x27; | translate}}&quot; labelPlacement&#x3D;&quot;floating&quot; placeholder&#x3D;&quot;*********&quot;/&gt;
+    &lt;ion-button (click)&#x3D;&#x27;hideShowPassword()&#x27;  fill&#x3D;&quot;clear&quot; &gt;
+      &lt;ion-icon item-end [name]&#x3D;&quot;passwordIcon&quot; class&#x3D;&quot;passwordIcon&quot;  /&gt;
+    &lt;/ion-button&gt;
+  &lt;/ion-item&gt;
+  &lt;ion-text class&#x3D;&quot;input-error&quot; color&#x3D;&quot;danger&quot; *ngIf&#x3D;&quot;password?.invalid &amp;&amp; (password?.dirty || password?.touched) &amp;&amp; (type&#x3D;&#x3D;&#x27;register&#x27; || type&#x3D;&#x3D;&#x27;login&#x27;) &quot; &gt;
+    &lt;p *ngIf&#x3D;&quot;password?.errors?.[&#x27;required&#x27;]&quot;&gt;{{&#x27;CRUDUSER.ERRORS.PASSWORDREQUIRED&#x27; | translate}}&lt;/p&gt;
+    &lt;p *ngIf&#x3D;&quot;password?.errors?.[&#x27;minlength&#x27;]&quot;&gt;{{&#x27;CRUDUSER.ERRORS.PASSWORDMINLENGHT&#x27; | translate}}&lt;/p&gt;
+  &lt;/ion-text&gt;
+
+  &lt;!--genero--&gt;
+  &lt;div id&#x3D;&quot;valueaccessor&quot; *ngIf&#x3D;&quot;type&#x3D;&#x3D;&#x27;register&#x27; || type&#x3D;&#x3D;&#x27;update&#x27;&quot;&gt;
+    &lt;app-custom-gender  formControlName&#x3D;&quot;gender&quot; &gt;&lt;/app-custom-gender&gt;
+  &lt;/div&gt;
+  &lt;ion-text class&#x3D;&quot;input-error&quot; color&#x3D;&quot;danger&quot; *ngIf&#x3D;&quot;gender?.invalid &amp;&amp; (gender?.dirty || gender?.touched)&quot;&gt;
+    &lt;p *ngIf&#x3D;&quot;gender?.errors?.[&#x27;required&#x27;]&quot;&gt;{{&#x27;CRUDUSER.ERRORS.GENDERSELECTED&#x27; | translate}}&lt;/p&gt;
+  &lt;/ion-text&gt;
+
+  &lt;ion-row&gt;
+    &lt;ion-col&gt;
+      &lt;ion-button type&#x3D;&quot;submit&quot; expand&#x3D;&quot;block&quot; [disabled]&#x3D;&quot;!Formulary.valid&quot; *ngIf&#x3D;&quot;type&#x3D;&#x3D;&#x27;register&#x27;&quot;&gt;
+        {{&#x27;CRUDUSER.REGISTER.REGISTER&#x27; | translate}}
+      &lt;/ion-button&gt;&lt;br&gt;
+      &lt;ion-button type&#x3D;&quot;submit&quot; expand&#x3D;&quot;block&quot; [disabled]&#x3D;&quot;!Formulary.valid&quot; *ngIf&#x3D;&quot;type&#x3D;&#x3D;&#x27;login&#x27;&quot;&gt;
+        {{&#x27;CRUDUSER.LOGIN.LOGIN&#x27; | translate}}
+      &lt;/ion-button&gt;
+      &lt;ion-button type&#x3D;&quot;submit&quot; expand&#x3D;&quot;block&quot; [disabled]&#x3D;&quot;!Formulary.valid || !Formulary.dirty&quot; *ngIf&#x3D;&quot;type&#x3D;&#x3D;&#x27;update&#x27;&quot;&gt;
+        {{&#x27;CRUDUSER.UPDATE.UPDATEDATA&#x27; | translate}}
+      &lt;/ion-button&gt;
+
+      &lt;ion-text id&#x3D;&quot;or&quot; class&#x3D;&quot;ion-text-center&quot;  *ngIf&#x3D;&quot;type!&#x3D;&#x27;update&#x27;&quot;&gt;{{&#x27;COMMON.OR&#x27; | translate}}&lt;/ion-text&gt;&lt;br&gt;
+      
+      
+      &lt;ion-button expand&#x3D;&quot;block&quot; [routerLink]&#x3D;&quot;&#x27;/login&#x27;&quot; *ngIf&#x3D;&quot;type&#x3D;&#x3D;&#x27;register&#x27;&quot;&gt;
+        {{&#x27;CRUDUSER.LOGIN.LOGIN&#x27; | translate}}
+      &lt;/ion-button&gt;
+      &lt;ion-button expand&#x3D;&quot;block&quot; [routerLink]&#x3D;&quot;&#x27;/register&#x27;&quot; *ngIf&#x3D;&quot;type&#x3D;&#x3D;&#x27;login&#x27;&quot;&gt;
+        {{&#x27;CRUDUSER.REGISTER.REGISTER&#x27; | translate}}
+      &lt;/ion-button&gt;
+      
+    &lt;/ion-col&gt;
+  &lt;/ion-row&gt;
+&lt;/form&gt;
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./formulary.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.class-center {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  }
+  
+  form {
+    width: 50%; /* Ancho del formulario (50% del ancho de la pantalla) */
+    min-width: 350px; /* Ancho mínimo del formulario para pantallas pequeñas */
+    margin: 0 auto; /* Esto asegura que se centre si el formulario no tiene &#x60;position: absolute&#x60; */
+    margin-top: 20px;
+  }
+  
+  ion-item {
+    margin-top: 10px !important; /* Espaciado superior en los items */
+  }
+  
+  ion-button {
+    margin-top: 10px !important; /* Espaciado superior en el botón */
+    margin-bottom: 10px !important; /* Espaciado inferior en el botón */
+  }
+  
+  ion-title {
+    text-align: center;
+  }
+  
+  #or{
+    display: block;
+  }
+  
+  ion-icon{
+    font-size: 24px
+  }
+  
+  .image{
+    border-radius: 20px !important;
+    overflow: hidden;
+    max-width: 300px;
+  }
+
+  p{
+    margin-left: 15px;
+  }
+  #valueaccessor{
+    margin-left: 15px;
+    margin-bottom: 5px;
+  }
+  
+  ion-content {
+    padding-top: 20px; /* Evita que el contenido quede pegado al header */
+    overflow-y: auto; /* Permite que el contenido sea desplazable si es necesario */
+  }
+  
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="Formulary" (ngSubmit)="submitForm()" novalidate >  <ion-img src="../../assets/logo.jpeg" style="width: 40%; margin: auto; " class="image" *ngIf="type==\'register\' || type==\'login\'"/><br>    <!--username-->  <ion-item *ngIf="type==\'register\' || type==\'update\'">    <ion-input  formControlName="username" label="{{\'CRUDUSER.USERNAME\' | translate}}" labelPlacement="floating" placeholder="example1234"></ion-input>  </ion-item>  <ion-text class="input-error" color="danger" *ngIf="username?.invalid  && (username?.dirty || username?.touched) && type==\'register\' || type==\'update\'" >    <p *ngIf="username?.errors?.[\'required\']">{{\'CRUDUSER.ERRORS.USERNAMEREQUIRED\' | translate}}</p>  </ion-text>    <!--email-->  <ion-item>    <ion-input  formControlName="email" label="{{\'CRUDUSER.EMAIL\' | translate}}" labelPlacement="floating" placeholder="example@example.com"></ion-input>  </ion-item>    <ion-text class="input-error" color="danger" *ngIf="email?.invalid && (email?.dirty || email?.touched)">    <p *ngIf="email?.errors?.[\'required\']">{{\'CRUDUSER.ERRORS.EMAILREQUIRED\' | translate}}</p>    <p *ngIf="email?.errors?.[\'pattern\']">{{\'CRUDUSER.ERRORS.VALIDEDMAIL\' | translate}}</p>  </ion-text>  <!--password-->  <ion-item *ngIf="type==\'login\' || type==\'register\'">    <ion-input [type]="passwordType"formControlName="password" label="{{\'CRUDUSER.PASSWORD\' | translate}}" labelPlacement="floating" placeholder="*********"/>    <ion-button (click)=\'hideShowPassword()\'  fill="clear" >      <ion-icon item-end [name]="passwordIcon" class="passwordIcon"  />    </ion-button>  </ion-item>  <ion-text class="input-error" color="danger" *ngIf="password?.invalid && (password?.dirty || password?.touched) && (type==\'register\' || type==\'login\') " >    <p *ngIf="password?.errors?.[\'required\']">{{\'CRUDUSER.ERRORS.PASSWORDREQUIRED\' | translate}}</p>    <p *ngIf="password?.errors?.[\'minlength\']">{{\'CRUDUSER.ERRORS.PASSWORDMINLENGHT\' | translate}}</p>  </ion-text>  <!--genero-->  <div id="valueaccessor" *ngIf="type==\'register\' || type==\'update\'">    <app-custom-gender  formControlName="gender" ></app-custom-gender>  </div>  <ion-text class="input-error" color="danger" *ngIf="gender?.invalid && (gender?.dirty || gender?.touched)">    <p *ngIf="gender?.errors?.[\'required\']">{{\'CRUDUSER.ERRORS.GENDERSELECTED\' | translate}}</p>  </ion-text>  <ion-row>    <ion-col>      <ion-button type="submit" expand="block" [disabled]="!Formulary.valid" *ngIf="type==\'register\'">        {{\'CRUDUSER.REGISTER.REGISTER\' | translate}}      </ion-button><br>      <ion-button type="submit" expand="block" [disabled]="!Formulary.valid" *ngIf="type==\'login\'">        {{\'CRUDUSER.LOGIN.LOGIN\' | translate}}      </ion-button>      <ion-button type="submit" expand="block" [disabled]="!Formulary.valid || !Formulary.dirty" *ngIf="type==\'update\'">        {{\'CRUDUSER.UPDATE.UPDATEDATA\' | translate}}      </ion-button>      <ion-text id="or" class="ion-text-center"  *ngIf="type!=\'update\'">{{\'COMMON.OR\' | translate}}</ion-text><br>                  <ion-button expand="block" [routerLink]="\'/login\'" *ngIf="type==\'register\'">        {{\'CRUDUSER.LOGIN.LOGIN\' | translate}}      </ion-button>      <ion-button expand="block" [routerLink]="\'/register\'" *ngIf="type==\'login\'">        {{\'CRUDUSER.REGISTER.REGISTER\' | translate}}      </ion-button>          </ion-col>  </ion-row></form></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminFormularyComponent', 'selector': 'app-admin-formulary'},{'name': 'AdminPanelPage', 'selector': 'app-admin-panel'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CryptocardComponent', 'selector': 'app-cryptocard'},{'name': 'CryptosimplecardComponent', 'selector': 'app-cryptosimplecard'},{'name': 'CryptoviewPage', 'selector': 'app-cryptoview'},{'name': 'CustomGenderComponent', 'selector': 'app-custom-gender'},{'name': 'FormularyComponent', 'selector': 'app-formulary'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ListcontentPage', 'selector': 'app-listcontent'},{'name': 'ListcryptoComponent', 'selector': 'app-listcrypto'},{'name': 'ListformularyComponent', 'selector': 'app-listformulary'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SearchPage', 'selector': 'app-search'},{'name': 'SplashPage', 'selector': 'app-splash'}];
+    var DIRECTIVES = [{'name': 'BackgraphbuttonDirective', 'selector': '[appBackgraphbutton]'},{'name': 'ColorpercentDirective', 'selector': '[appColorpercent]'}];
+    var ACTUAL_COMPONENT = {'name': 'FormularyComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'FormularyComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

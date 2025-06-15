@@ -1,0 +1,272 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/4255c1eb-32a5-4d36-a882-489682f48b02" alt="logo" width="300"/><br>
+</p> 
+
+<h2>CryptoWizzard 🚀</h2>
+<p>CryptoWizzard es una aplicación para consultar el precio de criptomonedas en tiempo real, con soporte para diferentes monedas como el Euro (EUR), el Dólar (USD) y la Libra Esterlina (GBP). Además, ofrece la funcionalidad de crear listas personalizadas para guardar las criptomonedas que más te interesen, facilitando un acceso rápido a ellas.</p>
+<p>La aplicación está construida con <strong>Angular</strong>, <strong>Ionic</strong> y <strong>PrimeNG</strong>, y utiliza <strong>Chart.js</strong> para ofrecer gráficos interactivos de tendencias de precios.</p>
+<h2>Características ✨</h2>
+<ul>
+<li><strong>Consulta en tiempo real</strong>: Obtén los precios actualizados de criptomonedas populares.</li>
+<li><strong>Monedas de referencia</strong>: Visualiza los precios en diferentes monedas como EUR, USD y GBP.</li>
+<li><strong>Listas personalizadas</strong>: Crea y guarda tus listas personalizadas con criptomonedas para acceder rápidamente a ellas.</li>
+<li><strong>Gráficos interactivos</strong>: Visualiza la evolución del precio de las criptomonedas con gráficos dinámicos usando <strong>Chart.js</strong> 📊.</li>
+<li><strong>Splash animado</strong>: La aplicación muestra un <strong>splash screen</strong> con animaciones interactivas creadas con <strong>Lottie</strong> para una experiencia de usuario atractiva 🎨.</li>
+<li><strong>Soporte multilingüe</strong>: La aplicación está disponible en <strong>inglés y español</strong>, lo que permite a los usuarios elegir su idioma preferido 🌍.</li>
+<li><strong>Interfaz fluida</strong>: Desarrollada con <strong>Angular</strong> y <strong>Ionic</strong>, garantizando una experiencia óptima tanto en dispositivos móviles como en escritorio 📱💻.</li>
+<li><strong>Reconocimiento de voz</strong>: Reconocimiento de voz disponible tanto en ordenador como para móviles.</li>
+</ul>
+<h2>Tecnologías 🛠️</h2>
+<ul>
+<li><strong>Angular</strong>: Framework principal para la creación de la aplicación web.</li>
+<li><strong>Ionic</strong>: Framework para el desarrollo de aplicaciones móviles multiplataforma (Android e iOS).</li>
+<li><strong>Strapi</strong>: Usamos <strong>Strapi</strong> como backend para gestionar el contenido y las configuraciones de la aplicación. Strapi es un CMS de código abierto que permite la creación rápida de APIs RESTful y GraphQL, facilitando la integración de datos dinámicos en la app.</li>
+<li><strong>Firebase</strong>: Usamos <strong>Firebase</strong> como backend para gestionar el contenido y las configuraciones de la aplicación. Firebase es una plataforma de desarrollo de Google que proporciona una base de datos en tiempo real y Firestore, permitiendo la creación rápida de API y 
+la integración de datos dinámicos en la app. Además, ofrece servicios como autenticación, funciones en la nube y hosting, facilitando el desarrollo y escalabilidad de la aplicación.</li>
+<li><strong>Render</strong>: La aplicación está desplegada en <strong>Render</strong>, una plataforma de despliegue en la nube que facilita la gestión de aplicaciones y bases de datos, permitiendo escalar de forma automática según las necesidades del proyecto ☁️.</li>
+<li><strong>Cloudinary</strong>: Para gestionar y almacenar imágenes y medios, utilizamos <strong>Cloudinary</strong>.</li>
+<li><strong>PrimeNG</strong>: Biblioteca de componentes UI que proporciona una interfaz atractiva y fácil de usar.</li>
+<li><strong>Plugin de Capacitor</strong>: Uso de plugin de capacitor para reconocimiento de voz.</li>
+<li><strong>Lottie</strong>: Usado para mostrar animaciones en el splash de la aplicación.</li>
+<li><strong>Chart.js</strong>: Biblioteca para generar gráficos interactivos de tendencias de precios.</li>
+<li><strong>Pipes y Directivas</strong>: Uso de pipes personalizados para el formateo de datos y directivas para mejorar la funcionalidad de la interfaz.</li>
+</ul>
+<h2>Enlace para probar la aplicación 🔗</h2>
+<p>La aplicación está desplegada en Netlify y puedes probarla directamente haciendo clic en el siguiente enlace:</p>
+<p><a href="https://cryptowizzardtfg.netlify.app/"><strong>CryptoWizzard en Netlify</strong></a></p>
+<h2>Imagenes 📸</h2>
+<p align="center">Login</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/79319bbe-cb4c-4db9-b2ee-6661f196fb77" /> 
+</p> 
+
+<p align="center">Register</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/83161565-a720-4372-aae9-0482fbf02b0b" /> 
+</p> 
+
+<p align="center">Perfil</p>
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/9ae9543f-5d38-4a68-8d0a-dab7ccdf7bec" /> 
+</p> 
+
+<p align="center">Listas</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/31d0b884-29ca-48bd-a669-86e6ea0e262f" /> 
+</p> 
+
+<p align="center">Actualizar Lista</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/8b83d0b2-65e5-40cc-afab-ac8d3bb30af4" /> 
+</p> 
+
+<p align="center">Interior de lista</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/5df961a2-634f-48aa-96e3-4335c6bf4d41" /> 
+</p> 
+
+<p align="center">Buscador</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/1671a79b-a8c9-4d4c-a333-ca7c192db546" /> 
+</p> 
+
+<p align="center">Home</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/39870863-3670-45ce-88ec-d8aba41c127d" /> 
+</p> 
+
+<p align="center">Gráfica</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/dc21885a-521b-4f16-8f2d-cb25ca4a8e47" /> 
+</p> 
+
+<p align="center">Ejemplo Android</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/f699025c-fdbd-400b-983e-4c7f1733bd7a" /> 
+</p> 
+
+<p align="center">Ejemplo Iphone</p> 
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/fcf3e57c-1ac6-4bda-a75d-398ef950422b" /> 
+</p> 
+
+<p align="center">Side Menu en móviles</p>
+<p align="center"> 
+  <img src="https://github.com/user-attachments/assets/db309d3b-45e7-4f5d-b292-46ff5b6ce742" /> 
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

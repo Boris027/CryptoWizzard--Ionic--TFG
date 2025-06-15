@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
@@ -8,25 +7,39 @@ import { lastValueFrom, Subscription } from 'rxjs';
 import { BasicUser, User } from 'src/app/core/models/User.model';
 import { AUTH_TOKEN, USER_SERVICE_TOKEN } from 'src/app/core/repositories/repository.tokens';
 import { BaseMediaService } from 'src/app/core/services/impl/media/base-media.service';
-import { TranslationService } from 'src/app/core/services/impl/translation.service';
 import { IAuthenticationService } from 'src/app/core/services/interfaces/authentication/authentication.interface';
 import { IUserbaseService } from 'src/app/core/services/interfaces/user/User-base-service.interface';
 import { SharedService } from 'src/app/shared/sharedservice/shared.service';
 
+/**
+ * Component to view and edit the current user's profile,
+ * including updating password, profile image, and selected currency.
+ * Also provides the ability to delete the user account.
+ */
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
-export class ProfilePage implements OnInit {
-
-
-
+export class ProfilePage {
   selectedCurrency: string="usd";
   user:BasicUser={id:"",email:"",username:"",img:"",gender:'',isAdmin:false}
   formularypassword: FormGroup;
   private subscriptions:Subscription[]=[]
 
+  /**
+   * Component constructor.
+   * Injects necessary services such as authentication, user service, form builder, translation, routing, alert controller, media service, and shared services.
+   *
+   * @param authservice Authentication service (injected with token).
+   * @param userservice User service for user operations (injected with token).
+   * @param fbbuilder Form builder for reactive forms.
+   * @param translate Translation service for internationalization.
+   * @param router Router service for navigation.
+   * @param alertcontroller Ionic alert controller.
+   * @param mediaService Media handling service (image upload).
+   * @param shared Shared service for displaying toasts/messages.
+   */
   constructor(
     @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
     @Inject(USER_SERVICE_TOKEN) private userservice:IUserbaseService<User>,
@@ -39,39 +52,46 @@ export class ProfilePage implements OnInit {
   ) { 
     this.authservice.setmenu(true)
     this.selectedCurrency=this.authservice.getCurrency()
-    
 
     this.formularypassword = this.fbbuilder.group({
       password: ['', [Validators.required,Validators.minLength(6)]],
     });
   }
 
+  /**
+   * Getter to access the password control of the reactive form.
+   */
   get password(){
     return this.formularypassword.controls['password'];
   }
 
-  
+  /**
+   * Updates the user's password via the user service.
+   * Resets the form on successful update.
+   */
   updatepassword() {
     this.userservice.updateuserdata({password:this.formularypassword.get('password')?.value}).subscribe({
       next:(value)=>{
           this.formularypassword.reset()
-          console.log(value)
       },
     })
   }
 
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
+
+  /**
+   * Toggles the visibility of the password field, changing the input type and associated icon.
+   */
   hideShowPassword() {
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
 }
 
-  ngOnInit() {
-    
-
-  }
-
+  /**
+   * Ionic lifecycle hook triggered each time the view is about to enter.
+   * Subscribes to user data updates and refreshes the profile information.
+   */
   ionViewWillEnter(){
     this.subscriptions.push(this.userservice.GetBehaviourUser().subscribe({
       next:(value)=>{
@@ -80,11 +100,19 @@ export class ProfilePage implements OnInit {
     }))
   }
 
+  /**
+   * Changes the selected currency for the application and updates the authentication service.
+   *
+   * @param event New selected currency.
+   */
   onChange($event: string) {
     this.authservice.setCurrency($event)
   }
 
-
+  /**
+   * Displays a confirmation dialog for account deletion.
+   * If confirmed, calls the service to delete the account, shows a toast, logs out, and navigates to the splash page.
+   */
   async deleteaccount(){
     const alert=await this.alertcontroller.create({
       header:this.translate.instant("PROFILE.DELETEACCOUNTQUESTION"),
@@ -99,7 +127,6 @@ export class ProfilePage implements OnInit {
             },
             error:(err)=>{
               this.shared.showToast("danger",this.translate.instant("CRUDUSER.ERRORS.DELETEACCOUNTFAILED"))
-
             },
           }))
         },
@@ -110,37 +137,40 @@ export class ProfilePage implements OnInit {
         }
       }]
     })
-
     alert.present()
-    
   }
 
-
-
+  /**
+   * Handles the profile image file change event.
+   * Validates the selected file, reads it as base64 for preview,
+   * uploads the image to the server, and updates the user profile.
+   *
+   * @param event File input change event.
+   */
   async onFileChange(event: any) {
     const file = event.target.files[0];
 
-    // Verifica si se ha seleccionado un archivo y es una imagen
     if (file && file.type.startsWith('image/')) {
       const reader = new FileReader();
 
-      // Lee el archivo y actualiza la imagen una vez cargada
       reader.onload = (e: any) => {
-        this.user.img = e.target.result; // Actualiza la imagen con la nueva seleccionada
+        this.user.img = e.target.result;
       };
 
       const blob = file;
-      //de este no hace falta desuscribirse ya que lo hace solo al completarse
       const uploadedBlob = await lastValueFrom(this.mediaService.upload(blob))
-      console.log(uploadedBlob)
-      //de este no hace falta desuscribirse ya que lo hace solo al completarse
       await lastValueFrom(this.userservice.updateuserdata({image:uploadedBlob[0]}));
-      console.log(blob)
 
-      reader.readAsDataURL(file); // Lee el archivo como una URL base64
+      reader.readAsDataURL(file);
     }
   }
 
+  /**
+   * Updates the user data with the provided event data.
+   * Displays success or error toast messages accordingly.
+   *
+   * @param event Object with user data fields to update.
+   */
   update(event:any){
     this.subscriptions.push(this.userservice.updateuserdata(event).subscribe({
       next:(value)=>{
@@ -149,13 +179,15 @@ export class ProfilePage implements OnInit {
         this.shared.showToast("danger",this.translate.instant("CRUDUSER.ERRORS.UPDATEFAILED"))
       },
     }))
-    console.log(event)
   }
 
+  /**
+   * Angular lifecycle hook called when the component is destroyed.
+   * Unsubscribes from all active subscriptions to prevent memory leaks.
+   */
   ngOnDestroy(){
     this.subscriptions.forEach(c=>{
       c.unsubscribe()
     })
   }
-
 }

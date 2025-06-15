@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, Subscription, switchMap } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { BasicList, CryptoList } from 'src/app/core/models/CryptoList.model';
 import { User } from 'src/app/core/models/User.model';
 import { AUTH_TOKEN, USER_SERVICE_TOKEN } from 'src/app/core/repositories/repository.tokens';
@@ -10,14 +10,27 @@ import { IUserbaseService } from 'src/app/core/services/interfaces/user/User-bas
 import { ListformularyComponent } from 'src/app/shared/listformulary/listformulary.component';
 import { SharedService } from 'src/app/shared/sharedservice/shared.service';
 
+/**
+ * ListPage component.
+ * 
+ * Manages user's lists: displaying, creating, updating and deleting lists.
+ * Uses modal dialogs for create/update forms and alerts for delete confirmation.
+ */
 @Component({
   selector: 'app-list',
   templateUrl: './list.page.html',
   styleUrls: ['./list.page.scss'],
 })
 export class ListPage implements OnInit {
-
-
+  /**
+   * Creates an instance of ListPage.
+   * @param modalController Controller to open modals
+   * @param authservice Authentication service to get user token and session info
+   * @param userservice User service to fetch and modify user data
+   * @param alertController Controller to create confirmation alerts
+   * @param translate Translation service for i18n strings
+   * @param shared Shared service for utilities (e.g. toasts)
+   */
   constructor(
     private modalController: ModalController,
     @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
@@ -31,6 +44,10 @@ export class ListPage implements OnInit {
   token:string=""
   lists:BasicList[]=[]
   private subscriptions:Subscription[]=[]
+
+  /**
+   * Lifecycle hook called once, initializes token and loads user's lists.
+   */
   ngOnInit() {
     this.token=this.authservice.getToken();
 
@@ -39,19 +56,30 @@ export class ListPage implements OnInit {
           this.lists=value
       },
     }))
-
-      
   }
 
+  /**
+   * Opens modal to create a new list.
+   */
   createlist(){
     this.presentModal("Create")
   }
 
+  /**
+   * Opens modal to update an existing list by id.
+   * @param id Id of the list to update
+   */
   updatelist(id:string){
     let lista=this.lists.find(c=>c.id==id+"")
     this.presentModal("Update",lista)
   }
 
+  /**
+   * Presents the ListformularyComponent modal for creating or updating a list.
+   * Handles the modal dismissal and triggers API calls accordingly.
+   * @param type "Create" or "Update"
+   * @param list Optional list object for update mode
+   */
   async presentModal(type:string,list?:BasicList) {
     const modal = await this.modalController.create({
       component: ListformularyComponent,
@@ -62,7 +90,6 @@ export class ListPage implements OnInit {
 
     const { data  } = await modal.onWillDismiss();
     if (data) {
-      console.log(data)
       if(type=="Create"){
         this.subscriptions.push(this.userservice.addlistToUser(data).subscribe({
           next:(value)=>{
@@ -84,10 +111,13 @@ export class ListPage implements OnInit {
           },
         }))
       }
-      
     }
   }
 
+  /**
+   * Deletes a list by id with API call and updates local array on success.
+   * @param id Id of the list to delete
+   */
   deletelist(id:string){
     this.subscriptions.push(this.userservice.removelistFromUser(id).subscribe({
       next:(value)=>{
@@ -97,25 +127,26 @@ export class ListPage implements OnInit {
       },
       error:(err)=>{
         this.shared.showToast("danger",this.translate.instant("LISTS.LISTDELETIONFAILED"))
-
       },
     }))
   }
 
-
+  /**
+   * Handles events from UI for list update or delete actions.
+   * @param event Object containing the action type and list id
+   */
   getdata(event: {type:string,id:string}) {
-    //console.log('Evento recibido:', event);
-
     if(event.type=="update"){
       this.updatelist(event.id)
     }else if(event.type=="delete"){
       this.alertdelete(event.id)
     }
-    
   }
 
-  
-
+  /**
+   * Shows a confirmation alert before deleting a list.
+   * @param id Id of the list to confirm deletion
+   */
   async alertdelete(id:string) {
     const alert = await this.alertController.create({
       header: this.translate.instant("LISTS.DELETELIST"),
@@ -125,9 +156,7 @@ export class ListPage implements OnInit {
           text: this.translate.instant("COMMON.CANCEL"),
           role: 'cancel',
           cssClass: 'secondary',
-          handler: () => {
-           //console.log('Cancelado');
-          }
+          handler: () => { }
         },
         {
           text: this.translate.instant("COMMON.DELETE"),
@@ -137,14 +166,16 @@ export class ListPage implements OnInit {
         }
       ]
     });
-
     await alert.present();
   }
 
+  /**
+   * Lifecycle hook called when component is destroyed.
+   * Unsubscribes from all subscriptions to prevent memory leaks.
+   */
   ngOnDestroy(){
     this.subscriptions.forEach(c=>{
       c.unsubscribe()
     })
   }
-
 }

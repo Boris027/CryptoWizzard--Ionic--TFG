@@ -1,0 +1,2168 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >FirebaseUserRepository</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/core/repositories/impl/user/Firebase-user.repository.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Repository class for managing User data via Firebase backend.
+Extends UserBaseRepository and implements IUserFirebaseRepository.</p>
+
+            </p>
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#addcryptotodatabase" >addcryptotodatabase</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#addCryptoToList" >addCryptoToList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#addlistToUser" >addlistToUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#AdminDeleteUser" >AdminDeleteUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#AdminGetUsersPagination" >AdminGetUsersPagination</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#AdminUpdateUser" >AdminUpdateUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#findcryptobyid" >findcryptobyid</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#GetBasicUser" >GetBasicUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#GetListFromUser" >GetListFromUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#removeCryptoFromList" >removeCryptoFromList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#removelistFromUser" >removelistFromUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#updatelistFromUser" >updatelistFromUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#updateuserdata" >updateuserdata</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(httpclient: HttpClient, api: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, mapping: IUserBaseMapping<User>, firebasemainservice: <a href="../interfaces/IFirebaseMainService.html" target="_self">IFirebaseMainService</a>, functions: AngularFireFunctions)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/core/repositories/impl/user/Firebase-user.repository.ts:23</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>httpclient</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>api</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mapping</td>
+                                                  
+                                                        <td>
+                                                                    <code>IUserBaseMapping&lt;User&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>firebasemainservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IFirebaseMainService.html" target="_self" >IFirebaseMainService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>functions</td>
+                                                  
+                                                        <td>
+                                                                    <code>AngularFireFunctions</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addcryptotodatabase"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>addcryptotodatabase</b></span>
+                        <a href="#addcryptotodatabase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addcryptotodatabase(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, crypto: <a href="../interfaces/BasicCrypto.html" target="_self">BasicCrypto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:323</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>crypto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BasicCrypto.html" target="_self" >BasicCrypto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addCryptoToList"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>addCryptoToList</b></span>
+                        <a href="#addCryptoToList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addCryptoToList(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idlist: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idcrypto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, crypto?: <a href="../interfaces/BasicCrypto.html" target="_self">BasicCrypto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:286</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adds a cryptocurrency to a user&#39;s list.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>idlist</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>List ID to add the crypto to.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>idcrypto</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Cryptocurrency ID.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>crypto</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BasicCrypto.html" target="_self" >BasicCrypto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Optional BasicCrypto object.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable emitting an empty string immediately.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addlistToUser"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>addlistToUser</b></span>
+                        <a href="#addlistToUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addlistToUser(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, list: <a href="../interfaces/BasicList.html" target="_self">BasicList</a>, iduser: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:216</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Adds a list to the authenticated user.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>list</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BasicList.html" target="_self" >BasicList</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>List data to add.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>iduser</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>User ID.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable emitting added list response.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminDeleteUser"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>AdminDeleteUser</b></span>
+                        <a href="#AdminDeleteUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminDeleteUser(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, iduser: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:125</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a user by ID.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>iduser</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>User ID to delete.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable for HTTP post deletion or error.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminGetUsersPagination"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>AdminGetUsersPagination</b></span>
+                        <a href="#AdminGetUsersPagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminGetUsersPagination(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, page: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, limitxd: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:81</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves a paginated list of users ordered by name.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Pagination cursor token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>page</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Page number.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>limitxd</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Number of users per page.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable emitting array of BasicUser or error.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AdminUpdateUser"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>AdminUpdateUser</b></span>
+                        <a href="#AdminUpdateUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AdminUpdateUser(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, iduser: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, gender: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, isAdminxd: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:44</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates user data as admin, including username, gender, and admin status.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>iduser</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>User ID to update.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>username</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>New username.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>gender</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>New gender.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>isAdminxd</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Boolean indicating admin status.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable emitting updated user info or error if no user logged in.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findcryptobyid"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>findcryptobyid</b></span>
+                        <a href="#findcryptobyid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findcryptobyid(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, idcrypto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:319</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>idcrypto</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetBasicUser"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>GetBasicUser</b></span>
+                        <a href="#GetBasicUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetBasicUser(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:138</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Gets BasicUser details for currently authenticated user.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>User ID (optional).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;BasicUser&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable emitting BasicUser or error.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetListFromUser"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>GetListFromUser</b></span>
+                        <a href="#GetListFromUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetListFromUser(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:165</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves list(s) associated with the authenticated user.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Optional list ID to get a specific list with cryptos.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable emitting lists or specific list with cryptos.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeCryptoFromList"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>removeCryptoFromList</b></span>
+                        <a href="#removeCryptoFromList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeCryptoFromList(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, listid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, cryptoid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:308</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes a cryptocurrency from a user&#39;s list.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>listid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>cryptoid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable emitting an empty string immediately.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removelistFromUser"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>removelistFromUser</b></span>
+                        <a href="#removelistFromUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removelistFromUser(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, listid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:240</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Removes a list from the authenticated user.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>listid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>List ID to remove.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable that completes after removal.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatelistFromUser"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>updatelistFromUser</b></span>
+                        <a href="#updatelistFromUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updatelistFromUser(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, list: <a href="../interfaces/BasicList.html" target="_self">BasicList</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:260</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates a list from the authenticated user.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>list</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BasicList.html" target="_self" >BasicList</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>List data to update.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable emitting updated list.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateuserdata"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>updateuserdata</b></span>
+                        <a href="#updateuserdata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateuserdata(token: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, userid: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../injectables/UserBaseRepository.html" target="_self" >UserBaseRepository</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../injectables/UserBaseRepository.html#source" target="_self" >UserBaseRepository:335</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Updates the authenticated user&#39;s basic data, such as username and gender.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>token</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Authentication token (not used in this implementation).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Object containing fields to update (username, gender).</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>userid</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>User ID (not directly used, authenticated user is used instead).</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable emitting the updated BasicUser after the update.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable } from &#x27;@angular/core&#x27;;
+import { IUserFirebaseRepository } from &#x27;../../interfaces/user/Firebase.interface&#x27;;
+import { UserBaseRepository } from &#x27;./UserBase.repository&#x27;;
+import { Observable, of } from &#x27;rxjs&#x27;;
+import { BasicCrypto } from &#x27;src/app/core/models/Crypto.model&#x27;;
+import { BasicList } from &#x27;src/app/core/models/CryptoList.model&#x27;;
+import { BasicUser, User } from &#x27;src/app/core/models/User.model&#x27;;
+import { FIREBASE_MAIN_SERVICE, USER_API_URL_TOKEN, USER_MAPPING_TOKEN } from &#x27;../../repository.tokens&#x27;;
+import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { IUserBaseMapping } from &#x27;../../interfaces/user/UserBaseMapping.interface&#x27;;
+import { getAuth, onAuthStateChanged } from &#x27;firebase/auth&#x27;;
+import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, orderBy, query, setDoc, updateDoc,limit,startAfter, startAt } from &#x27;firebase/firestore&#x27;;
+import { IFirebaseMainService } from &#x27;src/app/core/services/interfaces/firebasemain.service.interface&#x27;;
+import { AngularFireFunctions } from &#x27;@angular/fire/compat/functions&#x27;;
+
+/**
+ * Repository class for managing User data via Firebase backend.
+ * Extends UserBaseRepository and implements IUserFirebaseRepository.
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class FirebaseUserRepository extends UserBaseRepository&lt;User&gt; implements IUserFirebaseRepository  {
+  constructor(
+        httpclient:HttpClient,
+        @Inject(USER_API_URL_TOKEN) api:string,
+        @Inject(USER_MAPPING_TOKEN) mapping:IUserBaseMapping&lt;User&gt;,
+        @Inject (FIREBASE_MAIN_SERVICE) private firebasemainservice:IFirebaseMainService,
+        private functions: AngularFireFunctions
+    ){
+      super(httpclient,api,mapping)
+    }
+
+  /**
+   * Updates user data as admin, including username, gender, and admin status.
+   * 
+   * @param token Authentication token.
+   * @param iduser User ID to update.
+   * @param username New username.
+   * @param gender New gender.
+   * @param isAdminxd Boolean indicating admin status.
+   * @returns Observable emitting updated user info or error if no user logged in.
+   */
+  override AdminUpdateUser(token: string, iduser: string, username: string, gender: string, isAdminxd: boolean): Observable&lt;any&gt; {
+    let database:Firestore&#x3D;this.firebasemainservice.getfirestore()
+    const auth &#x3D; getAuth();
+    return new Observable((observer)&#x3D;&gt;{
+      onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+        if (user) {
+          const docref &#x3D; doc(database, &#x60;persons&#x60;, iduser);
+
+          let updatedoc:any&#x3D;{};
+          if(username!&#x3D;&quot;&quot;){
+            updatedoc.name&#x3D;username
+          }
+          if(gender!&#x3D;&quot;&quot; &amp;&amp; gender!&#x3D;undefined){
+            updatedoc.gender&#x3D;gender
+          }
+          if(isAdminxd&#x3D;&#x3D;true ||isAdminxd&#x3D;&#x3D;false){
+            updatedoc.isAdmin&#x3D;isAdminxd
+          }
+
+          let docupdate&#x3D;await updateDoc(docref,updatedoc); 
+          observer.next({iduser:iduser,username:username,gender:gender,isAdmin:isAdminxd})
+
+        }else {
+          observer.error(new Error(&quot;there is no user loged&quot;))
+        }
+      })
+    })
+  }
+
+  /**
+   * Retrieves a paginated list of users ordered by name.
+   * 
+   * @param token Pagination cursor token.
+   * @param page Page number.
+   * @param limitxd Number of users per page.
+   * @returns Observable emitting array of BasicUser or error.
+   */
+  override AdminGetUsersPagination(token: string, page: number, limitxd: number): Observable&lt;any&gt; {
+    const auth &#x3D; getAuth();
+        return new Observable ((observer)&#x3D;&gt;{
+            onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+                if (user) {
+                  const db &#x3D; this.firebasemainservice.getfirestore(); 
+                  const personsRef &#x3D; collection(db, &quot;persons&quot;);
+
+                  let docSnap:any&#x3D;&quot;&quot;;
+                  if(token!&#x3D;&quot;&quot;){
+                    docSnap &#x3D; await getDoc(doc(db, &quot;persons&quot;,token));
+                  }
+
+                  let q:any&#x3D;[]
+                  if(token!&#x3D;&quot;&quot;){
+                    q &#x3D; query(personsRef, orderBy(&quot;name&quot;), limit(limitxd),startAfter(docSnap));
+                  }else{
+                    q &#x3D; query(personsRef, orderBy(&quot;name&quot;), limit(limitxd),startAt(docSnap));
+                  }
+
+                  const documentSnapshots &#x3D; await getDocs(q);
+
+                  let arrayBasicUser: any[]&#x3D;[]
+                  documentSnapshots.forEach((doc:any) &#x3D;&gt; {
+                    arrayBasicUser.push(this.mapping.GetBasicUser({uid:doc.id,email:doc.data().email},doc.data().name,doc.data().gender,&quot;&quot;,doc.data().isAdmin))
+                  });
+                  observer.next(arrayBasicUser)
+                  observer.complete()
+                    
+                } else {
+                  observer.error(new Error(&quot;there is no user loged&quot;))
+                }
+            });
+        }
+      )
+  }
+
+  /**
+   * Deletes a user by ID.
+   * 
+   * @param token Authentication token.
+   * @param iduser User ID to delete.
+   * @returns Observable for HTTP post deletion or error.
+   */
+  override AdminDeleteUser(token: string, iduser: string): Observable&lt;any&gt; {
+    const db &#x3D; this.firebasemainservice.getfirestore(); 
+    deleteDoc(doc(db, &quot;persons&quot;, iduser));
+    return this.httpclient.post(&quot;https://eliminarusuario-bamoiskzbq-uc.a.run.app&quot;,{uidAEliminar:iduser})
+  }
+
+  /**
+   * Gets BasicUser details for currently authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param id User ID (optional).
+   * @returns Observable emitting BasicUser or error.
+   */
+  override GetBasicUser(token: string, id: string): Observable&lt;BasicUser&gt; {
+    const auth &#x3D; getAuth();
+        return new Observable ((observer)&#x3D;&gt;{
+            onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+                if (user) {
+                  let firestore:Firestore&#x3D;this.firebasemainservice.getfirestore()
+                  let personref&#x3D;doc(firestore,&#x60;persons/${user.uid}&#x60;)
+                  let docsnap&#x3D;await getDoc(personref)
+                  let data:any&#x3D;docsnap.data()
+                  
+                  observer.next(this.mapping.GetBasicUser(user,data.name,data.gender,data.image,data.isAdmin))
+                  observer.complete()
+                } else {
+                  observer.error(new Error(&quot;there is no user loged&quot;))
+                }
+            });
+        }
+      )
+  }
+
+  /**
+   * Retrieves list(s) associated with the authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param id Optional list ID to get a specific list with cryptos.
+   * @returns Observable emitting lists or specific list with cryptos.
+   */
+  override GetListFromUser(token: string,id?:string): Observable&lt;any&gt; {
+    const auth &#x3D; getAuth();
+    const database:Firestore&#x3D;this.firebasemainservice.getfirestore()
+    return new Observable ((observer)&#x3D;&gt;{
+      onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+          if (user) {
+            if(!id){
+              const q &#x3D; query(collection(database, &#x60;persons/${user.uid}/list&#x60;))
+              const querySnapshot &#x3D; await getDocs(q);
+              let dataxd:any[]&#x3D;[]
+              querySnapshot.forEach((doc) &#x3D;&gt; {
+                let data:any&#x3D;doc.data()
+                data.id&#x3D;doc.id
+                dataxd.push(data)
+              });
+              let data&#x3D;this.mapping.GetListFromUser(dataxd)
+              observer.next(data)
+              observer.complete() 
+            }else{
+              const docRef &#x3D; doc(database, &#x60;persons/${user.uid}/list&#x60;, id);
+              const docSnap &#x3D; await getDoc(docRef);
+              const querySnapshot &#x3D; await getDocs(collection(database, &#x60;persons/${user.uid}/list/${id}/cryptos&#x60; ));
+              let cryptos:BasicCrypto[]&#x3D;[]
+              querySnapshot.forEach((doc) &#x3D;&gt; {
+                let prueba:any&#x3D;doc.data()
+                cryptos.push({id:doc.id,symbol:prueba.symbol,name:prueba.name})
+              });
+              
+              let data:any&#x3D;docSnap.data()
+              data.cryptos&#x3D;cryptos
+              let array:any[]&#x3D;[]
+              array.push(data)
+              data.id&#x3D;docRef.id
+              let finaldata&#x3D;this.mapping.GetListFromUser(array)
+              return observer.next(finaldata)
+            }
+          } else {
+            observer.error(new Error(&quot;there is no user loged&quot;))
+          }
+      });
+    })
+  }
+
+  /**
+   * Adds a list to the authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param list List data to add.
+   * @param iduser User ID.
+   * @returns Observable emitting added list response.
+   */
+  override addlistToUser(token: string, list: BasicList, iduser: string): Observable&lt;any&gt; {
+    let database:Firestore&#x3D;this.firebasemainservice.getfirestore()
+    const auth &#x3D; getAuth();
+    return new Observable ((observable)&#x3D;&gt;{
+      onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+        if (user) {
+          const docRef &#x3D; await addDoc(collection(database, &#x60;persons/${user.uid}/list&#x60;), {
+            title: list.title,
+            description: list.description
+          });
+          list.id&#x3D;docRef.id
+          observable.next(this.mapping.addlistUserResponse(list))
+        }
+      })
+    })
+  }
+
+  /**
+   * Removes a list from the authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param listid List ID to remove.
+   * @returns Observable that completes after removal.
+   */
+  override removelistFromUser(token: string, listid: string): Observable&lt;any&gt; {
+    let database:Firestore&#x3D;this.firebasemainservice.getfirestore()
+    const auth &#x3D; getAuth();
+    return new Observable ((observer)&#x3D;&gt;{
+      onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+        if (user) {
+          const docRef &#x3D;await deleteDoc(doc(database, &#x60;persons/${user.uid}/list&#x60;, listid));
+          observer.next()
+        }
+      })
+    })
+  }
+
+  /**
+   * Updates a list from the authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param list List data to update.
+   * @returns Observable emitting updated list.
+   */
+  override updatelistFromUser(token: string, list: BasicList): Observable&lt;any&gt; {
+    let database:Firestore&#x3D;this.firebasemainservice.getfirestore()
+    const auth &#x3D; getAuth();
+    return new Observable((observer)&#x3D;&gt;{
+      onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+        if (user) {
+          const docref &#x3D; doc(database, &#x60;persons/${user.uid}/list&#x60;, list.id);
+          let docRef&#x3D;await updateDoc(docref, {
+            title:list.title,
+            description:list.description
+          });        
+        }
+        observer.next(list)
+      })
+    })
+  }
+
+  /**
+   * Adds a cryptocurrency to a user&#x27;s list.
+   * 
+   * @param token Authentication token.
+   * @param idlist List ID to add the crypto to.
+   * @param idcrypto Cryptocurrency ID.
+   * @param crypto Optional BasicCrypto object.
+   * @returns Observable emitting an empty string immediately.
+   */
+  override addCryptoToList(token: string, idlist: string, idcrypto: string,crypto?: BasicCrypto): Observable&lt;any&gt; {
+    let database:Firestore&#x3D;this.firebasemainservice.getfirestore()
+    const auth &#x3D; getAuth();
+    onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+      if (user) { 
+        await setDoc(doc(database, &#x60;persons/${user.uid}/list/${idlist}/cryptos&#x60;, crypto?.id!!), {
+          name: crypto?.name,
+          symbol: crypto?.symbol,
+        }); 
+      }
+    })
+    return of(&quot;&quot;)
+  }
+
+  /**
+   * Removes a cryptocurrency from a user&#x27;s list.
+   * 
+   * @param token Authentication token.
+   * @param idlist List ID.
+   * @param idcrypto Cryptocurrency ID to remove.
+   * @returns Observable emitting an empty string immediately.
+   */
+  override removeCryptoFromList(token: string, listid: string, cryptoid: string): Observable&lt;any&gt; {
+    let database:Firestore&#x3D;this.firebasemainservice.getfirestore()
+    const auth &#x3D; getAuth();
+    onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+      if (user) { 
+        await deleteDoc(doc(database, &#x60;persons/${user.uid}/list/${listid}/cryptos&#x60;, cryptoid));
+      }
+    })
+    return of(&quot;&quot;)
+  }
+
+  override findcryptobyid(token: string, idcrypto: string): Observable&lt;any&gt; {
+    return of(idcrypto)
+  }
+
+  override addcryptotodatabase(token: string, crypto: BasicCrypto): Observable&lt;any&gt; {
+    throw new Error(&#x27;Method not implemented.&#x27;);
+  }
+
+  /**
+   * Updates the authenticated user&#x27;s basic data, such as username and gender.
+   * 
+   * @param token Authentication token (not used in this implementation).
+   * @param data Object containing fields to update (username, gender).
+   * @param userid User ID (not directly used, authenticated user is used instead).
+   * @returns Observable emitting the updated BasicUser after the update.
+   */
+  override updateuserdata(token: string, data: any, userid: string): Observable&lt;any&gt; {
+    const auth &#x3D; getAuth();
+    onAuthStateChanged(auth, async (user) &#x3D;&gt; {
+      if (user) {
+        let firestore:Firestore&#x3D;this.firebasemainservice.getfirestore()
+        if(data.username){
+          await updateDoc(doc(firestore,&quot;persons&quot;,user.uid),{
+            name:data.username
+          })
+        }
+
+        if(data.gender){
+          await updateDoc(doc(firestore,&quot;persons&quot;,user.uid),{
+            gender:data.gender
+          })
+        }
+      }
+  });
+    return this.GetBasicUser(&quot;&quot;,&quot;&quot;)
+  }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'FirebaseUserRepository.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

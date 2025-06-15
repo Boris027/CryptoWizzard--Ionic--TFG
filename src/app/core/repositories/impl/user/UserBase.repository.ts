@@ -11,9 +11,13 @@ import { BasicCrypto } from "src/app/core/models/Crypto.model";
 @Injectable({
     providedIn: 'root'
 })
-
 export class UserBaseRepository<T extends User> implements IUserbaseRepositoy<T>{
-
+    /**
+     * Creates an instance of UserBaseRepository.
+     * @param httpclient Angular HttpClient for making HTTP requests.
+     * @param api Base URL for the user API.
+     * @param mapping Mapper to convert between API data and User models.
+     */
     constructor(
         protected httpclient:HttpClient,
         @Inject(USER_API_URL_TOKEN) protected api:string,
@@ -31,25 +35,21 @@ export class UserBaseRepository<T extends User> implements IUserbaseRepositoy<T>
     GetBasicUser(token: string, id: string): Observable<any> {
         throw new Error("Method not implemented.");
     }
-    
     updateuserdata(token: string, data: any, userid: string): Observable<any> {
         throw new Error("Method not implemented.");
     }
-    
     addCryptoToList(token: string, idlist: string, idcrypto: string,crypto?: BasicCrypto): Observable<any> {
         throw new Error("Method not implemented.");
     }
     findcryptobyid(token:string,idcrypto: string): Observable<any> {
         throw new Error("Method not implemented.");
     }
-    
     addcryptotodatabase(token:string,crypto: BasicCrypto): Observable<any> {
         throw new Error("Method not implemented.");
     }
     removeCryptoFromList(token: string, listid: string, cryptoid: string): Observable<any> {
         throw new Error("Method not implemented.");
     }
-    
     updatelistFromUser(token: String, list: BasicList): Observable<any> {
         throw new Error("Method not implemented.");
     }
@@ -62,10 +62,4 @@ export class UserBaseRepository<T extends User> implements IUserbaseRepositoy<T>
     removelistFromUser(token: String, listid: string): Observable<any> {
         throw new Error("Method not implemented.");
     }
-    
-    
-    
-
-    
-
 }

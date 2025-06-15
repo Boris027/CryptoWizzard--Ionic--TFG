@@ -1,0 +1,1304 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#AUTENTICATION_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>AUTENTICATION_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AUTH_MAPPING_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>AUTH_MAPPING_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AUTH_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>AUTH_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AuthenticationMappingServiceFactory" title="src/app/core/repositories/factory.ts" ><b>AuthenticationMappingServiceFactory</b>&nbsp;&nbsp;&nbsp;(src/.../factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AuthenticationServiceFactory" title="src/app/core/repositories/factory.ts" ><b>AuthenticationServiceFactory</b>&nbsp;&nbsp;&nbsp;(src/.../factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BACKEND_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>BACKEND_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#config" title="capacitor.config.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(capacitor.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CRYPTO_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>CRYPTO_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CRYPTO_MAPPING_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>CRYPTO_MAPPING_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CRYPTO_REPOSITORY_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>CRYPTO_REPOSITORY_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CRYPTO_SERVICE_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>CRYPTO_SERVICE_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#cryptofactoryservice" title="src/app/core/repositories/factory.ts" ><b>cryptofactoryservice</b>&nbsp;&nbsp;&nbsp;(src/.../factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CRYPTOTOKEN_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>CRYPTOTOKEN_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.prod.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FIREBASE_COLLECTION_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>FIREBASE_COLLECTION_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FIREBASE_CONFIG_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>FIREBASE_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FIREBASE_MAIN_SERVICE" title="src/app/core/repositories/repository.tokens.ts" ><b>FIREBASE_MAIN_SERVICE</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LOGIN_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>LOGIN_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MEDIA_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>MEDIA_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MediaServiceFactory" title="src/app/core/repositories/factory.ts" ><b>MediaServiceFactory</b>&nbsp;&nbsp;&nbsp;(src/.../factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#REGISTER_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>REGISTER_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UPLOAD_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>UPLOAD_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USER_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USER_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USER_CSV_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USER_CSV_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USER_MAPPING_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USER_MAPPING_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USER_REPOSITORY_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USER_REPOSITORY_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USER_SERVICE_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USER_SERVICE_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#userfactoryservice" title="src/app/core/repositories/factory.ts" ><b>userfactoryservice</b>&nbsp;&nbsp;&nbsp;(src/.../factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UserMappingFactory" title="src/app/core/repositories/factory.ts" ><b>UserMappingFactory</b>&nbsp;&nbsp;&nbsp;(src/.../factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UserServiceFactory" title="src/app/core/repositories/factory.ts" ><b>UserServiceFactory</b>&nbsp;&nbsp;&nbsp;(src/.../factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#webkitSpeechRecognition" title="src/app/pages/General/search/search.page.ts" ><b>webkitSpeechRecognition</b>&nbsp;&nbsp;&nbsp;(src/.../search.page.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/core/repositories/repository.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AUTENTICATION_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>AUTENTICATION_URL_TOKEN</b></span>
+                        <a href="#AUTENTICATION_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;AUTENTICATION_URL_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AUTH_MAPPING_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>AUTH_MAPPING_TOKEN</b></span>
+                        <a href="#AUTH_MAPPING_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IAuthenticationMapping&gt;(&#x27;AUTH_MAPPING_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AUTH_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>AUTH_TOKEN</b></span>
+                        <a href="#AUTH_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IAuthenticationService&gt;(&#x27;AUTH_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BACKEND_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>BACKEND_TOKEN</b></span>
+                        <a href="#BACKEND_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;BACKEND_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CRYPTO_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>CRYPTO_API_URL_TOKEN</b></span>
+                        <a href="#CRYPTO_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;CRYPTO_API_URL_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CRYPTO_MAPPING_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>CRYPTO_MAPPING_TOKEN</b></span>
+                        <a href="#CRYPTO_MAPPING_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;ICryptoBaseMapping&lt;any&gt;&gt;(&#x27;CRYPTO_MAPPING_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CRYPTO_REPOSITORY_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>CRYPTO_REPOSITORY_TOKEN</b></span>
+                        <a href="#CRYPTO_REPOSITORY_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;ICryptoBase&lt;any&gt;&gt;(&quot;CRYPTO_REPOSITORY_TOKEN&quot;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CRYPTO_SERVICE_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>CRYPTO_SERVICE_TOKEN</b></span>
+                        <a href="#CRYPTO_SERVICE_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;ICryptobaseService&lt;any&gt;&gt;(&quot;CRYPTO_SERVICE_TOKEN&quot;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CRYPTOTOKEN_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>CRYPTOTOKEN_TOKEN</b></span>
+                        <a href="#CRYPTOTOKEN_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&quot;CRYPTOTOKEN_TOKEN&quot;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FIREBASE_COLLECTION_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>FIREBASE_COLLECTION_TOKEN</b></span>
+                        <a href="#FIREBASE_COLLECTION_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;FIREBASE_COLLECTION_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FIREBASE_CONFIG_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>FIREBASE_CONFIG_TOKEN</b></span>
+                        <a href="#FIREBASE_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;any&gt;(&#x27;FIREBASE_CONFIG_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FIREBASE_MAIN_SERVICE"></a>
+                    <span class="name">
+                        <span ><b>FIREBASE_MAIN_SERVICE</b></span>
+                        <a href="#FIREBASE_MAIN_SERVICE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IFirebaseMainService&gt;(&#x27;FIREBASE_MAIN_SERVICE&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LOGIN_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>LOGIN_API_URL_TOKEN</b></span>
+                        <a href="#LOGIN_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;LOGIN_API_URL_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MEDIA_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>MEDIA_TOKEN</b></span>
+                        <a href="#MEDIA_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;UPLOAD_API_URL_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="REGISTER_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>REGISTER_API_URL_TOKEN</b></span>
+                        <a href="#REGISTER_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;REGISTER_API_URL_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UPLOAD_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>UPLOAD_API_URL_TOKEN</b></span>
+                        <a href="#UPLOAD_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;UPLOAD_API_URL_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USER_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USER_API_URL_TOKEN</b></span>
+                        <a href="#USER_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;PEOPLE_API_URL_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USER_CSV_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USER_CSV_URL_TOKEN</b></span>
+                        <a href="#USER_CSV_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IUserBaseMapping&lt;any&gt;&gt;(&#x27;USER_CSV_URL_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USER_MAPPING_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USER_MAPPING_TOKEN</b></span>
+                        <a href="#USER_MAPPING_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IUserBaseMapping&lt;any&gt;&gt;(&#x27;USER_MAPPING_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USER_REPOSITORY_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USER_REPOSITORY_TOKEN</b></span>
+                        <a href="#USER_REPOSITORY_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IUserbaseRepositoy&lt;any&gt;&gt;(&#x27;USER_REPOSITORY_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USER_SERVICE_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USER_SERVICE_TOKEN</b></span>
+                        <a href="#USER_SERVICE_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IUserbaseService&lt;any&gt;&gt;(&#x27;USER_SERVICE_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/repositories/factory.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AuthenticationMappingServiceFactory"></a>
+                    <span class="name">
+                        <span ><b>AuthenticationMappingServiceFactory</b></span>
+                        <a href="#AuthenticationMappingServiceFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  provide: AUTH_MAPPING_TOKEN,
+  useFactory: (backend:string) &#x3D;&gt; {
+    switch(backend){
+      case &#x27;http&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;local-storage&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;json-server&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;strapi&#x27;:
+        return new StrapiAuthMappingService();
+      case &#x27;firebase&#x27;:
+        return new FirebaseAuthMappingService();
+      default:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+    }
+  },
+deps: [BACKEND_TOKEN]
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Factory provider for authentication mapping services.</p>
+<p>Provides the appropriate authentication mapping implementation
+depending on the configured backend.</p>
+<p>Dependencies injected:</p>
+<ul>
+<li>BACKEND_TOKEN: The backend type to use (&#39;strapi&#39;, &#39;firebase&#39;, etc.).</li>
+</ul>
+<p>Backend implementations:</p>
+<ul>
+<li>&#39;strapi&#39;: Returns an instance of StrapiAuthMappingService.</li>
+<li>&#39;firebase&#39;: Returns an instance of FirebaseAuthMappingService.</li>
+<li>Other backends: Throws &quot;BACKEND NOT IMPLEMENTED&quot; error.</li>
+</ul>
+<p>Provided token: AUTH_MAPPING_TOKEN</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AuthenticationServiceFactory"></a>
+                    <span class="name">
+                        <span ><b>AuthenticationServiceFactory</b></span>
+                        <a href="#AuthenticationServiceFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  provide: AUTH_TOKEN,
+  useFactory: (backend:string,httpclient:HttpClient,userapiurl:string,loginapiurl:string,registerapiurl:string,authenticationurl:string,authenticationmapping:IAuthenticationMapping,firebasemainservice:IFirebaseMainService) &#x3D;&gt; {
+    switch(backend){
+      case &#x27;http&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;local-storage&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;json-server&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;strapi&#x27;:
+        return new StrapiAutenticationService(httpclient,userapiurl,loginapiurl,registerapiurl,authenticationurl,authenticationmapping);
+      case &#x27;firebase&#x27;:
+        return new FirebaseAuthenticationService(httpclient,userapiurl,loginapiurl,registerapiurl,authenticationurl,authenticationmapping,firebasemainservice);
+      default:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+    }
+  },
+deps: [BACKEND_TOKEN,HttpClient,USER_API_URL_TOKEN,LOGIN_API_URL_TOKEN,REGISTER_API_URL_TOKEN,AUTENTICATION_URL_TOKEN,AUTH_MAPPING_TOKEN,FIREBASE_MAIN_SERVICE]
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Factory provider for authentication services.</p>
+<p>Provides an implementation of the authentication service depending on the backend specified.</p>
+<p>Dependencies injected:</p>
+<ul>
+<li>BACKEND_TOKEN: The backend type to use (&#39;strapi&#39;, &#39;firebase&#39;, etc.).</li>
+<li>HttpClient: Angular&#39;s HTTP client for making HTTP requests.</li>
+<li>USER_API_URL_TOKEN: URL endpoint for user-related API calls.</li>
+<li>LOGIN_API_URL_TOKEN: URL endpoint for login API calls.</li>
+<li>REGISTER_API_URL_TOKEN: URL endpoint for user registration API calls.</li>
+<li>AUTENTICATION_URL_TOKEN: General authentication-related URL endpoint.</li>
+<li>AUTH_MAPPING_TOKEN: Interface implementation for authentication data mapping.</li>
+<li>FIREBASE_MAIN_SERVICE: Firebase main service interface (used only in Firebase backend).</li>
+</ul>
+<p>Backend implementations:</p>
+<ul>
+<li>&#39;strapi&#39;: Returns an instance of StrapiAutenticationService.</li>
+<li>&#39;firebase&#39;: Returns an instance of FirebaseAuthenticationService.</li>
+<li>Other backends: Throws &quot;BACKEND NOT IMPLEMENTED&quot; error.</li>
+</ul>
+<p>Provided token: AUTH_TOKEN</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cryptofactoryservice"></a>
+                    <span class="name">
+                        <span ><b>cryptofactoryservice</b></span>
+                        <a href="#cryptofactoryservice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    provide:CRYPTO_REPOSITORY_TOKEN,
+    deps:[BACKEND_TOKEN,HttpClient,CRYPTO_API_URL_TOKEN,CRYPTO_MAPPING_TOKEN,CRYPTOTOKEN_TOKEN],
+    useFactory:(backend:string,httpclient:HttpClient,apiurltoken:string,mapping:ICryptoBaseMapping&lt;any&gt;,cryptoken:string)&#x3D;&gt;{
+        switch(backend){
+          case &#x27;http&#x27;:
+            throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+          case &#x27;local-storage&#x27;:
+            throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+          case &#x27;json-server&#x27;:
+            throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+          case &#x27;strapi&#x27;:
+            return createCoinGekorepository(httpclient,apiurltoken,mapping,cryptoken)
+          case &#x27;firebase&#x27;:
+            return createCoinGekorepository(httpclient,apiurltoken,mapping,cryptoken)
+            default:
+            throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+        }
+    }
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Factory provider for the cryptocurrency repository.</p>
+<p>Depending on the configured backend, this factory returns an instance
+of the appropriate crypto repository implementation.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MediaServiceFactory"></a>
+                    <span class="name">
+                        <span ><b>MediaServiceFactory</b></span>
+                        <a href="#MediaServiceFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    provide: BaseMediaService,
+    useFactory: (backend:string, upload:string, auth:IAuthenticationService, http:HttpClient,firebasemainservice:IFirebaseMainService) &#x3D;&gt; {
+      switch(backend){
+        case &#x27;http&#x27;:
+          throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+        case &#x27;local-storage&#x27;:
+          throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+        case &#x27;json-server&#x27;:
+          throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+        case &#x27;strapi&#x27;:
+          return new StrapiMediaService(upload, auth, http);
+        case &#x27;firebase&#x27;:
+          return new FirebaseMediaService(upload,auth,http,firebasemainservice)
+        default:
+          throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      }
+    },
+  deps: [BACKEND_TOKEN,UPLOAD_API_URL_TOKEN, AUTH_TOKEN, HttpClient,FIREBASE_MAIN_SERVICE]
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Factory provider for the media service.</p>
+<p>Creates and provides an instance of a media service depending on the configured backend.</p>
+<p>Dependencies injected:</p>
+<ul>
+<li>BACKEND_TOKEN: Defines which backend to use (&#39;strapi&#39;, &#39;firebase&#39;, etc.).</li>
+<li>UPLOAD_API_URL_TOKEN: The upload API URL or endpoint.</li>
+<li>AUTH_TOKEN: The authentication service used for authorized requests.</li>
+<li>HttpClient: Angular&#39;s HTTP client for making HTTP requests.</li>
+<li>FIREBASE_MAIN_SERVICE: Firebase main service interface (used if backend is Firebase).</li>
+</ul>
+<p>Backend implementations:</p>
+<ul>
+<li>&#39;strapi&#39;: Returns an instance of StrapiMediaService.</li>
+<li>&#39;firebase&#39;: Returns an instance of FirebaseMediaService.</li>
+<li>Other backends: Throws &quot;BACKEND NOT IMPLEMENTED&quot; error.</li>
+</ul>
+<p>Provided token: BaseMediaService</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userfactoryservice"></a>
+                    <span class="name">
+                        <span ><b>userfactoryservice</b></span>
+                        <a href="#userfactoryservice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    provide:USER_REPOSITORY_TOKEN,
+    deps:[BACKEND_TOKEN,HttpClient,USER_API_URL_TOKEN,USER_MAPPING_TOKEN,FIREBASE_MAIN_SERVICE],
+    useFactory:(backend:string,httpclient:HttpClient,apiurltoken:string,mapping:IUserBaseMapping&lt;any&gt;,firebasemainservice:IFirebaseMainService,functions: AngularFireFunctions)&#x3D;&gt;{
+      switch(backend){
+        case &#x27;http&#x27;:
+          throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+        case &#x27;local-storage&#x27;:
+          throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+        case &#x27;json-server&#x27;:
+          throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+        case &#x27;strapi&#x27;:
+          return createStrapiRepository(httpclient,apiurltoken,mapping)
+        case &#x27;firebase&#x27;:
+          return new FirebaseUserRepository(httpclient,apiurltoken,mapping,firebasemainservice,functions)
+        default:
+          throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      }
+    }
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Factory provider for the user repository.</p>
+<p>It dynamically creates and provides the appropriate user repository implementation
+based on the configured backend type.</p>
+<p>Dependencies injected:</p>
+<ul>
+<li>BACKEND_TOKEN: Defines which backend to use (&#39;strapi&#39;, &#39;firebase&#39;, etc.).</li>
+<li>HttpClient: Angular&#39;s HTTP client for making HTTP requests.</li>
+<li>USER_API_URL_TOKEN: The base API URL for user-related endpoints.</li>
+<li>USER_MAPPING_TOKEN: Mapping service to convert API data into user domain models.</li>
+<li>FIREBASE_MAIN_SERVICE: Firebase service interface (used if backend is Firebase).</li>
+<li>AngularFireFunctions: Firebase cloud functions client (used if backend is Firebase).</li>
+</ul>
+<p>Backend handling:</p>
+<ul>
+<li>&#39;strapi&#39;: Returns a StrapiUserRepository instance.</li>
+<li>&#39;firebase&#39;: Returns a FirebaseUserRepository instance.</li>
+<li>Other backends: Throws &quot;BACKEND NOT IMPLEMENTED&quot; error.</li>
+</ul>
+<p>Provided token: USER_REPOSITORY_TOKEN</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UserMappingFactory"></a>
+                    <span class="name">
+                        <span ><b>UserMappingFactory</b></span>
+                        <a href="#UserMappingFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  provide: USER_MAPPING_TOKEN,
+  useFactory: (backend:string) &#x3D;&gt; {
+    switch(backend){
+      case &#x27;http&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;local-storage&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;json-server&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;strapi&#x27;:
+        return new StrapiUserMapping();
+      case &#x27;firebase&#x27;:
+        return new FirebaseUserMapping();
+      default:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+    }
+  },
+deps: [BACKEND_TOKEN]
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Factory provider for user mapping services.</p>
+<p>Provides an implementation of user mapping based on the configured backend.</p>
+<p>Dependencies injected:</p>
+<ul>
+<li>BACKEND_TOKEN: Specifies which backend to use (&#39;strapi&#39;, &#39;firebase&#39;, etc.).</li>
+</ul>
+<p>Backend implementations:</p>
+<ul>
+<li>&#39;strapi&#39;: Returns an instance of StrapiUserMapping.</li>
+<li>&#39;firebase&#39;: Returns an instance of FirebaseUserMapping.</li>
+<li>Other backends: Throws &quot;BACKEND NOT IMPLEMENTED&quot; error.</li>
+</ul>
+<p>Provided token: USER_MAPPING_TOKEN</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UserServiceFactory"></a>
+                    <span class="name">
+                        <span ><b>UserServiceFactory</b></span>
+                        <a href="#UserServiceFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  provide: USER_SERVICE_TOKEN,
+  useFactory: (backend:string,repository:IUserbaseRepositoy&lt;any&gt;,authentication:IAuthenticationService,userCsvUrl:string,http:HttpClient) &#x3D;&gt; {
+    switch(backend){
+      case &#x27;http&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;local-storage&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;json-server&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;strapi&#x27;:
+        return new UserStrapiService(repository,authentication,userCsvUrl,http);
+      case &#x27;firebase&#x27;:
+        return new UserFirebaseService(repository,authentication,userCsvUrl,http);
+      default:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+    }
+  },
+deps: [BACKEND_TOKEN,USER_REPOSITORY_TOKEN,AUTH_TOKEN, USER_CSV_URL_TOKEN,HttpClient]
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Factory provider for user services.</p>
+<p>Provides an implementation of the user service based on the configured backend.</p>
+<p>Dependencies injected:</p>
+<ul>
+<li>BACKEND_TOKEN: Specifies which backend to use (&#39;strapi&#39;, &#39;firebase&#39;, etc.).</li>
+<li>USER_REPOSITORY_TOKEN: User repository interface implementation.</li>
+<li>AUTH_TOKEN: Authentication service interface implementation.</li>
+<li>USER_CSV_URL_TOKEN: URL for user CSV data.</li>
+<li>HttpClient: Angular&#39;s HTTP client for making HTTP requests.</li>
+</ul>
+<p>Backend implementations:</p>
+<ul>
+<li>&#39;strapi&#39;: Returns an instance of UserStrapiService.</li>
+<li>&#39;firebase&#39;: Returns an instance of UserFirebaseService.</li>
+<li>Other backends: Throws &quot;BACKEND NOT IMPLEMENTED&quot; error.</li>
+</ul>
+<p>Provided token: USER_SERVICE_TOKEN</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>capacitor.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CapacitorConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  appId: &#x27;io.ionic.starter&#x27;,
+  appName: &#x27;CryptoWizzard-Ionic&#x27;,
+  webDir: &#x27;www&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.prod.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  production: true,
+  userapiurl: &quot;https://tasks-7l1r.onrender.com/api/&quot;,
+  userapilogin: &quot;https://tasks-7l1r.onrender.com/api/auth/local&quot;,
+  registerapiurl: &quot;https://tasks-7l1r.onrender.com/api/auth/local/register&quot;,
+  authenticationurl: &quot;https://tasks-7l1r.onrender.com/api/users/me&quot;,
+  uploadapi: &quot;https://tasks-7l1r.onrender.com/api/upload&quot;,
+  cryptoapiurl:&quot;https://api.coingecko.com/api/v3/&quot;,
+  cryptoken:&quot;&quot;,
+  userCsv:&quot;https://cryptowizzard-tfg.onrender.com/export-users&quot;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  production: false,
+  userapiurl:&quot;http://localhost:1337/api/&quot;,
+  userapilogin:&quot;http://localhost:1337/api/auth/local&quot;,
+  registerapiurl:&quot;http://localhost:1337/api/auth/local/register&quot;,
+  authenticationurl:&quot;http://localhost:1337/api/users/me&quot;,
+  uploadapi:&quot;http://localhost:1337/api/upload&quot;,
+  cryptoapiurl:&quot;https://api.coingecko.com/api/v3/&quot;,
+  cryptoken:&quot;&quot;,
+  userCsv:&quot;https://cryptowizzard-tfg.onrender.com/export-users&quot;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/pages/General/search/search.page.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="webkitSpeechRecognition"></a>
+                    <span class="name">
+                        <span ><b>webkitSpeechRecognition</b></span>
+                        <a href="#webkitSpeechRecognition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

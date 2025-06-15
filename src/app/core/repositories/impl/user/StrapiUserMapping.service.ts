@@ -36,7 +36,6 @@ export interface GetAllList {
     symbol: string
   }
 
-  //para crear el body que se enviará en remoto
   export interface createListRemote{
     data:BodyCreateList
   }
@@ -46,8 +45,6 @@ export interface GetAllList {
     Description:string,
     users_permissions_user:number
   }
-
-  //la respuesta de añadir una lista
 
   export interface addlistresponse {
     data: Data
@@ -68,7 +65,7 @@ export interface GetAllList {
   }
   
   export interface Meta {}
-  //el body que se debe enviar para actualizar una lista
+
   export interface CreateListUpdate{
     data:bodyupdate
   }
@@ -77,7 +74,6 @@ export interface GetAllList {
     Description:string
   }
 
-  //el body que se debe crear para eliminar una criptomoneda de una lista
   export interface deletecryptofromfavoritelist{
     data:datadelete
   }
@@ -91,7 +87,6 @@ export interface GetAllList {
   export interface cryptoid{
     id:string
   }
-  //get findcrypto by id
   export interface getallresponse {
     data: Data2[]
     meta: any
@@ -109,7 +104,6 @@ export interface GetAllList {
     Name: string
     symbol: string
   }
-  //para subir una criptomoneda a la api
   export interface addcrypto{
     data:cryptoxd
   }
@@ -118,7 +112,6 @@ export interface GetAllList {
     Name:string,
     symbol:string
   }
-  //para añadir una criptomoneda en una lista
   export interface updatecryptofromfavoritelist{
     data:updateCryptoData
   }
@@ -131,7 +124,6 @@ export interface GetAllList {
   export interface updateCryptoId{
     id:number
   }
-  //interfaz que hay que convertir para actualizar los datos del usuario
   export interface updateuser{
     id:string
     email:string,
@@ -141,7 +133,6 @@ export interface GetAllList {
     image:any
   }
 
-  //interfaz de lo que llega al hacer un getuser que viene con la imagen
   export interface basicuseresponse{
     id: number
     username: string
@@ -208,13 +199,12 @@ export interface GetAllList {
     providedIn: 'root'
 })
 export class StrapiUserMapping implements IUserBaseMapping<User>{
-  
-  
-  
-    
-
+  /**
+   * Maps the raw response data to an array of CryptoList objects.
+   * @param data The response containing user favorite lists.
+   * @returns Array of CryptoList mapped from the response.
+   */
   GetListFromUser(data: GetAllList): CryptoList[] {
-
       return data.favoritelists.map(c=>{
           return {
               id:c.id+"",
@@ -228,10 +218,14 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
               })
           }
       })
-
   }
 
-
+  /**
+   * Prepares the request body to create a new favorite list for a user.
+   * @param data The CryptoList data to add.
+   * @param iduser The user ID.
+   * @returns The formatted request body for list creation.
+   */
   addlistUser(data:CryptoList,iduser:string):createListRemote{
       return {
           data:{
@@ -242,10 +236,20 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
       }
   }
 
+  /**
+   * Maps the server response after adding a list to a BasicList object.
+   * @param data Response from add list request.
+   * @returns BasicList with title, description, and id.
+   */
   addlistUserResponse(data: addlistresponse): BasicList {
     return {title:data.data.attributes.Title, description:data.data.attributes.Description, id:data.data.id+""}
   }
 
+  /**
+   * Prepares the request body for updating a favorite list.
+   * @param data The BasicList data with updates.
+   * @returns The formatted request body for list update.
+   */
   updatelistbody(data:BasicList):CreateListUpdate{
     return {
       data:{
@@ -255,6 +259,11 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
     }
   }
 
+  /**
+   * Prepares the request body to remove a crypto from a favorite list.
+   * @param data The crypto ID to disconnect.
+   * @returns The formatted request body to remove crypto.
+   */
   deletecryptofromlist(data: string):deletecryptofromfavoritelist {
     return {
       data:{
@@ -265,7 +274,12 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
     }
   }
 
-
+  /**
+   * Extracts the crypto ID from the response filtering by cryptoId.
+   * @param data The response data containing cryptos.
+   * @param cryptoid The crypto ID to find.
+   * @returns The found crypto ID or -1 if not found.
+   */
   findcryptobyidresponse(data: getallresponse,cryptoid:string) {
     let filter=data.data.filter(c=>c.attributes.cryptoId==cryptoid)
     if(filter.length>=1){
@@ -273,9 +287,13 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
     }else{
       return -1
     }
-
   }
 
+  /**
+   * Maps the response from adding a crypto to the database to BasicCrypto.
+   * @param data The response data.
+   * @returns BasicCrypto with id, name, and symbol.
+   */
   addcryptoresponse(data: any):BasicCrypto {
     return {
       id:data.data.attributes.cryptoId,
@@ -284,6 +302,11 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
     }
   }
 
+  /**
+   * Prepares the request body to add a crypto to the database.
+   * @param data The BasicCrypto to add.
+   * @returns The formatted request body.
+   */
   addcryptotodatabase(data: BasicCrypto):addcrypto {
     return {data:{
       cryptoId:data.id,
@@ -292,6 +315,11 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
     }}
   }
 
+  /**
+   * Prepares the request body to add a crypto to a favorite list.
+   * @param id The crypto ID to connect.
+   * @returns The formatted request body.
+   */
   addcryptotolist(id:string):updatecryptofromfavoritelist{
     return {
       data:{
@@ -302,6 +330,11 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
     }
   }
 
+  /**
+   * Prepares the request body to update user data.
+   * @param data Object containing user data to update.
+   * @returns Object with updated fields.
+   */
   updateuserdata(data: updateuser) {
     let value:any={}
     
@@ -315,13 +348,16 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
     }
     
     if(data.image!=null){
-      
       return {image:data.image}
     }
     return value
   }
 
-
+  /**
+   * Maps the raw user data response to BasicUser model.
+   * @param data The raw user data.
+   * @returns BasicUser object with user info.
+   */
   GetBasicUser(data:any):BasicUser{
     if(data.image!=undefined){
       return {
@@ -342,7 +378,5 @@ export class StrapiUserMapping implements IUserBaseMapping<User>{
         isAdmin:data.isAdmin??false
       }
     }
-    
   }
-
 }

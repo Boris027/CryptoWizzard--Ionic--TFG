@@ -14,7 +14,22 @@ import { Subscription } from 'rxjs';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
+/**
+ * Root application component that handles global services like authentication, user profile loading,
+ * dynamic menu translation, and language switching.
+ */
 export class AppComponent {
+  /**
+   * Constructs the root component and injects global services.
+   *
+   * @param auth Authentication service to manage user login/logout.
+   * @param userservice User service to fetch user data.
+   * @param alertcontroller Controller to display alert modals.
+   * @param menuController Controller to toggle side menus.
+   * @param router Angular Router for navigation.
+   * @param translation Custom translation service for handling language preference.
+   * @param translate ngx-translate service for localized strings.
+   */
   constructor(
     @Inject(AUTH_TOKEN) private auth:IAuthenticationService,
     @Inject(USER_SERVICE_TOKEN) private userservice:UserBaseService<User>,
@@ -24,10 +39,7 @@ export class AppComponent {
     private translation:TranslationService,
     private translate: TranslateService,
   ) {
-    /*this.translate.use(translation.getCurrentLanguage()).subscribe(() => {
-    });*/
     this.subscriptions.push(this.translate.onLangChange.subscribe((event:LangChangeEvent)=>{
-      // Cambia el idioma al detectar un cambio en este
       this.setMenuTitles(this.translation.getCurrentLanguage()); 
     }))
   }
@@ -35,6 +47,11 @@ export class AppComponent {
   subscriptions:Subscription[]=[]
   user:BasicUser={id:"",username:"",email:"",img:"",gender:'',isAdmin:false}
 
+  /**
+   * Sets localized titles for each menu item based on selected language.
+   *
+   * @param lang Language code (e.g. 'en' or 'es').
+   */
   private setMenuTitles(lang:string) {
     this.subscriptions.push(this.translate.use(lang).subscribe(() => {
       this.translate.get('MAINMENU.HOME').subscribe((translation) => {
@@ -62,11 +79,7 @@ export class AppComponent {
         this.appPages[7].title = translation;
       });
     }));
-
-
-    
   }
-  
 
   public appPages = [
     { title: this.translate.get("MAINMENU.HOME"), url: '/home', icon: 'Home',hidden:false },
@@ -79,16 +92,14 @@ export class AppComponent {
     { title: this.translate.instant("MAINMENU.LOGOUT"), url: '/logout', icon: 'log-out',hidden:false }
   ];
 
-  
-
-
+  /**
+   * Initializes the component and loads user/session-related information.
+   */
   ngOnInit(){
     this.subscriptions.push(this.translate.get("COMMON.LANGUAGE").subscribe({
       next:(value)=>{
       },
     }))
-
-
 
     this.subscriptions.push(this.auth.verificateUser().subscribe({
       next:(value)=>{
@@ -98,18 +109,9 @@ export class AppComponent {
 
     this.subscriptions.push(this.userservice.GetBasicUser().subscribe({
       next:(value)=>{
-        /*if(value.isAdmin!=true){
-          //this.appPages=this.appPages.filter(c=>c.url!="/admin-panel")
-          const element=this.appPages.find(c=>c.url!="/admin-panel")
-          if(element){
-            element.hidden=true
-          }
-          this.appPages=this.appPages
-        }*/
       },
     }))
 
-    //Oculta o muestra el boton del panel de usuario
     this.subscriptions.push(this.userservice.GetBehaviourUser().subscribe({
       next:(value)=>{
         this.user=value
@@ -127,18 +129,22 @@ export class AppComponent {
         this.appPages=this.appPages
       },
     }))
-
   }
-
-  
 
   vermenu:boolean=true
 
+  /**
+   * Opens the side menu.
+   */
   openMenu() {
     this.menuController.open(); 
   }
 
-
+  /**
+   * Navigates the user to the selected route or handles logout and language change dialogs.
+   *
+   * @param argu The selected route or action (e.g., '/logout', '/language').
+   */
   async navigate(argu: string) {
     if(argu=="/logout"){
       const alert=await this.alertcontroller.create({
@@ -159,7 +165,6 @@ export class AppComponent {
       alert.dismiss()
       await alert.present()
     }else if(argu=="/language"){
-      console.log(this.translation.getCurrentLanguage())
       const alert = await this.alertcontroller.create({
         header: this.translate.instant('MAINMENU.SELECTLANGUAGE'), 
         inputs: [
@@ -190,24 +195,23 @@ export class AppComponent {
                 this.translation.setLanguage(data)
                 this.translate.use(data)
                 this.setMenuTitles(data)
-                console.log(data)
               }
             },
           },
         ],
       });
-  
       await alert.present();
     }else{
       this.router.navigate([argu])
     }
   }
 
-
+  /**
+   * Unsubscribes from all active subscriptions to prevent memory leaks.
+   */
   ngOnDestroy(){
     this.subscriptions.forEach(c=>{
       c.unsubscribe()
     })
   }
-
 }

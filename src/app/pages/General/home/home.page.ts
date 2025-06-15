@@ -11,19 +11,34 @@ import { IAuthenticationService } from 'src/app/core/services/interfaces/authent
 import { ICryptobaseService } from 'src/app/core/services/interfaces/crypto/Crypto-base-service.interface';
 import { IUserbaseService } from 'src/app/core/services/interfaces/user/User-base-service.interface';
 
+/**
+ * HomePage component.
+ * 
+ * Displays a paginated list of cryptocurrencies in the selected currency.
+ * Supports infinite scrolling to load more data.
+ * Allows user to change currency via an alert dialog.
+ */
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-
   public crypto:AdvancedCrypto[]=[]
   page:number=1;
   perpage:number=250;
   currency:string="usd"
   private suscriptions:Subscription[]=[]
+
+  /**
+   * Creates an instance of HomePage.
+   * @param authservice Authentication service for user and session data
+   * @param translate ngx-translate service for internationalization
+   * @param translation Custom translation helper service
+   * @param userservice User service for fetching user data
+   * @param cryptoservice Crypto service to fetch cryptocurrency data
+   * @param alertcontroller Ionic AlertController to show dialogs
+   */
   constructor(
     @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
     private translate: TranslateService,
@@ -31,17 +46,22 @@ export class HomePage {
     @Inject(USER_SERVICE_TOKEN) private userservice:IUserbaseService<User>,
     @Inject(CRYPTO_SERVICE_TOKEN) private cryptoservice:ICryptobaseService<BasicCrypto>,
     private alertcontroller:AlertController
-  ) {
-    
-    
-  }
+  ) { }
 
+  /**
+   * Lifecycle hook runs once after component initialization.
+   * Initializes currency and loads first page of crypto data.
+   */
   ngOnInit(){
     this.currency=this.authservice.getCurrency()
     this.authservice.setmenu(true)
     this.loadData()
   }
 
+  /**
+   * Lifecycle hook runs every time the view is about to enter.
+   * Refreshes user data and reloads crypto list if currency changed.
+   */
   ionViewWillEnter(){
     this.suscriptions.push(this.userservice.GetBasicUser().subscribe())
     this.authservice.setmenu(true)
@@ -55,8 +75,10 @@ export class HomePage {
     
   }
 
-  
-
+  /**
+   * Loads paginated cryptocurrency data for the current page and currency.
+   * @param notify Optional infinite scroll element to complete after load
+   */
   loadData(notify: HTMLIonInfiniteScrollElement | null = null){
     this.suscriptions.push(this.cryptoservice.getAllPaginated(this.page,this.perpage,this.currency).subscribe({
       next:(value)=>{
@@ -67,16 +89,29 @@ export class HomePage {
     }))
   }
 
+  /**
+   * Event handler for Ionic infinite scroll.
+   * Loads more data when user scrolls down.
+   * @param event IonInfiniteScrollCustomEvent fired by infinite scroll
+   */
   onIonInfinite($event: IonInfiniteScrollCustomEvent<void>) {
     this.loadData($event.target)
   }
 
+  /**
+   * Lifecycle hook runs when component is destroyed.
+   * Unsubscribes all subscriptions to prevent memory leaks.
+   */
   ngOnDestroy(){
     this.suscriptions.forEach(c=>{
       c.unsubscribe()
     })
   }
 
+  /**
+   * Opens a dialog for the user to change the currency.
+   * If a different currency is selected, resets pagination and reloads data.
+   */
   async changecurrency(){
     const alert = await this.alertcontroller.create({
       header: this.translate.instant('CRYPTOVIEW.SELECTCURRENCY'), 
@@ -123,8 +158,6 @@ export class HomePage {
         },
       ],
     });
-
     await alert.present();
   }
-
 }

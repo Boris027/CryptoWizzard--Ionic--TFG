@@ -11,6 +11,13 @@ import { IUserbaseService } from 'src/app/core/services/interfaces/user/User-bas
 import { AdminFormularyComponent } from 'src/app/shared/admin-formulary/admin-formulary.component';
 import { SharedService } from 'src/app/shared/sharedservice/shared.service';
 
+/**
+ * AdminPanelPage component.
+ * 
+ * This component manages the administration panel for user management,
+ * including listing users with pagination, editing, deleting users,
+ * and downloading user data as CSV.
+ */
 @Component({
   selector: 'app-admin-panel',
   templateUrl: './admin-panel.page.html',
@@ -22,6 +29,14 @@ export class AdminPanelPage {
   private token = '';
   private actualUser: BasicUser = {id:'',email:'',username:'',img:'',gender:'',isAdmin:false};
 
+  /**
+   * Creates an instance of AdminPanelPage.
+   * @param authservice Authentication service for managing user auth and UI state.
+   * @param userService User base service for managing user CRUD operations.
+   * @param modalController Controller to open modals.
+   * @param translate Translate service for internationalization.
+   * @param shared Shared service for utility functions like toast messages.
+   */
   constructor(
     @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
     @Inject(USER_SERVICE_TOKEN) private userService:IUserbaseService<User>,
@@ -32,6 +47,10 @@ export class AdminPanelPage {
     this.authservice.setmenu(true);
   }
 
+  /**
+   * Lifecycle event called when the page is about to enter and become active.
+   * Fetches current user info and loads the first page of users.
+   */
   ionViewWillEnter() {
     this.userService.GetBehaviourUser().subscribe(value => {
       this.actualUser = value;
@@ -39,6 +58,9 @@ export class AdminPanelPage {
     this.loadUsers();
   }
 
+  /**
+   * Loads the first page of users, excluding the current authenticated user.
+   */
   loadUsers() {
     this.token = ''
     this.userService.AdminGetUsersPagination(this.token, 0, this.usersLimit).subscribe(usersResponse=>{
@@ -49,6 +71,10 @@ export class AdminPanelPage {
     });
   }
 
+  /**
+   * Loads more users for infinite scrolling, appending to the current list.
+   * @param notify The IonInfiniteScroll element to complete the loading event.
+   */
   loadMoreUsers(notify: HTMLIonInfiniteScrollElement | null = null) {
     this.userService.AdminGetUsersPagination(this.token, 0, this.usersLimit).subscribe(usersResponse=>{
       if (usersResponse[0]) {
@@ -59,10 +85,18 @@ export class AdminPanelPage {
     });
   }
 
+  /**
+   * Opens a modal to edit the selected user.
+   * @param user The user to edit.
+   */
   editUser(user: BasicUser) {
     this.presentModal(user);
   }
   
+  /**
+   * Deletes a user by id.
+   * @param userId The id of the user to delete.
+   */
   deleteUser(userId: any) {
     this.userService.AdminDeleteUser('',userId).subscribe(()=>{
       this.shared.showToast("success",this.translate.instant("CRUDUSER.DELETEACCOUNTSUCCESSFUL"));
@@ -70,6 +104,10 @@ export class AdminPanelPage {
     });
   }
 
+  /**
+   * Downloads the user list as a CSV file.
+   * Shows toast messages for success or error.
+   */
   downloadCsv() {
     this.userService.getUsersCsv().subscribe({
       next: (response: HttpResponse<Blob>) => {
@@ -87,12 +125,22 @@ export class AdminPanelPage {
     });
   }
 
+  /**
+   * Extracts the filename from the Content-Disposition header.
+   * @param header The Content-Disposition header value.
+   * @returns The extracted filename or null if not found.
+   */
   private extractFileName(header: string | null): string | null {
     if (!header) return null;
     const match = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/.exec(header);
     return match ? match[1].replace(/['"]/g, '') : null;
   }
 
+  /**
+   * Presents a modal with the AdminFormularyComponent for editing user data.
+   * After the modal is dismissed, updates the user if changes were made.
+   * @param user The user to edit.
+   */
   async presentModal(user:BasicUser) {
     const modal = await this.modalController.create({
       component: AdminFormularyComponent,
@@ -104,7 +152,6 @@ export class AdminPanelPage {
     const { data } = await modal.onWillDismiss();
     
     if (data) {
-      console.log(data);
       this.userService.AdminUpdateUser('', user.id, data.username, data.gender, data.isAdmin).subscribe({
         next:(value)=>{
           this.shared.showToast('success',this.translate.instant('CRUDUSER.UPDATE.UPDATESUCCESSFULL'));
@@ -117,6 +164,11 @@ export class AdminPanelPage {
     }
   }
 
+  /**
+   * Event handler for the Ionic infinite scroll event.
+   * Loads more users when the user scrolls to the bottom.
+   * @param event The infinite scroll event.
+   */
   onIonInfinite($event: IonInfiniteScrollCustomEvent<void>) {
     this.loadMoreUsers($event.target);
   }

@@ -8,18 +8,19 @@ import { BasicUser, User } from 'src/app/core/models/User.model';
 import { FIREBASE_MAIN_SERVICE, USER_API_URL_TOKEN, USER_MAPPING_TOKEN } from '../../repository.tokens';
 import { HttpClient } from '@angular/common/http';
 import { IUserBaseMapping } from '../../interfaces/user/UserBaseMapping.interface';
-import { getAuth, onAuthStateChanged, updateEmail } from 'firebase/auth';
-import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, getFirestore, orderBy, query, setDoc, updateDoc,limit,startAfter, startAt } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { addDoc, collection, deleteDoc, doc, Firestore, getDoc, getDocs, orderBy, query, setDoc, updateDoc,limit,startAfter, startAt } from 'firebase/firestore';
 import { IFirebaseMainService } from 'src/app/core/services/interfaces/firebasemain.service.interface';
-import { FirebaseApp } from 'firebase/app';
 import { AngularFireFunctions } from '@angular/fire/compat/functions';
-import { getFunctions, httpsCallable } from 'firebase/functions'; // Asegúrate de importar httpsCallable correctamente.
 
+/**
+ * Repository class for managing User data via Firebase backend.
+ * Extends UserBaseRepository and implements IUserFirebaseRepository.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseUserRepository extends UserBaseRepository<User> implements IUserFirebaseRepository  {
-
   constructor(
         httpclient:HttpClient,
         @Inject(USER_API_URL_TOKEN) api:string,
@@ -30,7 +31,16 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
       super(httpclient,api,mapping)
     }
 
-
+  /**
+   * Updates user data as admin, including username, gender, and admin status.
+   * 
+   * @param token Authentication token.
+   * @param iduser User ID to update.
+   * @param username New username.
+   * @param gender New gender.
+   * @param isAdminxd Boolean indicating admin status.
+   * @returns Observable emitting updated user info or error if no user logged in.
+   */
   override AdminUpdateUser(token: string, iduser: string, username: string, gender: string, isAdminxd: boolean): Observable<any> {
     let database:Firestore=this.firebasemainservice.getfirestore()
     const auth = getAuth();
@@ -52,7 +62,7 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
 
           let docupdate=await updateDoc(docref,updatedoc); 
           observer.next({iduser:iduser,username:username,gender:gender,isAdmin:isAdminxd})
-   
+
         }else {
           observer.error(new Error("there is no user loged"))
         }
@@ -60,42 +70,36 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
     })
   }
 
-    
+  /**
+   * Retrieves a paginated list of users ordered by name.
+   * 
+   * @param token Pagination cursor token.
+   * @param page Page number.
+   * @param limitxd Number of users per page.
+   * @returns Observable emitting array of BasicUser or error.
+   */
   override AdminGetUsersPagination(token: string, page: number, limitxd: number): Observable<any> {
     const auth = getAuth();
         return new Observable ((observer)=>{
             onAuthStateChanged(auth, async (user) => {
                 if (user) {
-                  /*let personref=doc(firestore,`persons/${user.uid}`)
-                  let docsnap=await getDoc(personref)
-                  let data:any=docsnap.data()*/
-                  
-
                   const db = this.firebasemainservice.getfirestore(); 
-
-                  // referencia a la colección "persons"
                   const personsRef = collection(db, "persons");
 
-                  //asi saca el ultimo usuario para hacer la paginacion a partir de este
                   let docSnap:any="";
                   if(token!=""){
                     docSnap = await getDoc(doc(db, "persons",token));
                   }
 
-
-                  // crea la query, ordenando por el campo "name"
                   let q:any=[]
                   if(token!=""){
                     q = query(personsRef, orderBy("name"), limit(limitxd),startAfter(docSnap));
                   }else{
                     q = query(personsRef, orderBy("name"), limit(limitxd),startAt(docSnap));
                   }
-                   
 
-                  // ejecuta la query
                   const documentSnapshots = await getDocs(q);
 
-                  // muestra los datos en consola
                   let arrayBasicUser: any[]=[]
                   documentSnapshots.forEach((doc:any) => {
                     arrayBasicUser.push(this.mapping.GetBasicUser({uid:doc.id,email:doc.data().email},doc.data().name,doc.data().gender,"",doc.data().isAdmin))
@@ -104,29 +108,33 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
                   observer.complete()
                     
                 } else {
-                   observer.error(new Error("there is no user loged"))
+                  observer.error(new Error("there is no user loged"))
                 }
             });
         }
       )
-    throw new Error('Method not implemented.');
   }
+
+  /**
+   * Deletes a user by ID.
+   * 
+   * @param token Authentication token.
+   * @param iduser User ID to delete.
+   * @returns Observable for HTTP post deletion or error.
+   */
   override AdminDeleteUser(token: string, iduser: string): Observable<any> {
-    //const eliminarUsuarioCallable = this.functions.httpsCallable('eliminarUsuario');
-    //return eliminarUsuarioCallable({ uidAEliminar: iduser });
-
-
     const db = this.firebasemainservice.getfirestore(); 
-    // elimina coleccion del ususario
     deleteDoc(doc(db, "persons", iduser));
-
-    //elimina usuario
     return this.httpclient.post("https://eliminarusuario-bamoiskzbq-uc.a.run.app",{uidAEliminar:iduser})
-    //adminDeleteUser({ uidAEliminar: iduser });
-    //return eliminarUsuarioCallable({ uidAEliminar: iduser });
-    throw new Error('Method not implemented.');
   }
 
+  /**
+   * Gets BasicUser details for currently authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param id User ID (optional).
+   * @returns Observable emitting BasicUser or error.
+   */
   override GetBasicUser(token: string, id: string): Observable<BasicUser> {
     const auth = getAuth();
         return new Observable ((observer)=>{
@@ -139,21 +147,27 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
                   
                   observer.next(this.mapping.GetBasicUser(user,data.name,data.gender,data.image,data.isAdmin))
                   observer.complete()
-                    
                 } else {
-                   observer.error(new Error("there is no user loged"))
+                  observer.error(new Error("there is no user loged"))
                 }
             });
         }
       )
   }
+
+  /**
+   * Retrieves list(s) associated with the authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param id Optional list ID to get a specific list with cryptos.
+   * @returns Observable emitting lists or specific list with cryptos.
+   */
   override GetListFromUser(token: string,id?:string): Observable<any> {
     const auth = getAuth();
     const database:Firestore=this.firebasemainservice.getfirestore()
     return new Observable ((observer)=>{
       onAuthStateChanged(auth, async (user) => {
           if (user) {
-
             if(!id){
               const q = query(collection(database, `persons/${user.uid}/list`))
               const querySnapshot = await getDocs(q);
@@ -182,18 +196,23 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
               array.push(data)
               data.id=docRef.id
               let finaldata=this.mapping.GetListFromUser(array)
-              console.log(finaldata)
               return observer.next(finaldata)
             }
-
-            
           } else {
-             observer.error(new Error("there is no user loged"))
+            observer.error(new Error("there is no user loged"))
           }
       });
-      
     })
   }
+
+  /**
+   * Adds a list to the authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param list List data to add.
+   * @param iduser User ID.
+   * @returns Observable emitting added list response.
+   */
   override addlistToUser(token: string, list: BasicList, iduser: string): Observable<any> {
     let database:Firestore=this.firebasemainservice.getfirestore()
     const auth = getAuth();
@@ -210,6 +229,14 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
       })
     })
   }
+
+  /**
+   * Removes a list from the authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param listid List ID to remove.
+   * @returns Observable that completes after removal.
+   */
   override removelistFromUser(token: string, listid: string): Observable<any> {
     let database:Firestore=this.firebasemainservice.getfirestore()
     const auth = getAuth();
@@ -223,6 +250,13 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
     })
   }
 
+  /**
+   * Updates a list from the authenticated user.
+   * 
+   * @param token Authentication token.
+   * @param list List data to update.
+   * @returns Observable emitting updated list.
+   */
   override updatelistFromUser(token: string, list: BasicList): Observable<any> {
     let database:Firestore=this.firebasemainservice.getfirestore()
     const auth = getAuth();
@@ -240,9 +274,17 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
     })
   }
 
+  /**
+   * Adds a cryptocurrency to a user's list.
+   * 
+   * @param token Authentication token.
+   * @param idlist List ID to add the crypto to.
+   * @param idcrypto Cryptocurrency ID.
+   * @param crypto Optional BasicCrypto object.
+   * @returns Observable emitting an empty string immediately.
+   */
   override addCryptoToList(token: string, idlist: string, idcrypto: string,crypto?: BasicCrypto): Observable<any> {
     let database:Firestore=this.firebasemainservice.getfirestore()
-    
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
       if (user) { 
@@ -255,20 +297,25 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
     return of("")
   }
 
+  /**
+   * Removes a cryptocurrency from a user's list.
+   * 
+   * @param token Authentication token.
+   * @param idlist List ID.
+   * @param idcrypto Cryptocurrency ID to remove.
+   * @returns Observable emitting an empty string immediately.
+   */
   override removeCryptoFromList(token: string, listid: string, cryptoid: string): Observable<any> {
     let database:Firestore=this.firebasemainservice.getfirestore()
-
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
       if (user) { 
         await deleteDoc(doc(database, `persons/${user.uid}/list/${listid}/cryptos`, cryptoid));
-
       }
     })
-
     return of("")
   }
-  
+
   override findcryptobyid(token: string, idcrypto: string): Observable<any> {
     return of(idcrypto)
   }
@@ -277,31 +324,30 @@ export class FirebaseUserRepository extends UserBaseRepository<User> implements 
     throw new Error('Method not implemented.');
   }
 
-
+  /**
+   * Updates the authenticated user's basic data, such as username and gender.
+   * 
+   * @param token Authentication token (not used in this implementation).
+   * @param data Object containing fields to update (username, gender).
+   * @param userid User ID (not directly used, authenticated user is used instead).
+   * @returns Observable emitting the updated BasicUser after the update.
+   */
   override updateuserdata(token: string, data: any, userid: string): Observable<any> {
     const auth = getAuth();
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-          
-          let firestore:Firestore=this.firebasemainservice.getfirestore()
-          if(data.username){
-                await updateDoc(doc(firestore,"persons",user.uid),{
-                    name:data.username
-                })
-                console.log(data.username)
-          }
+        let firestore:Firestore=this.firebasemainservice.getfirestore()
+        if(data.username){
+          await updateDoc(doc(firestore,"persons",user.uid),{
+            name:data.username
+          })
+        }
 
-          if(data.gender){
-            await updateDoc(doc(firestore,"persons",user.uid),{
-              gender:data.gender
-            })
-          }
-
-
-          
-          console.log(user)
-      } else {
-         //observer.error(new Error("there is no user loged"))
+        if(data.gender){
+          await updateDoc(doc(firestore,"persons",user.uid),{
+            gender:data.gender
+          })
+        }
       }
   });
     return this.GetBasicUser("","")

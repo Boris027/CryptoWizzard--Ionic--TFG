@@ -1,10 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import { Component, Inject } from '@angular/core';
 import { TranslationService } from '../../../core/services/impl/translation.service';
 import { IAuthenticationService } from '../../../core/services/interfaces/authentication/authentication.interface';
 import { AUTH_TOKEN } from '../../../core/repositories/repository.tokens';
-import { User } from '../../../core/models/User.model';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared/sharedservice/shared.service';
@@ -15,8 +13,23 @@ import { Subscription } from 'rxjs';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+/**
+ * LoginPage is responsible for handling user authentication and language selection.
+ * It includes a login form and a language switcher modal (alert).
+ */
+export class LoginPage {
   private subscriptions:Subscription[]=[]
+
+  /**
+   * Constructor for injecting required services.
+   *
+   * @param authservice The authentication service (injected with token).
+   * @param translationService Custom service to manage language selection.
+   * @param translate Angular ngx-translate service.
+   * @param router Angular Router for navigation.
+   * @param alertcontroller Ionic AlertController for dialogs.
+   * @param shared SharedService to show toast messages.
+   */
   constructor(
     @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
     private translationService: TranslationService,
@@ -24,31 +37,36 @@ export class LoginPage implements OnInit {
     private router:Router,
     private alertcontroller:AlertController,
     private shared:SharedService
-  ) { 
-    
+  ) { }
 
-  }
-
-
-
+  /**
+   * Changes the application language.
+   *
+   * @param lang Language code (e.g., 'en', 'es').
+   */
   changeLanguage(lang: string) {
     this.translationService.setLanguage(lang);
   }
 
-
+  /**
+   * Logs in a user using form input and navigates to splash page on success.
+   *
+   * @param event Object containing login form data (typically from (ngSubmit)).
+   */
   login(event:any) {
     this.subscriptions.push(this.authservice.Login(event).subscribe({
       next:(value)=>{
           this.shared.showToast("success",this.translate.instant("CRUDUSER.LOGIN.LOGINSUCCESSFUL"))
           this.router.navigate(['/splash']);
         },error:(err)=>{
-        console.log(err)
         this.shared.showToast("danger",err+"")
       }
     }))
   }
 
-  
+  /**
+   * Presents a modal allowing the user to select their preferred language.
+   */
   async present(){
     const alert = await this.alertcontroller.create({
       header: this.translate.instant('MAINMENU.SELECTLANGUAGE'), 
@@ -84,22 +102,16 @@ export class LoginPage implements OnInit {
         },
       ],
     });
-
     await alert.present();
   }
 
- 
-  ngOnInit() {
-  }
-
-  
-
-  
-
+  /**
+   * Angular lifecycle hook.
+   * Unsubscribes from all active subscriptions to prevent memory leaks.
+   */
   ngOnDestroy(){
     this.subscriptions.forEach(c=>{
       c.unsubscribe()
     })
   }
-
 }

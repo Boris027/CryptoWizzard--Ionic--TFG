@@ -3,40 +3,61 @@ import { FIREBASE_CONFIG_TOKEN } from '../../repositories/repository.tokens';
 import { FirebaseApp, initializeApp } from 'firebase/app';
 import { Firestore, getFirestore } from 'firebase/firestore';
 import { IFirebaseMainService } from '../interfaces/firebasemain.service.interface';
-import { getFunctions, httpsCallable } from 'firebase/functions'; // Asegúrate de que esta línea está aquí.
+import { getFunctions } from 'firebase/functions';
 
+/**
+ * Service responsible for initializing and providing access
+ * to the main Firebase app, Firestore database, and Firebase Functions.
+ * Implements the IFirebaseMainService interface.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseMainService implements IFirebaseMainService {
-
   private app: FirebaseApp;
   private db: Firestore;
   private functions: any;
 
+  /**
+   * Initializes Firebase app, Firestore, and Firebase Functions
+   * using the provided Firebase configuration.
+   * 
+   * @param firebaseConfig - Configuration object for Firebase initialization.
+   */
   constructor(
     @Inject(FIREBASE_CONFIG_TOKEN) private firebaseConfig: any
   ) {
-    // Initialize Firebase app
     this.app = initializeApp(firebaseConfig);
 
-    // Initialize Firestore
     this.db = getFirestore(this.app);
 
-    // Initialize Firebase Functions
-    this.functions = getFunctions(this.app);  // Correct usage here
+    this.functions = getFunctions(this.app);
   }
- 
 
+  /**
+   * Returns the initialized Firebase app instance.
+   * 
+   * @returns FirebaseApp instance
+   */
   getfirebaseApp(): FirebaseApp {
     return this.app;
   }
 
+  /**
+   * Returns the initialized Firestore database instance.
+   * 
+   * @returns Firestore instance
+   */
   getfirestore(): Firestore {
     return this.db;
   }
 
+  /**
+   * Returns the initialized Firebase Functions instance.
+   * 
+   * @returns Firebase Functions instance
+   */
   getFunctions(): any {
-    return this.functions;  // Expose functions for use in other parts of the app
+    return this.functions;
   }
 }

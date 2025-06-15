@@ -1,0 +1,1511 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AdminPanelPage</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/General/admin-panel/admin-panel.page.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>AdminPanelPage component.</p>
+<p>This component manages the administration panel for user management,
+including listing users with pagination, editing, deleting users,
+and downloading user data as CSV.</p>
+
+    </p>
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin-panel</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./admin-panel.page.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin-panel.page.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#actualUser" >actualUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#token" >token</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#users" >users</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#usersLimit" >usersLimit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deleteUser" >deleteUser</a>
+                            </li>
+                            <li>
+                                <a href="#downloadCsv" >downloadCsv</a>
+                            </li>
+                            <li>
+                                <a href="#editUser" >editUser</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#extractFileName" >extractFileName</a>
+                            </li>
+                            <li>
+                                <a href="#ionViewWillEnter" >ionViewWillEnter</a>
+                            </li>
+                            <li>
+                                <a href="#loadMoreUsers" >loadMoreUsers</a>
+                            </li>
+                            <li>
+                                <a href="#loadUsers" >loadUsers</a>
+                            </li>
+                            <li>
+                                <a href="#onIonInfinite" >onIonInfinite</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#presentModal" >presentModal</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authservice: <a href="../interfaces/IAuthenticationService.html" target="_self">IAuthenticationService</a>, userService: IUserbaseService<User>, modalController: ModalController, translate: TranslateService, shared: <a href="../injectables/SharedService.html" target="_self">SharedService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates an instance of AdminPanelPage.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IAuthenticationService.html" target="_self" >IAuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Authentication service for managing user auth and UI state.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                    <code>IUserbaseService&lt;User&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>User base service for managing user CRUD operations.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Controller to open modals.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>translate</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslateService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Translate service for internationalization.</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>shared</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedService.html" target="_self" >SharedService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Shared service for utility functions like toast messages.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteUser"></a>
+                    <span class="name">
+                        <span ><b>deleteUser</b></span>
+                        <a href="#deleteUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteUser(userId: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Deletes a user by id.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>userId</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The id of the user to delete.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="downloadCsv"></a>
+                    <span class="name">
+                        <span ><b>downloadCsv</b></span>
+                        <a href="#downloadCsv"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>downloadCsv()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Downloads the user list as a CSV file.
+Shows toast messages for success or error.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editUser"></a>
+                    <span class="name">
+                        <span ><b>editUser</b></span>
+                        <a href="#editUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>editUser(user: <a href="../interfaces/BasicUser.html" target="_self">BasicUser</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Opens a modal to edit the selected user.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BasicUser.html" target="_self" >BasicUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The user to edit.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractFileName"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>extractFileName</b></span>
+                        <a href="#extractFileName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractFileName(header: string | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Extracts the filename from the Content-Disposition header.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>header</td>
+                                            <td>
+                                                        <code>string | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The Content-Disposition header value.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>The extracted filename or null if not found.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ionViewWillEnter"></a>
+                    <span class="name">
+                        <span ><b>ionViewWillEnter</b></span>
+                        <a href="#ionViewWillEnter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ionViewWillEnter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle event called when the page is about to enter and become active.
+Fetches current user info and loads the first page of users.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadMoreUsers"></a>
+                    <span class="name">
+                        <span ><b>loadMoreUsers</b></span>
+                        <a href="#loadMoreUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadMoreUsers(notify: HTMLIonInfiniteScrollElement | null)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Loads more users for infinite scrolling, appending to the current list.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>notify</td>
+                                            <td>
+                                                        <code>HTMLIonInfiniteScrollElement | null</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>null</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>The IonInfiniteScroll element to complete the loading event.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUsers"></a>
+                    <span class="name">
+                        <span ><b>loadUsers</b></span>
+                        <a href="#loadUsers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>loadUsers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Loads the first page of users, excluding the current authenticated user.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onIonInfinite"></a>
+                    <span class="name">
+                        <span ><b>onIonInfinite</b></span>
+                        <a href="#onIonInfinite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onIonInfinite($event: IonInfiniteScrollCustomEvent<void>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="172"
+                                    class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Event handler for the Ionic infinite scroll event.
+Loads more users when the user scrolls to the bottom.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>IonInfiniteScrollCustomEvent&lt;void&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="presentModal"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>presentModal</b></span>
+                        <a href="#presentModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>presentModal(user: <a href="../interfaces/BasicUser.html" target="_self">BasicUser</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="144"
+                                    class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:144</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Presents a modal with the AdminFormularyComponent for editing user data.
+After the modal is dismissed, updates the user if changes were made.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BasicUser.html" target="_self" >BasicUser</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>The user to edit.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actualUser"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>actualUser</b></span>
+                        <a href="#actualUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/BasicUser.html" target="_self" >BasicUser</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{id:&#x27;&#x27;,email:&#x27;&#x27;,username:&#x27;&#x27;,img:&#x27;&#x27;,gender:&#x27;&#x27;,isAdmin:false}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="token"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>token</b></span>
+                        <a href="#token"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="users"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>users</b></span>
+                        <a href="#users"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BasicUser[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usersLimit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>usersLimit</b></span>
+                        <a href="#usersLimit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>15</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/General/admin-panel/admin-panel.page.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpResponse } from &#x27;@angular/common/http&#x27;;
+import { Component, Inject } from &#x27;@angular/core&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { IonInfiniteScrollCustomEvent } from &#x27;@ionic/core&#x27;;
+import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
+import * as saveAs from &#x27;file-saver&#x27;;
+import { BasicUser, User } from &#x27;src/app/core/models/User.model&#x27;;
+import { AUTH_TOKEN, USER_SERVICE_TOKEN } from &#x27;src/app/core/repositories/repository.tokens&#x27;;
+import { IAuthenticationService } from &#x27;src/app/core/services/interfaces/authentication/authentication.interface&#x27;;
+import { IUserbaseService } from &#x27;src/app/core/services/interfaces/user/User-base-service.interface&#x27;;
+import { AdminFormularyComponent } from &#x27;src/app/shared/admin-formulary/admin-formulary.component&#x27;;
+import { SharedService } from &#x27;src/app/shared/sharedservice/shared.service&#x27;;
+
+/**
+ * AdminPanelPage component.
+ * 
+ * This component manages the administration panel for user management,
+ * including listing users with pagination, editing, deleting users,
+ * and downloading user data as CSV.
+ */
+@Component({
+  selector: &#x27;app-admin-panel&#x27;,
+  templateUrl: &#x27;./admin-panel.page.html&#x27;,
+  styleUrls: [&#x27;./admin-panel.page.scss&#x27;],
+})
+export class AdminPanelPage {
+  public users: BasicUser[] &#x3D; [];
+  private usersLimit &#x3D; 15;
+  private token &#x3D; &#x27;&#x27;;
+  private actualUser: BasicUser &#x3D; {id:&#x27;&#x27;,email:&#x27;&#x27;,username:&#x27;&#x27;,img:&#x27;&#x27;,gender:&#x27;&#x27;,isAdmin:false};
+
+  /**
+   * Creates an instance of AdminPanelPage.
+   * @param authservice Authentication service for managing user auth and UI state.
+   * @param userService User base service for managing user CRUD operations.
+   * @param modalController Controller to open modals.
+   * @param translate Translate service for internationalization.
+   * @param shared Shared service for utility functions like toast messages.
+   */
+  constructor(
+    @Inject(AUTH_TOKEN) private authservice:IAuthenticationService,
+    @Inject(USER_SERVICE_TOKEN) private userService:IUserbaseService&lt;User&gt;,
+    private modalController: ModalController,
+    private translate: TranslateService,
+    private shared:SharedService
+  ){
+    this.authservice.setmenu(true);
+  }
+
+  /**
+   * Lifecycle event called when the page is about to enter and become active.
+   * Fetches current user info and loads the first page of users.
+   */
+  ionViewWillEnter() {
+    this.userService.GetBehaviourUser().subscribe(value &#x3D;&gt; {
+      this.actualUser &#x3D; value;
+    });
+    this.loadUsers();
+  }
+
+  /**
+   * Loads the first page of users, excluding the current authenticated user.
+   */
+  loadUsers() {
+    this.token &#x3D; &#x27;&#x27;
+    this.userService.AdminGetUsersPagination(this.token, 0, this.usersLimit).subscribe(usersResponse&#x3D;&gt;{
+      if (usersResponse[0]) {
+        this.users &#x3D; usersResponse.filter((it: User) &#x3D;&gt; it.id !&#x3D; this.actualUser.id);
+        this.token &#x3D; usersResponse[usersResponse.length-1].id;
+      }
+    });
+  }
+
+  /**
+   * Loads more users for infinite scrolling, appending to the current list.
+   * @param notify The IonInfiniteScroll element to complete the loading event.
+   */
+  loadMoreUsers(notify: HTMLIonInfiniteScrollElement | null &#x3D; null) {
+    this.userService.AdminGetUsersPagination(this.token, 0, this.usersLimit).subscribe(usersResponse&#x3D;&gt;{
+      if (usersResponse[0]) {
+        usersResponse.filter((it: BasicUser) &#x3D;&gt; it.id !&#x3D; this.actualUser.id).forEach((it: BasicUser) &#x3D;&gt; this.users.push(it));
+        this.token &#x3D; usersResponse[usersResponse.length-1].id;
+      }
+      notify?.complete();
+    });
+  }
+
+  /**
+   * Opens a modal to edit the selected user.
+   * @param user The user to edit.
+   */
+  editUser(user: BasicUser) {
+    this.presentModal(user);
+  }
+  
+  /**
+   * Deletes a user by id.
+   * @param userId The id of the user to delete.
+   */
+  deleteUser(userId: any) {
+    this.userService.AdminDeleteUser(&#x27;&#x27;,userId).subscribe(()&#x3D;&gt;{
+      this.shared.showToast(&quot;success&quot;,this.translate.instant(&quot;CRUDUSER.DELETEACCOUNTSUCCESSFUL&quot;));
+      this.loadUsers();
+    });
+  }
+
+  /**
+   * Downloads the user list as a CSV file.
+   * Shows toast messages for success or error.
+   */
+  downloadCsv() {
+    this.userService.getUsersCsv().subscribe({
+      next: (response: HttpResponse&lt;Blob&gt;) &#x3D;&gt; {
+        const contentDisposition &#x3D; response.headers.get(&#x27;Content-Disposition&#x27;);
+        const filename &#x3D; this.extractFileName(contentDisposition) ?? this.translate.instant(&quot;ADMIN_PANEL.CSV_BUTTON.FILENAME&quot;);
+        const blob &#x3D; new Blob([response.body as BlobPart], {
+          type: &#x27;text/csv;charset&#x3D;utf-8&#x27;
+        });
+        saveAs(blob, filename);
+        this.shared.showToast(&#x27;success&#x27;,this.translate.instant(&#x27;ADMIN_PANEL.CSV_BUTTON.SUCCESS&#x27;));
+      },
+      error: (err: unknown) &#x3D;&gt; {
+        this.shared.showToast(&#x27;success&#x27;,this.translate.instant(&#x27;ADMIN_PANEL.CSV_BUTTON.ERROR&#x27;));
+      }
+    });
+  }
+
+  /**
+   * Extracts the filename from the Content-Disposition header.
+   * @param header The Content-Disposition header value.
+   * @returns The extracted filename or null if not found.
+   */
+  private extractFileName(header: string | null): string | null {
+    if (!header) return null;
+    const match &#x3D; /filename[^;&#x3D;\n]*&#x3D;(([&#x27;&quot;]).*?\2|[^;\n]*)/.exec(header);
+    return match ? match[1].replace(/[&#x27;&quot;]/g, &#x27;&#x27;) : null;
+  }
+
+  /**
+   * Presents a modal with the AdminFormularyComponent for editing user data.
+   * After the modal is dismissed, updates the user if changes were made.
+   * @param user The user to edit.
+   */
+  async presentModal(user:BasicUser) {
+    const modal &#x3D; await this.modalController.create({
+      component: AdminFormularyComponent,
+      componentProps: { user: user }
+    });
+    
+    await modal.present();
+    
+    const { data } &#x3D; await modal.onWillDismiss();
+    
+    if (data) {
+      this.userService.AdminUpdateUser(&#x27;&#x27;, user.id, data.username, data.gender, data.isAdmin).subscribe({
+        next:(value)&#x3D;&gt;{
+          this.shared.showToast(&#x27;success&#x27;,this.translate.instant(&#x27;CRUDUSER.UPDATE.UPDATESUCCESSFULL&#x27;));
+            this.loadUsers();
+        },
+        error:(err)&#x3D;&gt;{
+            this.shared.showToast(&#x27;danger&#x27;,this.translate.instant(&#x27;CRUDUSER.ERRORS.UPDATEFAILED&#x27;))
+        },
+      })
+    }
+  }
+
+  /**
+   * Event handler for the Ionic infinite scroll event.
+   * Loads more users when the user scrolls to the bottom.
+   * @param event The infinite scroll event.
+   */
+  onIonInfinite($event: IonInfiniteScrollCustomEvent&lt;void&gt;) {
+    this.loadMoreUsers($event.target);
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header [translucent]&#x3D;&quot;true&quot;&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;{{ &#x27;MAINMENU.ADMINPANEL&#x27; | translate }}&lt;/ion-title&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content [fullscreen]&#x3D;&quot;false&quot; class&#x3D;&quot;profile-page&quot;&gt;
+  &lt;div class&#x3D;&quot;button-container ion-text-end&quot;&gt;
+    &lt;ion-button (click)&#x3D;&quot;downloadCsv()&quot;&gt;{{ &#x27;ADMIN_PANEL.CSV_BUTTON.TEXT&#x27; | translate }}&lt;/ion-button&gt;
+  &lt;/div&gt;
+
+  &lt;div class&#x3D;&quot;table-container&quot;&gt;
+    &lt;table class&#x3D;&quot;user-table&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;{{ &#x27;ADMIN_PANEL.TABLE.USERNAME&#x27; | translate }}&lt;/th&gt;
+          &lt;th&gt;{{ &#x27;ADMIN_PANEL.TABLE.EMAIL&#x27; | translate }}&lt;/th&gt;
+          &lt;th&gt;{{ &#x27;ADMIN_PANEL.TABLE.GENDER&#x27; | translate }}&lt;/th&gt;
+          &lt;th&gt;{{ &#x27;ADMIN_PANEL.TABLE.ADMIN&#x27; | translate }}&lt;/th&gt;
+          &lt;th&gt;{{ &#x27;ADMIN_PANEL.TABLE.ACTIONS&#x27; | translate }}&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr *ngFor&#x3D;&quot;let user of users&quot;&gt;
+          &lt;td&gt;{{ user.username }}&lt;/td&gt;
+          &lt;td&gt;{{ user.email }}&lt;/td&gt;
+          &lt;td&gt;{{ user.gender &#x3D;&#x3D;&#x3D; &#x27;male&#x27; ? (&#x27;CRUDUSER.REGISTER.MALE&#x27; | translate) : user.gender &#x3D;&#x3D;&#x3D; &#x27;female&#x27; ? (&#x27;CRUDUSER.REGISTER.FEMALE&#x27; | translate) : (&#x27;CRUDUSER.REGISTER.OTHER&#x27; | translate) }}&lt;/td&gt;
+          &lt;td&gt;{{ user.isAdmin ? (&#x27;COMMON.YES&#x27; | translate) : (&#x27;COMMON.NO&#x27; | translate) }}&lt;/td&gt;
+          &lt;td class&#x3D;&quot;actions&quot;&gt;
+            &lt;ion-button fill&#x3D;&quot;clear&quot; color&#x3D;&quot;warning&quot; (click)&#x3D;&quot;editUser(user)&quot;&gt;
+              &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;create-outline&quot;&gt;&lt;/ion-icon&gt;
+            &lt;/ion-button&gt;
+            &lt;ion-button fill&#x3D;&quot;clear&quot; color&#x3D;&quot;danger&quot; (click)&#x3D;&quot;deleteUser(user.id)&quot;&gt;
+              &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;trash-outline&quot;&gt;&lt;/ion-icon&gt;
+            &lt;/ion-button&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+
+  &lt;ion-infinite-scroll (ionInfinite)&#x3D;&quot;onIonInfinite($event)&quot;&gt;
+    &lt;ion-infinite-scroll-content&gt;&lt;/ion-infinite-scroll-content&gt;
+  &lt;/ion-infinite-scroll&gt;
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./admin-panel.page.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.button-container {
+    padding: 16px 16px 0px 0px;
+}
+
+.table-container {
+    padding: 16px;
+    overflow-x: auto;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0 4px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    thead {
+        background-color: var(--ion-header-background);
+        color: white;
+
+        th {
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+
+    tbody {
+        tr {
+            background-color: var(--ion-modal-background);
+            position: relative;
+            border-bottom: none;
+
+            &amp;::after {
+                content: &#x27;&#x27;;
+                position: absolute;
+                bottom: 0;
+                left: 2%;
+                width: 96%;
+                height: 1px;
+                background-color: #c0c0c0;
+            }
+
+            &amp;:last-child::after {
+                display: none;
+            }
+
+            td {
+                padding: 12px;
+                font-size: 15px;
+                text-align: center;
+            }
+        }
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  <ion-toolbar>    <ion-title>{{ \'MAINMENU.ADMINPANEL\' | translate }}</ion-title>  </ion-toolbar></ion-header><ion-content [fullscreen]="false" class="profile-page">  <div class="button-container ion-text-end">    <ion-button (click)="downloadCsv()">{{ \'ADMIN_PANEL.CSV_BUTTON.TEXT\' | translate }}</ion-button>  </div>  <div class="table-container">    <table class="user-table">      <thead>        <tr>          <th>{{ \'ADMIN_PANEL.TABLE.USERNAME\' | translate }}</th>          <th>{{ \'ADMIN_PANEL.TABLE.EMAIL\' | translate }}</th>          <th>{{ \'ADMIN_PANEL.TABLE.GENDER\' | translate }}</th>          <th>{{ \'ADMIN_PANEL.TABLE.ADMIN\' | translate }}</th>          <th>{{ \'ADMIN_PANEL.TABLE.ACTIONS\' | translate }}</th>        </tr>      </thead>      <tbody>        <tr *ngFor="let user of users">          <td>{{ user.username }}</td>          <td>{{ user.email }}</td>          <td>{{ user.gender === \'male\' ? (\'CRUDUSER.REGISTER.MALE\' | translate) : user.gender === \'female\' ? (\'CRUDUSER.REGISTER.FEMALE\' | translate) : (\'CRUDUSER.REGISTER.OTHER\' | translate) }}</td>          <td>{{ user.isAdmin ? (\'COMMON.YES\' | translate) : (\'COMMON.NO\' | translate) }}</td>          <td class="actions">            <ion-button fill="clear" color="warning" (click)="editUser(user)">              <ion-icon slot="icon-only" name="create-outline"></ion-icon>            </ion-button>            <ion-button fill="clear" color="danger" (click)="deleteUser(user.id)">              <ion-icon slot="icon-only" name="trash-outline"></ion-icon>            </ion-button>          </td>        </tr>      </tbody>    </table>  </div>  <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">    <ion-infinite-scroll-content></ion-infinite-scroll-content>  </ion-infinite-scroll></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminFormularyComponent', 'selector': 'app-admin-formulary'},{'name': 'AdminPanelPage', 'selector': 'app-admin-panel'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CryptocardComponent', 'selector': 'app-cryptocard'},{'name': 'CryptosimplecardComponent', 'selector': 'app-cryptosimplecard'},{'name': 'CryptoviewPage', 'selector': 'app-cryptoview'},{'name': 'CustomGenderComponent', 'selector': 'app-custom-gender'},{'name': 'FormularyComponent', 'selector': 'app-formulary'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ListcontentPage', 'selector': 'app-listcontent'},{'name': 'ListcryptoComponent', 'selector': 'app-listcrypto'},{'name': 'ListformularyComponent', 'selector': 'app-listformulary'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SearchPage', 'selector': 'app-search'},{'name': 'SplashPage', 'selector': 'app-splash'}];
+    var DIRECTIVES = [{'name': 'BackgraphbuttonDirective', 'selector': '[appBackgraphbutton]'},{'name': 'ColorpercentDirective', 'selector': '[appColorpercent]'}];
+    var ACTUAL_COMPONENT = {'name': 'AdminPanelPage'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminPanelPage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

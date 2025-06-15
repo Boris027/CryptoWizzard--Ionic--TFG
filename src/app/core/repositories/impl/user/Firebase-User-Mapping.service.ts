@@ -16,14 +16,24 @@ export interface cryptosxd {
     name: string
 }
 
+/**
+ * Mapping service responsible for converting raw Firebase user data
+ * into application models and vice versa.
+ * 
+ * Implements IUserBaseMapping interface for user-related data transformation.
+ */
 @Injectable({
     providedIn: 'root'
 })
 export class FirebaseUserMapping implements IUserBaseMapping<User>{
-    
+    /**
+     * Maps an array of raw user lists from Firebase into CryptoList models.
+     * 
+     * @param data Raw user list data array.
+     * @returns Array of CryptoList objects mapped from the raw data.
+     */
     GetListFromUser(data: rawbasiclist[]): CryptoList[] {
         let listafinal:CryptoList[]=data.map(c=>{
-
             return {
                 id:c.id,
                 title:c.title,
@@ -41,39 +51,61 @@ export class FirebaseUserMapping implements IUserBaseMapping<User>{
     }
 
     addlistUser(data: any, iduser: string) {
-        
-
         throw new Error("Method not implemented.");
     }
+
+    /**
+     * Maps the response data when adding a new list for a user.
+     * 
+     * @param data Raw response data from adding a list.
+     * @returns BasicList model constructed from the response.
+     */
     addlistUserResponse(data: any): BasicList {
         return {
             id:data.id,
             title:data.title,
             description:data.description
         }
-        throw new Error("Method not implemented.");
     }
+
     updatelistbody(data: any) {
         throw new Error("Method not implemented.");
     }
+
     deletecryptofromlist(data: any) {
         throw new Error("Method not implemented.");
     }
+
     findcryptobyidresponse(data: any, idcrypto: string) {
         throw new Error("Method not implemented.");
     }
+
     addcryptotodatabase(data: any) {
         throw new Error("Method not implemented.");
     }
+
     addcryptoresponse(data: any) {
         throw new Error("Method not implemented.");
     }
+
     addcryptotolist(data: any) {
         throw new Error("Method not implemented.");
     }
+
     updateuserdata(data: any) {
         throw new Error("Method not implemented.");
     }
+
+    /**
+     * Constructs a BasicUser model from login response and optional user details.
+     * 
+     * @param data LoginResponse object containing Firebase authentication data.
+     * @param name Optional username.
+     * @param gender Optional user gender.
+     * @param image Optional user image URL.
+     * @param isAdmin Optional flag indicating if the user has admin privileges.
+     * @returns BasicUser model constructed from the provided data.
+     */
     GetBasicUser(data: LoginResponse,name?:string,gender?:string,image?:string,isAdmin?:boolean):BasicUser {
         return {
             username:name!,
@@ -83,7 +115,5 @@ export class FirebaseUserMapping implements IUserBaseMapping<User>{
             img:image??"",
             isAdmin:isAdmin??false
         }
-        throw new Error("Method not implemented.");
     }
-    
 }

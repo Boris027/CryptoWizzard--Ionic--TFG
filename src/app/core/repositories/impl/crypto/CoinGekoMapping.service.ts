@@ -1,9 +1,11 @@
-import { Observable } from "rxjs";
 import { AdvancedCrypto, BasicCrypto, CryptoGraphPrice } from "../../../models/Crypto.model";
 import { ICryptoBaseMapping } from "../../interfaces/crypto/CryptoBaseMapping.interface";
 import { Injectable } from "@angular/core";
 
-
+/**
+ * Interface representing the detailed cryptocurrency data structure
+ * as received from the CoinGecko API.
+ */
 export interface CryptoFromApi {
     id: string
     symbol: string
@@ -33,27 +35,40 @@ export interface CryptoFromApi {
     last_updated: string
 }
 
+/**
+ * Interface representing a basic crypto object with minimal information
+ * as returned from the CoinGecko API.
+ */
 export interface BasiCryptoFromApi{
     id:string,
     name:string,
     symbol:string
 }
 
+/**
+ * Interface representing historical price and volume data
+ * as provided by the CoinGecko API.
+ */
 export interface PricesCryptoFromApi {
     prices: number[][]
     market_caps: number[][]
     total_volumes: number[][]
-  }
+}
 
+/**
+ * Mapping class that transforms raw API data from CoinGecko
+ * into application-specific models.
+ */
 @Injectable({
     providedIn: 'root'
 })
-
-
 export class CoinGekoMapping implements ICryptoBaseMapping<BasicCrypto> {
-   
-
-
+    /**
+     * Maps paginated API data into an array of AdvancedCrypto models.
+     * 
+     * @param data Raw API response containing crypto market data.
+     * @returns Array of AdvancedCrypto objects with selected fields.
+     */
     getAllPaginated(data: any): AdvancedCrypto[] {
         let list=data.map((c: any) => ({
             id: c.id,
@@ -66,6 +81,12 @@ export class CoinGekoMapping implements ICryptoBaseMapping<BasicCrypto> {
         return list
     }
 
+    /**
+     * Maps API data into a list of BasicCrypto models.
+     * 
+     * @param data Raw API response containing minimal crypto info.
+     * @returns Array of BasicCrypto objects.
+     */
     getAllList(data:any):BasicCrypto[]{
         let list=data.map((c: any) => ({
             id:c.id,
@@ -75,7 +96,12 @@ export class CoinGekoMapping implements ICryptoBaseMapping<BasicCrypto> {
         return list
     }
 
-
+    /**
+     * Maps historical price data from the API into CryptoGraphPrice models.
+     * 
+     * @param data Raw API response containing price history arrays.
+     * @returns Array of CryptoGraphPrice objects with price and date.
+     */
     getPriceList(data: any): CryptoGraphPrice[] {
         let list=data.prices.map((c: any) => ({
             price:c[1],
@@ -83,8 +109,4 @@ export class CoinGekoMapping implements ICryptoBaseMapping<BasicCrypto> {
         }))
         return list
     }
-
-
-    
-    
 }

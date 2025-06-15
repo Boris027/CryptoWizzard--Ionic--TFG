@@ -1,0 +1,993 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>CryptoWizzard-Ionic documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">CryptoWizzard-Ionic documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AdminFormularyComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/admin-formulary/admin-formulary.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin-formulary</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./admin-formulary.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin-formulary.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formulary" >formulary</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#confirm" >confirm</a>
+                            </li>
+                            <li>
+                                <a href="#dismissModal" >dismissModal</a>
+                            </li>
+                            <li>
+                                <a href="#inicializateformulary" >inicializateformulary</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#username" >username</a>
+                                </li>
+                                <li>
+                                    <a href="#gender" >gender</a>
+                                </li>
+                                <li>
+                                    <a href="#isAdmin" >isAdmin</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(modalController: ModalController, fb: FormBuilder)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Creates the AdminFormularyComponent and injects required services.</p>
+</div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>Used to control the modal dialog (dismiss/close).</p>
+
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>FormBuilder for creating the reactive form.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user"></a>
+                        <b>user</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/BasicUser.html" target="_self" >BasicUser</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirm"></a>
+                    <span class="name">
+                        <span ><b>confirm</b></span>
+                        <a href="#confirm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Submits the form and closes the modal, passing the form values.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>A promise that resolves after the modal is dismissed with the form data.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dismissModal"></a>
+                    <span class="name">
+                        <span ><b>dismissModal</b></span>
+                        <a href="#dismissModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dismissModal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Closes the modal without passing any data.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inicializateformulary"></a>
+                    <span class="name">
+                        <span ><b>inicializateformulary</b></span>
+                        <a href="#inicializateformulary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>inicializateformulary()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Initializes the form with validators and optionally fills it with the <code>@Input</code> user data.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Lifecycle hook that initializes the form with existing user data if available.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formulary"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>formulary</b></span>
+                        <a href="#formulary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="username"></a>
+                        <span class="name"><b>username</b><a href="#username"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>username()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:78</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter for the <code>username</code> form control.</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gender"></a>
+                        <span class="name"><b>gender</b><a href="#gender"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>gender()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:85</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter for the <code>gender</code> form control.</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isAdmin"></a>
+                        <span class="name"><b>isAdmin</b><a href="#isAdmin"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isAdmin()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/shared/admin-formulary/admin-formulary.component.ts:92</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Getter for the <code>isAdmin</code> form control.</p>
+</div>
+
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+import { BasicUser } from &#x27;src/app/core/models/User.model&#x27;;
+
+@Component({
+  selector: &#x27;app-admin-formulary&#x27;,
+  templateUrl: &#x27;./admin-formulary.component.html&#x27;,
+  styleUrls: [&#x27;./admin-formulary.component.scss&#x27;],
+})
+/**
+ * Component for editing basic user data (username, email, gender, isAdmin) within a modal.
+ */
+export class AdminFormularyComponent  implements OnInit {
+  @Input() user?:BasicUser
+  public formulary!: FormGroup;
+
+  /**
+   * Creates the AdminFormularyComponent and injects required services.
+   * 
+   * @param modalController Used to control the modal dialog (dismiss/close).
+   * @param fb FormBuilder for creating the reactive form.
+   */
+  constructor(
+    private modalController: ModalController,
+    private fb:FormBuilder
+  ) { }
+
+  /**
+   * Lifecycle hook that initializes the form with existing user data if available.
+   */
+  ngOnInit() {
+    this.inicializateformulary()
+  }
+
+  /**
+   * Closes the modal without passing any data.
+   */
+  dismissModal() {
+    this.modalController.dismiss();
+  }
+
+  /**
+   * Initializes the form with validators and optionally fills it with the &#x60;@Input&#x60; user data.
+   */
+  inicializateformulary(){
+    const emailPattern &#x3D; /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    this.formulary&#x3D;this.fb.group({
+      username:[&#x27;&#x27;,[Validators.required]],
+      email: [&#x27;&#x27;, [Validators.required,Validators.pattern(emailPattern)]],
+      gender:[&#x27;&#x27;,[Validators.required]],
+      isAdmin:[&#x27;&#x27;,[Validators.required]]
+    })
+    this.formulary.get(&#x27;username&#x27;)?.setValue(this.user?.username)
+    this.formulary.get(&#x27;email&#x27;)?.setValue(this.user?.email)
+    this.formulary.get(&#x27;gender&#x27;)?.setValue(this.user?.gender);
+    this.formulary.get(&#x27;isAdmin&#x27;)?.setValue(this.user?.isAdmin);
+  }
+  
+  /**
+   * Submits the form and closes the modal, passing the form values.
+   *
+   * @returns A promise that resolves after the modal is dismissed with the form data.
+   */
+  confirm() {
+    let data: any
+    data &#x3D; {
+      username:this.formulary.controls[&#x27;username&#x27;].value,
+      gender:(this.formulary.controls[&#x27;gender&#x27;].value).value,
+      isAdmin:this.formulary.controls[&#x27;isAdmin&#x27;].value
+    }
+    return this.modalController.dismiss(data, &#x27;confirm&#x27;);
+  }
+
+  /**
+   * Getter for the &#x60;username&#x60; form control.
+   */
+  get username(){
+    return this.formulary.controls[&#x27;username&#x27;];
+  }
+
+  /**
+   * Getter for the &#x60;gender&#x60; form control.
+   */
+  get gender(){
+    return this.formulary.controls[&#x27;gender&#x27;];
+  }
+
+  /**
+   * Getter for the &#x60;isAdmin&#x60; form control.
+   */
+  get isAdmin() {
+    return this.formulary.controls[&#x27;isAdmin&#x27;];
+  }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-toolbar&gt;
+    &lt;ion-title&gt;{{&#x27;PROFILE.MODIFY&#x27; | translate}}&lt;/ion-title&gt;
+    &lt;ion-buttons slot&#x3D;&quot;end&quot;&gt;
+      &lt;ion-button (click)&#x3D;&quot;dismissModal()&quot;&gt;
+        &lt;ion-icon name&#x3D;&quot;close&quot; size&#x3D;&quot;large&quot; [ios]&#x3D;&quot;&#x27;close&#x27; + &#x27;-outline&#x27;&quot; [md]&#x3D;&quot;&#x27;close&#x27; + &#x27;-sharp&#x27;&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-button&gt;
+    &lt;/ion-buttons&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content class&#x3D;&quot;center-content&quot;&gt;
+  &lt;form [formGroup]&#x3D;&quot;formulary&quot; class&#x3D;&quot;center-form&quot;&gt;
+    &lt;ion-img src&#x3D;&quot;./../../../assets/logo.jpeg&quot; /&gt;
+
+    &lt;!--username--&gt;
+    &lt;ion-item&gt;
+      &lt;ion-input  formControlName&#x3D;&quot;username&quot; label&#x3D;&quot;{{&#x27;CRUDUSER.USERNAME&#x27; | translate}}&quot; labelPlacement&#x3D;&quot;floating&quot; placeholder&#x3D;&quot;example1234&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-text class&#x3D;&quot;input-error&quot; color&#x3D;&quot;danger&quot; *ngIf&#x3D;&quot;username?.invalid  &amp;&amp; (username?.dirty || username?.touched)&quot; &gt;
+      &lt;p *ngIf&#x3D;&quot;username?.errors?.[&#x27;required&#x27;]&quot;&gt;{{&#x27;CRUDUSER.ERRORS.USERNAMEREQUIRED&#x27; | translate}}&lt;/p&gt;
+    &lt;/ion-text&gt;
+
+    &lt;!--genero--&gt;
+    &lt;div id&#x3D;&quot;valueaccessor&quot;&gt;
+      &lt;app-custom-gender formControlName&#x3D;&quot;gender&quot;&gt;&lt;/app-custom-gender&gt;
+    &lt;/div&gt;
+    &lt;ion-text class&#x3D;&quot;input-error&quot; color&#x3D;&quot;danger&quot; *ngIf&#x3D;&quot;gender?.invalid &amp;&amp; (gender?.dirty || gender?.touched)&quot;&gt;
+      &lt;p *ngIf&#x3D;&quot;gender?.errors?.[&#x27;required&#x27;]&quot;&gt;{{&#x27;CRUDUSER.ERRORS.GENDERSELECTED&#x27; | translate}}&lt;/p&gt;
+    &lt;/ion-text&gt;
+
+    &lt;!-- admin --&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label&gt;{{ &#x27;ADMIN_PANEL.TABLE.ADMIN&#x27; | translate }}&lt;/ion-label&gt;
+      &lt;ion-toggle formControlName&#x3D;&quot;isAdmin&quot;&gt;&lt;/ion-toggle&gt;
+    &lt;/ion-item&gt;
+
+    &lt;ion-footer&gt;
+      &lt;ion-button expand&#x3D;&quot;block&quot; *ngIf&#x3D;&quot;!formulary.valid || !formulary.dirty&quot; disabled&#x3D;&quot;&quot;&gt;
+        {{&#x27;COMMON.SAVE&#x27; | translate}}
+      &lt;/ion-button&gt;
+      &lt;ion-button expand&#x3D;&quot;block&quot; *ngIf&#x3D;&quot;formulary.valid &amp;&amp; formulary.dirty&quot; (click)&#x3D;&quot;confirm()&quot;&gt;
+        {{&#x27;COMMON.SAVE&#x27; | translate}}
+      &lt;/ion-button&gt;
+    &lt;/ion-footer&gt;
+  &lt;/form&gt;
+&lt;/ion-content&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./admin-formulary.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.center-content {
+  position: relative;
+  height: 100%; /* Asegura que el contenido ocupe toda la pantalla */
+}
+
+.center-form {
+  position: absolute;
+  top: 50%; /* Coloca el formulario en el centro vertical */
+  left: 50%; /* Coloca el formulario en el centro horizontal */
+  transform: translate(-50%, -50%); /* Ajusta para centrar correctamente */
+  width: 100%; /* Asegura que el formulario sea responsive */
+  padding: 2rem; /* Espaciado interno para un diseño limpio */
+  border-radius: 12px; /* Bordes redondeados para un diseño moderno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para profundidad */
+}
+
+ion-item {
+  margin-bottom: 1rem; /* Espaciado entre los campos */
+}
+
+#valueaccessor{
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+ion-footer {
+  margin-top: 1.5rem; /* Espaciado entre los campos y el botón */
+}
+
+ion-button {
+  
+  font-size: 1rem;
+  border-radius: 6px; /* Bordes redondeados para consistencia */
+}
+
+ion-textarea, ion-input {
+  --padding-start: 0.5rem;
+  --padding-end: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .center-form {
+    padding: 3rem; /* Mayor espacio en dispositivos más grandes */
+  }
+}
+
+ion-toolbar{
+  text-align: left!important;
+}
+ion-img{
+  width: 150px;
+  display: block;
+  margin: auto; 
+  margin-bottom: 20px;
+}
+p{
+  margin-left: 15px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>{{\'PROFILE.MODIFY\' | translate}}</ion-title>    <ion-buttons slot="end">      <ion-button (click)="dismissModal()">        <ion-icon name="close" size="large" [ios]="\'close\' + \'-outline\'" [md]="\'close\' + \'-sharp\'"></ion-icon>      </ion-button>    </ion-buttons>  </ion-toolbar></ion-header><ion-content class="center-content">  <form [formGroup]="formulary" class="center-form">    <ion-img src="./../../../assets/logo.jpeg" />    <!--username-->    <ion-item>      <ion-input  formControlName="username" label="{{\'CRUDUSER.USERNAME\' | translate}}" labelPlacement="floating" placeholder="example1234"></ion-input>    </ion-item>    <ion-text class="input-error" color="danger" *ngIf="username?.invalid  && (username?.dirty || username?.touched)" >      <p *ngIf="username?.errors?.[\'required\']">{{\'CRUDUSER.ERRORS.USERNAMEREQUIRED\' | translate}}</p>    </ion-text>    <!--genero-->    <div id="valueaccessor">      <app-custom-gender formControlName="gender"></app-custom-gender>    </div>    <ion-text class="input-error" color="danger" *ngIf="gender?.invalid && (gender?.dirty || gender?.touched)">      <p *ngIf="gender?.errors?.[\'required\']">{{\'CRUDUSER.ERRORS.GENDERSELECTED\' | translate}}</p>    </ion-text>    <!-- admin -->    <ion-item>      <ion-label>{{ \'ADMIN_PANEL.TABLE.ADMIN\' | translate }}</ion-label>      <ion-toggle formControlName="isAdmin"></ion-toggle>    </ion-item>    <ion-footer>      <ion-button expand="block" *ngIf="!formulary.valid || !formulary.dirty" disabled="">        {{\'COMMON.SAVE\' | translate}}      </ion-button>      <ion-button expand="block" *ngIf="formulary.valid && formulary.dirty" (click)="confirm()">        {{\'COMMON.SAVE\' | translate}}      </ion-button>    </ion-footer>  </form></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AdminFormularyComponent', 'selector': 'app-admin-formulary'},{'name': 'AdminPanelPage', 'selector': 'app-admin-panel'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CryptocardComponent', 'selector': 'app-cryptocard'},{'name': 'CryptosimplecardComponent', 'selector': 'app-cryptosimplecard'},{'name': 'CryptoviewPage', 'selector': 'app-cryptoview'},{'name': 'CustomGenderComponent', 'selector': 'app-custom-gender'},{'name': 'FormularyComponent', 'selector': 'app-formulary'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'ListcontentPage', 'selector': 'app-listcontent'},{'name': 'ListcryptoComponent', 'selector': 'app-listcrypto'},{'name': 'ListformularyComponent', 'selector': 'app-listformulary'},{'name': 'ListPage', 'selector': 'app-list'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'ProfilePage', 'selector': 'app-profile'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'SearchPage', 'selector': 'app-search'},{'name': 'SplashPage', 'selector': 'app-splash'}];
+    var DIRECTIVES = [{'name': 'BackgraphbuttonDirective', 'selector': '[appBackgraphbutton]'},{'name': 'ColorpercentDirective', 'selector': '[appColorpercent]'}];
+    var ACTUAL_COMPONENT = {'name': 'AdminFormularyComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminFormularyComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
