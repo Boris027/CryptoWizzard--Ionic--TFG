@@ -10,8 +10,17 @@ export const environment = {
   authenticationurl:"http://localhost:1337/api/users/me",
   uploadapi:"http://localhost:1337/api/upload",
   cryptoapiurl:"https://api.coingecko.com/api/v3/",
-  cryptoken:"",
-  userCsv:"https://cryptowizzard-tfg.onrender.com/export-users"
+  cryptoken:"", //Here goes a token from CoinGecko. The token must be a test token.
+  userCsv:"https://cryptowizzard-tfg.onrender.com/export-users",
+  firebasedata:{
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: ""
+  }
 };
 
 /*
