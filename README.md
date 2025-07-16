@@ -1,5 +1,5 @@
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/4255c1eb-32a5-4d36-a882-489682f48b02" alt="logo" width="300"/><br>
+  <img src="https://github.com/user-attachments/assets/c68d7519-c6b6-4d2a-8820-e669e1b013c9" alt="logo" width="300"/><br>
 </p> 
 
 ## CryptoWizzard 🚀
