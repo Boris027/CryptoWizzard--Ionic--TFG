@@ -4,100 +4,111 @@
 
 ## CryptoWizzard 🚀
 
-CryptoWizzard es una aplicación para consultar el precio de criptomonedas en tiempo real, con soporte para diferentes monedas como el Euro (EUR), el Dólar (USD) y la Libra Esterlina (GBP). Además, ofrece la funcionalidad de crear listas personalizadas para guardar las criptomonedas que más te interesen, facilitando un acceso rápido a ellas.
+CryptoWizzard is an application for checking cryptocurrency prices in real-time, supporting different currencies such as Euro (EUR), Dollar (USD), and British Pound (GBP). It also offers the functionality to create custom lists to save the cryptocurrencies you are most interested in, allowing quick access to them.
 
-La aplicación está construida con **Angular**, **Ionic** y **PrimeNG**, y utiliza **Chart.js** para ofrecer gráficos interactivos de tendencias de precios.
+The application is built with **Angular**, **Ionic**, and **PrimeNG**, and uses **Chart.js** to provide interactive price trend charts.
 
-## Características ✨
+## Features ✨
 
-- **Consulta en tiempo real**: Obtén los precios actualizados de criptomonedas populares.
-- **Monedas de referencia**: Visualiza los precios en diferentes monedas como EUR, USD y GBP.
-- **Listas personalizadas**: Crea y guarda tus listas personalizadas con criptomonedas para acceder rápidamente a ellas.
-- **Gráficos interactivos**: Visualiza la evolución del precio de las criptomonedas con gráficos dinámicos usando **Chart.js** 📊.
-- **Splash animado**: La aplicación muestra un **splash screen** con animaciones interactivas creadas con **Lottie** para una experiencia de usuario atractiva 🎨.
-- **Soporte multilingüe**: La aplicación está disponible en **inglés y español**, lo que permite a los usuarios elegir su idioma preferido 🌍.
-- **Interfaz fluida**: Desarrollada con **Angular** y **Ionic**, garantizando una experiencia óptima tanto en dispositivos móviles como en escritorio 📱💻.
-- **Reconocimiento de voz**: Reconocimiento de voz disponible tanto en ordenador como para móviles.
+- **Real-time querying**: Get updated prices of popular cryptocurrencies.
+- **Reference currencies**: View prices in different currencies like EUR, USD, and GBP.
+- **Custom lists**: Create and save your personalized lists with cryptocurrencies for quick access.
+- **Interactive charts**: Visualize the price evolution of cryptocurrencies with dynamic charts using **Chart.js** 📊.
+- **Animated splash screen**: The app displays a **splash screen** with interactive animations created with **Lottie** for an engaging user experience 🎨.
+- **Multilingual support**: The app is available in **English and Spanish**, allowing users to choose their preferred language 🌍.
+- **Smooth interface**: Developed with **Angular** and **Ionic**, ensuring an optimal experience on both mobile devices and desktop 📱💻.
+- **Voice recognition**: Voice recognition available on both desktop and mobile devices.
 
-## Tecnologías 🛠️
+## Technologies 🛠️
 
-- **Angular**: Framework principal para la creación de la aplicación web.
-- **Ionic**: Framework para el desarrollo de aplicaciones móviles multiplataforma (Android e iOS).
-- **Strapi**: Usamos **Strapi** como backend para gestionar el contenido y las configuraciones de la aplicación. Strapi es un CMS de código abierto que permite la creación rápida de APIs RESTful y GraphQL, facilitando la integración de datos dinámicos en la app.
-- **Firebase**: Usamos **Firebase** como backend para gestionar el contenido y las configuraciones de la aplicación. Firebase es una plataforma de desarrollo de Google que proporciona una base de datos en tiempo real y Firestore, permitiendo la creación rápida de API y 
-la integración de datos dinámicos en la app. Además, ofrece servicios como autenticación, funciones en la nube y hosting, facilitando el desarrollo y escalabilidad de la aplicación.
-- **Render**: La aplicación está desplegada en **Render**, una plataforma de despliegue en la nube que facilita la gestión de aplicaciones y bases de datos, permitiendo escalar de forma automática según las necesidades del proyecto ☁️.
-- **Cloudinary**: Para gestionar y almacenar imágenes y medios, utilizamos **Cloudinary**.
-- **PrimeNG**: Biblioteca de componentes UI que proporciona una interfaz atractiva y fácil de usar.
-- **Plugin de Capacitor**: Uso de plugin de capacitor para reconocimiento de voz.
-- **Lottie**: Usado para mostrar animaciones en el splash de la aplicación.
-- **Chart.js**: Biblioteca para generar gráficos interactivos de tendencias de precios.
-- **Pipes y Directivas**: Uso de pipes personalizados para el formateo de datos y directivas para mejorar la funcionalidad de la interfaz.
+- **Angular**: Main framework for building the web application.
+- **Ionic**: Framework for cross-platform mobile app development (Android and iOS).
+- **Strapi**: We use **Strapi** as backend to manage the app’s content and configurations. Strapi is an open-source CMS that enables rapid creation of RESTful and GraphQL APIs, facilitating dynamic data integration in the app.
+- **Firebase**: We use **Firebase** as backend to manage app content and configurations. Firebase is a Google development platform providing real-time database and Firestore, allowing quick API creation and dynamic data integration. It also offers services like authentication, cloud functions, and hosting, facilitating development and scalability.
+- **Render**: The app is deployed on **Render**, a cloud deployment platform that eases app and database management, enabling automatic scaling based on project needs ☁️.
+- **Cloudinary**: Used for managing and storing images and media.
+- **PrimeNG**: UI component library providing an attractive and user-friendly interface.
+- **Capacitor Plugin**: Usage of Capacitor plugin for voice recognition.
+- **Lottie**: Used to display animations on the app’s splash screen.
+- **Chart.js**: Library to generate interactive price trend charts.
+- **Pipes and Directives**: Use of custom pipes for data formatting and directives to enhance interface functionality.
 
-## Enlace para probar la aplicación 🔗
+## Link to try the app 🔗
 
-La aplicación está desplegada en Netlify y puedes probarla directamente haciendo clic en el siguiente enlace:
+The app is deployed on Netlify and you can try it directly by clicking the following link:
 
-[**CryptoWizzard en Netlify**](https://cryptowizzardtfg.netlify.app/)
+[**CryptoWizzard on Netlify**](https://cryptowizzardtfg.netlify.app/)
 
-## Imagenes 📸
+## Images 📸
 
 <p align="center">Login</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/79319bbe-cb4c-4db9-b2ee-6661f196fb77" /> 
+  <img src="https://github.com/user-attachments/assets/4f25f7ac-fe59-4115-8982-eb158f271b70" /> 
+  
 </p> 
 
 <p align="center">Register</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/83161565-a720-4372-aae9-0482fbf02b0b" /> 
+  <img src="https://github.com/user-attachments/assets/39bbac17-a9c6-4173-8117-b1a447317885" /> 
+  
 </p> 
 
-<p align="center">Perfil</p>
+<p align="center">Profile</p>
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/9ae9543f-5d38-4a68-8d0a-dab7ccdf7bec" /> 
+  <img src="https://github.com/user-attachments/assets/4aa1b699-a5a8-4d66-8b38-7301df4ca96d" /> 
+  
 </p> 
 
-<p align="center">Listas</p> 
+<p align="center">Lists</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/31d0b884-29ca-48bd-a669-86e6ea0e262f" /> 
+  <img src="https://github.com/user-attachments/assets/bff7eb76-7811-4f2b-b25d-d52b1c9b446e" /> 
+  
 </p> 
 
-<p align="center">Actualizar Lista</p> 
+<p align="center">Update List</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/8b83d0b2-65e5-40cc-afab-ac8d3bb30af4" /> 
+  <img src="https://github.com/user-attachments/assets/ce37298c-7684-4d10-9c67-ee7dd7b55558" />
+  
 </p> 
 
-<p align="center">Interior de lista</p> 
+
+<p align="center">Inside List</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/5df961a2-634f-48aa-96e3-4335c6bf4d41" /> 
+  <img src="https://github.com/user-attachments/assets/5c0d8c49-7111-452b-9b78-a917b1855ed5" /> 
+  
 </p> 
 
-<p align="center">Buscador</p> 
+<p align="center">Search</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/1671a79b-a8c9-4d4c-a333-ca7c192db546" /> 
+  <img src="https://github.com/user-attachments/assets/3255e5d6-2c4b-4512-a827-e752d5d6a02a" /> 
+  
 </p> 
 
 <p align="center">Home</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/39870863-3670-45ce-88ec-d8aba41c127d" /> 
+  <img src="https://github.com/user-attachments/assets/b39d04f4-11ed-47f0-ac0a-0bf2e7fe5514" /> 
+  
 </p> 
 
-<p align="center">Gráfica</p> 
+<p align="center">Chart</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/dc21885a-521b-4f16-8f2d-cb25ca4a8e47" /> 
+  <img src="https://github.com/user-attachments/assets/a317ae28-ef7c-4b91-9b2d-abcd38ddb558" /> 
+  
 </p> 
 
-<p align="center">Ejemplo Android</p> 
+<p align="center">Android Example</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/f699025c-fdbd-400b-983e-4c7f1733bd7a" /> 
+  <img src="https://github.com/user-attachments/assets/98c4f556-81f4-46c4-8a2a-7a7b2173cb9f" /> 
+  
 </p> 
 
-<p align="center">Ejemplo Iphone</p> 
+<p align="center">iPhone Example</p> 
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/fcf3e57c-1ac6-4bda-a75d-398ef950422b" /> 
+  <img src="https://github.com/user-attachments/assets/1564bedc-37da-470a-875f-fc8df8042f08" /> 
+  
 </p> 
 
-<p align="center">Side Menu en móviles</p>
+<p align="center">Side Menu on mobiles</p>
 <p align="center"> 
-  <img src="https://github.com/user-attachments/assets/db309d3b-45e7-4f5d-b292-46ff5b6ce742" /> 
+  <img src="https://github.com/user-attachments/assets/b12b47b5-63fd-452d-aa3b-eafbc890bd6a" /> 
 </p>
